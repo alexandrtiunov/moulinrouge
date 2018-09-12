@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid" width="212" height="212" viewBox="0 0 106 106">
+  <defs>
+    <style>
+
+      .cls-4 {
+        fill: #ffffff;
+        opacity: 0.3;
+      }
+
+      .cls-5 {
+        fill: #ffffff;
+        filter: url(#drop-shadow-1);
+        opacity: 0.8;
+      }
+
+      .cls-6 {
+        fill: #7e5aff;
+      }
+    </style>
+
+    <filter id="drop-shadow-1" filterUnits="userSpaceOnUse">
+      <feOffset in="SourceAlpha" dx="0" dy="0"/>
+      <feGaussianBlur result="dropShadow" stdDeviation="3.873"/>
+      <feFlood flood-color="#b0b0b0" flood-opacity="0.25"/>
+      <feComposite operator="in" in2="dropShadow"/>
+      <feComposite in="SourceGraphic" result="dropShadow"/>
+    </filter>
+  </defs>
+  <g id="pinsvg">
+    <g id="pin">
+      <circle id="circle-1" class="cls-4" cx="53" cy="53" r="53"/>
+      <circle id="circle-2" class="cls-5" cx="53" cy="53" r="35"/>
+      <circle id="circle-3" class="cls-6" cx="53" cy="53" r="8"/>
+    </g>
+  </g>
+</svg>
