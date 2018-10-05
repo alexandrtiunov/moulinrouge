@@ -1,21 +1,17 @@
 $(document).ready(function () {
 
-    $('.multiple-slide').slick({
+    // слайдер на главной странице
+    $('.autoplay').slick({
         infinite: true,
         dots: true,
         slidesToShow: 2,
         slidesToScroll: 2,
         centerMode: true,
 //текущий слайд по центру
-        variableWidth: true
+        variableWidth: true,
 //установим переменную ширину
+        autoplay: true,
+        autoplaySpeed: 2000
     });
-
-    // $('.multiple-slide').slick({
-    //     infinite: true,
-    //     dots: true,
-    //     slidesToShow: 3,
-    //     slidesToScroll: 1
-    // });
 
 });

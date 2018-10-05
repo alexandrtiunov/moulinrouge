@@ -1,0 +1,65 @@
+.addproduct{
+    float: right;
+    margin: 31px;
+    display: block;
+}
+
+.editproduct{
+    float: right;
+    margin: 31px;
+    display: block;
+}
+
+.back{
+    float: right;
+    margin: 31px;
+    display: block;
+}
+
+.checkPhoto{
+    margin: 0 45%;
+}
+
+.btn.btn-outline-danger{
+    margin: 0 auto;
+    display: none;
+}
+
+.buttons{
+    height: 70px;
+}
+
+.alert.alert-danger{
+    margin-top: 1%;
+    margin-bottom: auto;
+}
+
+
+/* увеличение фото по клику на первью*/
+.popup {
+    position: absolute;
+    height:100%;
+    width:100%;
+    top:0;
+    left:0;
+    display:none;
+    text-align:center;
+}
+
+.popup_bg {
+    background:rgba(0,0,0,0.4);
+    position:absolute;
+    z-index:1;
+    height:100%;
+    width:100%;
+}
+
+.popup_img {
+    position: relative;
+    margin:0 auto;
+    z-index:2;
+    max-height:94%;
+    max-width:94%;
+    margin:1% 0 0 0;
+}
+/*Конец*/
