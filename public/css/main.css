@@ -1,28 +1,38 @@
-.addproduct{
+.add, .search, .nav-buttons{
     float: right;
-    margin: 31px;
-    display: block;
-}
-
-.editproduct{
-    float: right;
-    margin: 31px;
-    display: block;
-}
-
-.back{
-    float: right;
-    margin: 31px;
+    margin-top: 10px;
+    margin-right: 10px;
     display: block;
 }
 
 .checkPhoto{
     margin: 0 45%;
+    display: none;
+}
+
+.pr_table {
+    width: 600px;
+    margin: 0 6.5%;
+}
+
+.choose{
+    display: block;
+    text-decoration: none;
+    color: #0275d8;
+    margin: 0 80%;
 }
 
 .btn.btn-outline-danger{
     margin: 0 auto;
     display: none;
+}
+
+.note{
+    display: none;
+    color: red;
+    height: auto;
+    text-align: center;
+    margin-top: 20px;
 }
 
 .buttons{
@@ -63,3 +73,36 @@
     margin:1% 0 0 0;
 }
 /*Конец*/
+
+.filter.table{
+    width: 10%;
+    float: left;
+    margin-right: 1%;
+    margin-left: 10px;
+}
+
+.product-table.table.table-bordered{
+    width: 88%;
+}
+
+.filter li{
+    list-style-type: none;
+}
+.filter ul{
+    padding-left: 1%;
+}
+
+.activity{
+    width: 10px;
+}
+
+.no-delete-text{
+    width: 200px;
+    height: auto;
+    text-align: center;
+    border: 1px solid gray;
+    position: absolute;
+    border-radius: 10px;
+    background-color: #f16868;
+    display: none;
+}

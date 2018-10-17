@@ -35,4 +35,8 @@ class User extends Authenticatable
     public function discount(){
         return $this->hasMany('App\Discount');
     }
+
+    public function blog(){
+        return $this->hasMany('App\Blog');
+    }
 }

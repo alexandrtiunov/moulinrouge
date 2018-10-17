@@ -11,7 +11,13 @@ class IndexController extends Controller
 
     public function index(){
 
-        return view ('index');
+        $products = Product::orderBy('id', 'desc')->get();
+        $resources = Resource::all();
+
+        return view('index', [
+            'products' => $products,
+            'resources'=> $resources
+        ]);
     }
 
     public function catalog(){

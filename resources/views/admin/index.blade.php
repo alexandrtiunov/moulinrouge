@@ -7,8 +7,15 @@
 
     <div class="buttons">
 
+        <div class="search">
+            <form class="search-pr form-inline pull-xs-right" method="get" action="{{action('Admin\AdminController@index')}}">
+                <input class="form-control" type="text" name="product-search" placeholder="Поиск по товару">
+                <button class="btn btn-outline-success" type="submit">Поиск</button>
+            </form>
+        </div>
+
         {{--Модальное окно добавления нового товара--}}
-        <div class="addproduct">
+        <div class="add">
 
             <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#myModal">
                 Добавить товар
@@ -36,6 +43,7 @@
                                                 <option value="{{$category->id}}">{{$category->name}}</option>
                                             @endforeach
                                         </select>
+                                        <a href="{{action('Admin\CategoryController@index')}}">Добавить новую категорю</a>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -71,18 +79,21 @@
                                                 <option value="{{$collection->id}}">{{$collection->name}} - {{$collection->year}}</option>
                                             @endforeach
                                         </select>
+                                        <a href="{{action('Admin\CollectionController@index')}}">Добавить новую коллекцию</a>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="example-password-input" class="col-xs-2 col-form-label">Статус</label>
                                     <div class="col-xs-10">
-                                        <select size="1" id="role" class="form-control" name="atribut_id" required>
-                                            {{--<option value="">Выбери атрибут</option>--}}
-                                            <option disabled value="1">Модерация</option>
+                                        <select size="1" id="role" class="atribut form-control" name="atribut_id" required>
+                                            <option selected value="1">Модерация</option>
                                             @foreach($atributs as $atribut)
-                                                <option value="{{$atribut->id}}">{{$atribut->type}}</option>
+                                                <option disabled value="{{$atribut->id}}">{{$atribut->type}}</option>
                                             @endforeach
                                         </select>
+                                        <span class="note"><i>При добавлении нового товара, по умолчанию установлен атрибут
+                                                "модерация", изменить атрибут можно после добавления товара в окне
+                                                корректировки товара.</i></span>
                                     </div>
                                 </div>
                             </div>
@@ -98,11 +109,23 @@
 
         {{--Конец модального окна добавления товара--}}
 
-        <div class="editproduct">
+        <div class="nav-buttons">
             <a href="{{action('Admin\CategoryController@index')}}" class="btn btn-outline-info">Категории</a>
         </div>
 
-        <div class="back">
+        <div class="nav-buttons">
+            <a href="{{action('Admin\CollectionController@index')}}" class="btn btn-outline-info">Коллекции</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="{{action('Admin\BlogController@index')}}" class="btn btn-info">Блог</a>
+        </div>
+
+        <div class="nav-buttons">
+            <a href="{{action('Admin\FeedbackController@index')}}" class="btn btn-info">Отзывы</a>
+        </div>
+
+        <div class="nav-buttons">
             <a href="/" class="btn btn-outline-info">Вернуться на сайт</a>
         </div>
     </div>
@@ -132,7 +155,31 @@
                 @endif
         </div>
 
-        <table id="tablesorter" class="tablesorter table table-bordered">
+        {{--Фильтр по атрибуту товара--}}
+        <table class="filter table table-bordered">
+            <thead>
+            <tr>
+                <td>Фильтр атрибутов</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>
+                    <form action="">
+                        <ul>
+                            @foreach($atributs as $atribut)
+                                <li><input class="select-atribut" name="selectAtribut" type="radio" value="{{$atribut->type}}"> {{$atribut->type}}</li>
+                            @endforeach
+                        </ul>
+                        <button class="reset-select btn btn-outline-primary" type="reset">Сбросить</button>
+                    </form>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        {{--Конец--}}
+
+        <table class="product-table table table-bordered">
             <thead>
             <tr>
                 <th>id</th>
@@ -149,7 +196,7 @@
             </thead>
             <tbody>
         @foreach($products as $product)
-            <tr>
+            <tr class="atribut-table-product {{$product->atribut->type}}">
                 <td scope="row"><a href="http:\\moulinrouge\catalog\{{$product->short_name}}">{{$product->id}}</a></td>
                 <td>{{$product->category->name}}</td>
                 <td>{{$product->name}}</td>
@@ -161,15 +208,15 @@
                     @endif
                 <td>{{$product->collection->name}}/<br />{{$product->collection->year}}</td>
                     @if($product->atribut->type == "Архив")
-                        <td style="background-color: #efb8b8">{{$product->atribut->type}}</td>
+                        <td class="atribut-product" style="background-color: #efb8b8">{{$product->atribut->type}}</td>
                     @elseif($product->atribut->type == "Модерация")
-                        <td style="background-color: #c3c1c1">{{$product->atribut->type}}</td>
+                        <td class="atribut-product" style="background-color: #c3c1c1">{{$product->atribut->type}}</td>
                     @elseif($product->atribut->type == "Активно" || $product->atribut->type == "Новое")
-                        <td style="background-color: #93e293">{{$product->atribut->type}}</td>
+                        <td class="atribut-product" style="background-color: #93e293">{{$product->atribut->type}}</td>
                     @elseif($product->atribut->type == "Прокат")
-                        <td style="background-color: yellow">{{$product->atribut->type}}</td>
+                        <td class="atribut-product" style="background-color: yellow">{{$product->atribut->type}}</td>
                     @elseif($product->atribut->type == "В пути" || $product->atribut->type == "Ожидается поставка")
-                        <td style="background-color: blue">{{$product->atribut->type}}</td>
+                        <td class="atribut-product" style="background-color: #b4b4ef">{{$product->atribut->type}}</td>
                     @endif
                 <td>{{$product->user->name}}</td>
                     @if(isset($product->discount->new_price) && $product->discount->new_price != '0')
@@ -213,13 +260,13 @@
                                         <div class="form-group row">
                                             <label for="text-input" class="col-xs-2 col-form-label">Название</label>
                                             <div class="col-xs-10">
-                                                <input id="nameEdit" class="form-control" type="text" name="name" value="{{$product->name}}" required>
+                                                <input id="nameEdit" class="nameEdit form-control" type="text" name="name" value="{{$product->name}}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
                                             <label for="text-input" class="col-xs-2 col-form-label">short_name</label>
                                             <div class="col-xs-10">
-                                                <input id="short_nameEdit" class="form-control" type="text" name="short_name" value="{{$product->short_name}}" required>
+                                                <input id="short_nameEdit" class="short_nameEdit form-control" type="text" name="short_name" value="{{$product->short_name}}" required>
                                             </div>
                                         </div>
                                         <div class="form-group row">
@@ -250,7 +297,7 @@
                                             <div class="col-xs-10">
                                                 <select size="1" id="role" class="form-control" name="atribut_id" required>
                                                     {{--<option value="">Выбери атрибут</option>--}}
-                                                    <option selected disabled value="{{$product->atribut_id}}">{{$product->atribut->type}}</option>
+                                                    <option selected value="{{$product->atribut_id}}">{{$product->atribut->type}}</option>
                                                     @foreach($atributs as $atribut)
                                                         <option value="{{$atribut->id}}">{{$atribut->type}}</option>
                                                     @endforeach
@@ -328,6 +375,7 @@
                                         {{csrf_field()}}
                                         {{ method_field('PUT')}}
                                         <input type="hidden" name="_method" value="PUT">
+                                        <span class="choose">Выбрать</span>
                                         <table>
                                             @foreach($resources as $resource)
                                                 @if($resource['product_id'] == $product['id'])
@@ -530,6 +578,9 @@
         @endforeach
             </tbody>
         </table>
+    </div>
+    <div class="pagination">
+        {{$products->onEachSide(5)->links()}}
     </div>
 </div>
 

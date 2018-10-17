@@ -13,34 +13,40 @@
             {{--Модальное окно добавления новой категории--}}
             <div class="add">
 
-                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addCategory">
-                    Добавить категорию
+                <button type="button" class="btn btn-outline-primary" data-toggle="modal" data-target="#addCollection">
+                    Добавить коллекцию
                 </button>
 
-                <div class="modal fade" id="addCategory" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal fade" id="addCollection" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>
-                                <h4 class="modal-title" id="myModalLabel">Добавить новую категорию</h4>
+                                <h4 class="modal-title" id="myModalLabel">Добавить новую коллекцию </h4>
 
                             </div>
-                            <form action="{{action('Admin\CategoryController@store')}}" method="post">
+                            <form action="{{action('Admin\CollectionController@store')}}" method="post">
                                 {{csrf_field()}}
                                 <div class="modal-body">
 
                                     <div class="form-group row">
                                         <label for="text-input" class="col-xs-2 col-form-label">Название</label>
                                         <div class="col-xs-10">
-                                            <input id="name" class="form-control" type="text" name="name" required>
+                                            <input id="name" class="name-col form-control" type="text" name="name" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label for="text-input" class="col-xs-2 col-form-label">Год</label>
+                                        <div class="col-xs-10">
+                                            <input id="name" class="year-col form-control" type="text" name="year" required>
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="text-input" class="col-xs-2 col-form-label">short_name</label>
                                         <div class="col-xs-10">
-                                            <input id="short_name" class="form-control" type="text" name="short_name" required>
+                                            <input id="short_name" class="short-name-col form-control" type="text" name="short_name" required>
                                         </div>
                                     </div>
 
@@ -90,63 +96,65 @@
             @endif
         </div>
 
-        <table class="table table-bordered">
+        <table id="tablesorter" class="tablesorter table table-bordered">
             <thead>
             <tr>
                 <th>id</th>
-                <th>Состояние</th>
-                <th>Название категории</th>
+                <th>Название коллекции</th>
+                <th>Год коллекции</th>
                 <th>Имя для URL</th>
                 <th>Действия</th>
             </tr>
             </thead>
             <tbody>
-            @foreach($categories as $category)
+            @foreach($collections as $collection)
                 <tr>
-                    <td scope="row">{{$category->id}}</td>
-                    @if($category->activity == 1)
-                        <td class="activity" style="background-color: greenyellow;">Активна</td>
-                    @else
-                        <td class="activity" style="background-color: red;">Не активна</td>
-                    @endif
-                    <td>{{$category->name}}</td>
-                    <td>{{$category->short_name}}</td>
+                    <td scope="row">{{$collection->id}}</td>
+                    <td>{{$collection->name}}</td>
+                    <td>{{$collection->year}}</td>
+                    <td>{{$collection->short_name}}</td>
                     <td>
 
-                        {{--Модальное окно обновления категории по id--}}
+                        {{--Модальное окно обновления коллекции по id--}}
 
-                        <a href="{{action('Admin\CategoryController@edit', $category['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#edit{{$category['id']}}"><i class="material-icons">&#xE8B8;</i></a>
+                        <a href="{{action('Admin\CategoryController@edit', $collection['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#edit{{$collection['id']}}"><i class="material-icons">&#xE8B8;</i></a>
 
-                        <div class="modal fade" id="edit{{$category['id']}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" id="edit{{$collection['id']}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>
                                         </button>
-                                        <h4 class="modal-title" id="myModalLabel">Обновить категорию: {{$category->name}}</h4>
+                                        <h4 class="modal-title" id="myModalLabel">Обновить категорию: {{$collection->name}}</h4>
 
                                     </div>
-                                    <form action="{{action('Admin\CategoryController@update', $category['id'])}}" method="post">
+                                    <form action="#" method="post">
                                         {{csrf_field()}}
-                                            {{ method_field('PUT')}}
-                                            <input name="_method" value="PUT" type="hidden">
+                                        {{--{{ method_field('PUT')}}--}}
+                                        {{--<input name="_method" value="PUT" type="hidden">--}}
                                         <div class="modal-body">
                                             <div class="form-group row">
                                                 <label for="text-input" class="col-xs-2 col-form-label">Название</label>
                                                 <div class="col-xs-10">
-                                                    <input class="category-name form-control" type="text" name="name" value="{{$category->name}}" required>
+                                                    <input id="nameEdit" class="form-control" type="text" name="name" value="{{$collection->name}}" required>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label for="text-input" class="col-xs-2 col-form-label">Год</label>
+                                                <div class="col-xs-10">
+                                                    <input id="nameEdit" class="form-control" type="text" name="name" value="{{$collection->year}}" required>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <label for="text-input" class="col-xs-2 col-form-label">short_name</label>
                                                 <div class="col-xs-10">
-                                                    <input class="category-short_name form-control" type="text" name="short_name" value="{{$category->short_name}}" required>
+                                                    <input id="short_nameEdit" class="form-control" type="text" name="short_name" value="{{$collection->short_name}}" required>
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Обновить</button>
+                                                <button type="submit" class="btn btn-primary">Обновить товар</button>
                                             </div>
                                         </div>
                                     </form>
@@ -156,34 +164,24 @@
 
                         {{--Конец окна--}}
 
-                        <?php
-                        $w = [];
-                        foreach($category->product as $value){
-                            $w[] = $value->id;
-                        }
-                        $count = count($w);
-                            if($count == 1){
-                                $prod = "товар";
-                            }elseif($count > 1 || $count < 5){
-                                $prod = "товара";
-                            }else{
-                                $prod = "товаров";
-                            }
-                        ?>
+                        {{--<a href="{{action('Admin\CategoryController@destroy', $category['id'])}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>--}}
 
-                        @if($category->activity == 0)
-                            <a href="{{action('Admin\CategoryController@activ', $category['id'])}}" class="delete"
-                               title="Активмровать категорию" data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
-                        @elseif($count == 0)
-                            <a href="{{action('Admin\CategoryController@destroy', $category['id'])}}" class="delete"
-                               title="Деактивмровать категорию" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-                        @else
-                            <a href="{{action('Admin\CategoryController@destroy', $category['id'])}}" class="no-delete" title="Деактивация невозможна!"
-                            data-toggle="{{$category->id}}"><i class="material-icons">&#xE5C9;</i></a>
-                            <p class="no-delete-text" data-toggle="{{$category->id}}"><i>Внимание!!!</i><br>Деактивация невозможна!<br> У текущей категории есть {{$count}} {{$prod}}</p>
-                        @endif
                     </td>
                 </tr>
+                {{--<table id="tablesorter" class="pr_table tablesorter table table-bordered">--}}
+                    {{--<tbody>--}}
+                        {{--@foreach($products as $product)--}}
+                            {{--@if($product->collection_id == $collection->id)--}}
+                            {{--<tr data-parent="{{$collection->id}}" class="level-1" >--}}
+                                {{--<td scope="row">{{$product->id}}</td>--}}
+                                {{--<td>{{$product->name}}</td>--}}
+                                {{--<td>{{$product->article}}</td>--}}
+                                {{--<td>{{$product->price}}</td>--}}
+                            {{--</tr>--}}
+                            {{--@endif--}}
+                        {{--@endforeach--}}
+                    {{--</tbody>--}}
+                {{--</table>--}}
             @endforeach
             </tbody>
         </table>

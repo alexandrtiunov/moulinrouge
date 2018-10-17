@@ -17,7 +17,7 @@ class LogFile
 
     public static function ProductLog($product, $method, $variable = false){
 
-        $user = User::where('id', $product['user_id'])->first();
+        $user = User::find($product['user_id']);
 
         date_default_timezone_set('Europe/Kiev');
         $date = date('d-m-Y H:i:s');
@@ -27,8 +27,7 @@ class LogFile
         // Запись в Log файл при добавлении нового товара
         if($method == "App\Http\Controllers\Admin\AdminController::store"){
             $log = '[' . $date . ']' . " - добавлен продукт " . "артикул: " . $product['article'] . ", модель: " .
-                $product['name'] . " статус " . $product->atribut->type . ", пользователь: " . $user->name . PHP_EOL;
-
+                $product['name'] . ", пользователь: " . $user->name . PHP_EOL;
         }
 
         // Запись в Log файл при обновлении товара и отправки товара в архив
@@ -45,7 +44,6 @@ class LogFile
         if($method == "App\Http\Controllers\Admin\DiscountController::store"){
             $log = '[' . $date . ']' . " - добавлен дисконт к продукту артикул: " . $product['article'] . ", модель: " .
                 $product['name'] . " в размере " . $product->discount->percent . "%, пользователь: " . $user->name . PHP_EOL;
-
         }
 
         // Запись в Log файл при обновлении ил удалении дисконта (если 0 - удаление)
@@ -88,11 +86,37 @@ class LogFile
         $file = 'log.txt';
 
         if($method == "App\Http\Controllers\Admin\CategoryController::store"){
-            $log = '[' . $date . ']' . " - добавлена категория, название: " . $category['name'] . ", пользователь: " . $category['user'] . PHP_EOL;
+            $log = '[' . $date . ']' . " - добавлена категория, название: " . $category['name'] . ", пользователь: " . $category->users->name . PHP_EOL;
+        }elseif ($method == "App\Http\Controllers\Admin\CategoryController::update" && $variable['name'] != $category->name) {
+            $log = '[' . $date . ']' . " - обновлено название категории с " . $category['name'] . "на " . $variable['name'] . ", пользователь: " . $variable['user_id'] . PHP_EOL;
+        }elseif($method == "App\Http\Controllers\Admin\CategoryController::update" && $variable['short_name'] != $category->short_name){
+            $log = '[' . $date . ']' . " - обновлено название URL с " . $category['short_name'] . " на " . $variable['short_name'] . ", пользователь: " . $variable['user_id'] . PHP_EOL;
         }
 
+
         if($method == "App\Http\Controllers\Admin\CategoryController::destroy"){
-            $log = '[' . $date . ']' . " - удалена категория, название: " . $category['name'] . ", пользователь: " . $category['user'] . PHP_EOL;
+            $log = '[' . $date . ']' . " - категория, название: " . $category['name'] . "перенесена в раздел НЕ АКТИВНА, пользователь: " . $category['user'] . PHP_EOL;
+        }
+        if($method == "App\Http\Controllers\Admin\CategoryController::activ"){
+            $log = '[' . $date . ']' . " - категория, название: " . $category['name'] . "АКТИВНА для пользования, пользователь: " . $category['user'] . PHP_EOL;
+        }
+
+        if(!is_dir($path)){
+            mkdir($path, 777, true);
+        }
+        file_put_contents($path . $file, $log, FILE_APPEND | LOCK_EX);
+    }
+
+    public static function collectionLog($collection, $method, $variable = false){
+
+        date_default_timezone_set('Europe/Kiev');
+        $date = date('d-m-Y H:i:s');
+        $path = public_path() . '/log/collection/';
+        $file = 'log.txt';
+
+        if($method == "App\Http\Controllers\Admin\CollectionController::store"){
+            $log = '[' . $date . ']' . " - добавлена коллекция, название: " . $collection['name'] . " год: " .
+                $collection['year'] . ", пользователь: " . $collection['user'] . PHP_EOL;
         }
 
         if(!is_dir($path)){
