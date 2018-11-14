@@ -128,10 +128,10 @@ $('document').ready(function () {
         // перебирием массив атрибутов
         for(var i = 0; i < atrProduct.length; i++) {
 
-            if(selAtr === "Ожидается поставка" || selAtr === "В пути"){
-                var atrName = atrProduct[i].innerText; // получаем значение атрибута в виде текста
+            if(selAtr === "Нет в наличии"){
+                var atrName = atrProduct[i].innerText;
             }else{
-                var atrName = atrProduct[i].innerText.replace(" ", "\.");
+                var atrName = atrProduct[i].innerText.replace(/ /g, "\.");
             }
 
             var tr = $('.atribut-table-product.' + atrName); // в переменную записываем название класса тега "tr"
@@ -151,13 +151,12 @@ $('document').ready(function () {
 
             for(var i = 0; i < atrProduct.length; i++) {
 
-                if(selAtr === "Ожидается поставка" || selAtr === "В пути"){
+                if(selAtr === "Нет в наличии"){
                     var atrName = atrProduct[i].innerText;
                 }else{
-                    var atrName = atrProduct[i].innerText.replace(" ", "\.");
+                    var atrName = atrProduct[i].innerText.replace(/ /g, "\.");
                 }
 
-                console.log(atrName);
                 var tr = $('.atribut-table-product.' + atrName);
 
                 if(selAtr !== atrName){
@@ -167,7 +166,7 @@ $('document').ready(function () {
         });
     });
 
-    // кнопка сбросить
+    // кнопка сбросить, возвращает все элементы
     $('.reset-select').on('click', function () {
         $('.atribut-table-product').fadeIn(500);
     });

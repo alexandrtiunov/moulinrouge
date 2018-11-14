@@ -211,12 +211,14 @@
                         <td class="atribut-product" style="background-color: #efb8b8">{{$product->atribut->type}}</td>
                     @elseif($product->atribut->type == "Модерация")
                         <td class="atribut-product" style="background-color: #c3c1c1">{{$product->atribut->type}}</td>
-                    @elseif($product->atribut->type == "Активно" || $product->atribut->type == "Новое")
+                    @elseif($product->atribut->type == "Новинка")
                         <td class="atribut-product" style="background-color: #93e293">{{$product->atribut->type}}</td>
                     @elseif($product->atribut->type == "Прокат")
                         <td class="atribut-product" style="background-color: yellow">{{$product->atribut->type}}</td>
-                    @elseif($product->atribut->type == "В пути" || $product->atribut->type == "Ожидается поставка")
+                    @elseif($product->atribut->type == "Топ")
                         <td class="atribut-product" style="background-color: #b4b4ef">{{$product->atribut->type}}</td>
+                    @else
+                        <td class="atribut-product">{{$product->atribut->type}}</td>
                     @endif
                 <td>{{$product->user->name}}</td>
                     @if(isset($product->discount->new_price) && $product->discount->new_price != '0')

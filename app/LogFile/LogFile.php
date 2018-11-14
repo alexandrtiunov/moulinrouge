@@ -98,7 +98,7 @@ class LogFile
             $log = '[' . $date . ']' . " - категория, название: " . $category['name'] . "перенесена в раздел НЕ АКТИВНА, пользователь: " . $category['user'] . PHP_EOL;
         }
         if($method == "App\Http\Controllers\Admin\CategoryController::activ"){
-            $log = '[' . $date . ']' . " - категория, название: " . $category['name'] . "АКТИВНА для пользования, пользователь: " . $category['user'] . PHP_EOL;
+            $log = '[' . $date . ']' . " - категория, название: " . $category['name'] . " АКТИВНА для пользования, пользователь: " . $category['user'] . PHP_EOL;
         }
 
         if(!is_dir($path)){

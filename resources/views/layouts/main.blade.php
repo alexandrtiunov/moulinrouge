@@ -1,419 +1,797 @@
-<!DOCTYPE html>
-<html lang="ru">
+<!doctype html>
+<html lang="en-US">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="p:domain_verify" content="6ec526054123974086f2a8d177873f17"/>
-    <meta name="cmsmagazine" content="13c56a1e5f1e8c74d29348633fd68279" />
-    <meta name="cmsmagazine" content="b29da2b078feb59cbd5180a2a0ee8a59" />
-    <title>Свадебный салон в Харькове, Киеве, Днепре, Одессе, Запорожье. Купить свадебное или вечернее платье, записаться на примерку в салоне fashionbride.ua.</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
+    <title>WooW | HTML Commerce Template</title>
 
-    <meta name="keywords" content="свадебный, салон, Харьков, Киев, Одесса, Днепр, Запорожье, свадебные платья, вечерние платья, fashion bride, фешн брайд, Харькове, Киеве, Одессе, Запорожье, Днепре, Свадебный салон, брендовые платья, fashionbride.ua, Купить, свадебные, вечерние платья, аксессуары, в свадебном салоне," />
-    <meta name="description" content="Купить, свадебные, вечерние платья, аксессуары, в свадебном салоне❗ Записаться на примерку - ☎ на сайте✅ Сеть свадебных салонов «Fashion Bride» в Харькове, Киеве, Одессе, Днепре и Запорожье l Украина." />
-    <base href=""/>
-    <link rel="canonical" href="index.html">
-    <link rel="icon" type="image/png" href="images/FB_favicon.png">
-    <link href="{{URL::to('css/main/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{URL::to('css/main/screen.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{URL::to('css//main/980.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{URL::to('css/main/600.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{URL::to('css/main/320.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{URL::to('css/main/jquery.fancybox.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <link href="{{URL::to('css/main/jquery-ui.css')}}" rel="stylesheet" type="text/css" media="all"/>
-    <script src="{{URL::to('js/main/jquery-1.7.2.min.js')}}"></script>
-    <script src="{{URL::to('js/main/jquery.bxslider.js')}}"></script>
-    <link href="{{URL::to('css/main/my/my.css')}}" rel="stylesheet" type="text/css" media="all"/>
+    <link rel="shortcut icon" href="images/favicon.ico">
 
-    <script src="{{URL::to('js/main/jquery.fancybox.js')}}"></script>
-    <script src="{{URL::to('js/main/jquery.selectbox-0.2.min.js')}}"></script>
-    <script src="{{URL::to('js/main/jquery.placeholder.min.js')}}" defer></script>
-    <script src="{{URL::to('js/main/jquery-ui.min.js')}}"></script>
+    <link rel='stylesheet' href='{{ URL::to('css/main/settings.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/bootstrap.min.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/swatches-and-photos.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/prettyPhoto.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/jquery.selectBox.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/font-awesome.min.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Karla:400,400italic,700,700italic%7CCrimson+Text:400,400italic,600,600italic,700,700italic' type='text/css' media='all'/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700">
+    <link rel='stylesheet' href='{{ URL::to('css/main/elegant-icon.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/style.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/commerce.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/custom.css') }}' type='text/css' media='all'/>
+    <link rel='stylesheet' href='{{ URL::to('css/main/magnific-popup.css') }}' type='text/css' media='all'/>
 
-    <script src="{{URL::to('js/main/jquery.zoom.js')}}"></script>
-    <script src="{{URL::to('js//maincustom-form.js')}}" defer></script>
-    <script src="{{URL::to('js/main/custom-form.file.js')}}" defer></script>
+    <script type='text/javascript' src='{{ URL::to('js/jquery-3.0.0.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery-migrate.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.themepunch.tools.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.themepunch.revolution.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/easing.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/imagesloaded.pkgd.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/bootstrap.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/superfish-1.7.4.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.appear.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/script.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/swatches-and-photos.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.cookie.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.prettyPhoto.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.prettyPhoto.init.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.selectBox.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.touchSwipe.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.transit.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.carouFredSel.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/jquery.magnific-popup.js') }}'></script>
+
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.video.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.slideanims.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.actions.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.layeranimation.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.kenburn.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.navigation.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.migration.min.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.parallax.min.js') }}'></script>
+
+    <script type='text/javascript' src='{{ URL::to('js/site.js') }}'></script>
 
 
-    <script src="{{URL::to('js/main/jquery.responsiveVideo.js')}}" defer></script>
-    <script src="{{URL::to('js/main/main.js')}}"></script>
-
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
 </head>
 <body>
-<!-- Google Tag Manager -->
-<noscript><iframe src="http://www.googletagmanager.com/ns.html?id=GTM-P6K7XV"
-                  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-        new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-        j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-        '//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-P6K7XV');</script>
-<!-- End Google Tag Manager -->
-
-<noscript><div>Для полной функциональности этого сайта необходимо включить JavaScript. Вот <a href="http://www.enable-javascript.com/ru/" target="_blank"> инструкции, как включить JavaScript в вашем браузере.</a> </div></noscript>
-<div class="page_wrapper ">
-    <div class="wrap_banner">
-
-        <!--start-wrap_banner-->
-
-        <div class="header-none" id="header">
-
-            <div class="holder-top">
-                <div class="top">
-                    {{--<ul>--}}
-                        {{--<li>--}}
-                            {{--<a href="vopros-otvet/index.html">FAQ</a>--}}
-                        {{--</li>--}}
-                        {{--<li><a href="index.html#" class="js_direct">Написать письмо</a></li>--}}
-                    {{--</ul>--}}
-                    <div class="some-form">
-                        <form action="#" method="GET">
-                            <fieldset>
-                                <input type="text" name="search" value="" placeholder="Поиск"/>
-                                <input type="submit" value=""/>
-                            </fieldset>
-                        </form>
+<div class="offcanvas open">
+    <div class="offcanvas-wrap">
+        <div class="offcanvas-user clearfix">
+            <a class="offcanvas-user-wishlist-link" href="wishlist.html">
+                <i class="fa fa-heart-o"></i> My Wishlist
+            </a>
+            <a class="offcanvas-user-account-link" href="my-account.html">
+                <i class="fa fa-user"></i> Login
+            </a>
+        </div>
+        <nav class="offcanvas-navbar">
+            <ul class="offcanvas-nav">
+                <li class="menu-item-has-children dropdown current-menu-ancestor">
+                    <a href="./" class="dropdown-hover">Home <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="home-v2.html">Home v2</a></li>
+                        <li><a href="home-v3.html">Home v3</a></li>
+                        <li><a href="home-v4.html">Home v4</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="shop.html" class="dropdown-hover">Shop <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li class="menu-item-has-children dropdown-submenu">
+                            <a href="#">Women <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop-by-category.html">Maecenas</a></li>
+                                <li><a href="shop-by-category.html">Nulla</a></li>
+                                <li><a href="shop-by-category.html">Donec</a></li>
+                                <li><a href="shop-by-category.html">Aliquam</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown-submenu">
+                            <a href="#">Brands <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop-by-category.html">Evans</a></li>
+                                <li><a href="shop-by-category.html">Adesso</a></li>
+                                <li><a href="shop-by-category.html">Crocs</a></li>
+                                <li><a href="shop-by-category.html">Carvela</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu-item-has-children dropdown-submenu">
+                            <a href="#">Features <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop-fullwidth.html">Products Style 2</a></li>
+                                <li><a href="shop-detail-2.html">Single Product Style 2</a></li>
+                                <li><a href="shop-masonry.html">Shop Masonry</a></li>
+                                <li><a href="my-account.html">My Account</a></li>
+                                <li><a href="cart.html">Cart</a></li>
+                                <li><a href="cart-empty.html">Empty Cart</a></li>
+                                <li><a href="wishlist.html">Wishlist</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a title="Mega Menu" href="#">Mega Menu</a>
+                        </li>
+                    </ul>
+                </li>
+                <li><a href="collection.html">Collections</a></li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-hover">Blog <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="blog-default.html">Blog Default</a></li>
+                        <li><a href="blog-center.html">Blog Center</a></li>
+                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item-has-children dropdown">
+                    <a href="#" class="dropdown-hover">Pages <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="about-us.html">About us</a></li>
+                        <li><a href="contact-us.html">Contact Us</a></li>
+                        <li><a href="faq.html">FAQ</a></li>
+                        <li><a href="404.html">404</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div id="wrapper" class="wide-wrap">
+    <div class="offcanvas-overlay"></div>
+    <header class="header-container header-type-center header-navbar-center header-scroll-resize">
+        <div class="topbar">
+            <div class="container topbar-wap">
+                <div class="row">
+                    <div class="col-sm-6 col-left-topbar">
+                        <div class="left-topbar">
+                            Shop unique and handmade items directly
+                            <a href="#">About<i class="fa fa-long-arrow-right"></i></a>
+                        </div>
                     </div>
-                    <a href="#" class="fitting_room">
-                        <span>моя примерочная</span>
-                        <strong class="number">( 0 )</strong>
+                    <div class="col-sm-6 col-right-topbar">
+                        <div class="right-topbar">
+                            <div class="user-login">
+                                <ul class="nav top-nav">
+                                    <li><a data-rel="loginModal" href="#"> Войти </a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="navbar-container">
+            <div class="navbar navbar-default navbar-scroll-fixed">
+                <div class="navbar-default-wrap">
+                    <div class="container">
+                        <div class="row">
+                            <div class="navbar-default-col">
+                                <div class="navbar-wrap">
+                                    <div class="navbar-header">
+                                        <div class="navbar-header-left">
+                                            <div class="social">
+                                                <a href="#" title="Facebook" target="_blank">
+                                                    <i class="fa fa-facebook facebook-bg-hover"></i>
+                                                </a>
+                                                <a href="#" title="Twitter" target="_blank">
+                                                    <i class="fa fa-twitter twitter-bg-hover"></i>
+                                                </a>
+                                                <a href="#" title="Google+" target="_blank">
+                                                    <i class="fa fa-google-plus google-plus-bg-hover"></i>
+                                                </a>
+                                                <a href="#" title="Pinterest" target="_blank">
+                                                    <i class="fa fa-pinterest pinterest-bg-hover"></i>
+                                                </a>
+                                                <a href="#" title="RSS" target="_blank">
+                                                    <i class="fa fa-rss rss-bg-hover"></i>
+                                                </a>
+                                                <a href="#" title="Instagram" target="_blank">
+                                                    <i class="fa fa-instagram instagram-bg-hover"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                        <div class="navbar-header-center">
+                                            <button type="button" class="navbar-toggle">
+                                                <span class="sr-only">Toggle navigation</span>
+                                                <span class="icon-bar bar-top"></span>
+                                                <span class="icon-bar bar-middle"></span>
+                                                <span class="icon-bar bar-bottom"></span>
+                                            </button>
+                                            <a class="navbar-search-button search-icon-mobile" href="#">
+                                                <i class="fa fa-search"></i>
+                                            </a>
+                                            <a class="cart-icon-mobile" href="#">
+                                                <i class="elegant_icon_bag_alt"></i>
+                                                <span>0</span>
+                                            </a>
+                                            <a class="navbar-brand" href="./">
+                                                <img class="logo" alt="WOOW" src="{{URL::to('img/logoblack.png')}}">
+                                                <img class="logo-fixed" alt="WOOW" src="{{URL::to('img/logoblack.png')}}">
+                                                <img class="logo-mobile" alt="WOOW" src="images/logo-mobile.png">
+                                            </a>
+                                        </div>
+                                        <div class="navbar-header-right">
+                                            <div class="navbar-search">
+                                                <a class="navbar-search-button" href="#">
+                                                    <i class="fa fa-search"></i>
+                                                </a>
+                                            </div>
+                                            <div class="navbar-minicart navbar-minicart-topbar">
+                                                <div class="navbar-minicart">
+                                                    <a class="minicart-link" href="#">
+																<span class="minicart-icon">
+																	<i class="fa fa-shopping-cart"></i>
+																	<span>0</span>
+																</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-wishlist">
+                                                <a href="#">
+                                                    <i class="fa fa-heart-o"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <nav class="collapse navbar-collapse primary-navbar-collapse">
+                                        <ul class="nav navbar-nav primary-nav">
+                                            <li class="current-menu-item menu-item-has-children dropdown">
+                                                <a href="/" class="dropdown-hover">
+                                                    <span class="underline">Главная</span> <span class="caret"></span>
+                                                </a>
+                                            </li>
+                                            <li class="current-menu-item menu-item-has-children dropdown">
+                                                <a href="./" class="dropdown-hover">
+                                                    <span class="underline">Платья</span> <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach($categories as $category)
+                                                        <li>
+                                                            <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
+                                                        </li>
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children megamenu megamenu-fullwidth dropdown">
+                                                <a href="shop.html" class="dropdown-hover">
+                                                    <span class="underline">Shop</span> <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li class="mega-col-3">
+                                                        <h3 class="megamenu-title">Women <span class="caret"></span></h3>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="shop-by-category.html">Maecenas</a></li>
+                                                            <li><a href="shop-by-category.html">Nulla</a></li>
+                                                            <li><a href="shop-by-category.html">Donec</a></li>
+                                                            <li><a href="shop-by-category.html">Aliquam</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-col-3">
+                                                        <h3 class="megamenu-title">Brands <span class="caret"></span></h3>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="shop-by-category.html">Evans</a></li>
+                                                            <li><a href="shop-by-category.html">Adesso</a></li>
+                                                            <li><a href="shop-by-category.html">Crocs</a></li>
+                                                            <li><a href="shop-by-category.html">Carvela</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-col-3">
+                                                        <h3 class="megamenu-title">Features <span class="caret"></span></h3>
+                                                        <ul class="dropdown-menu">
+                                                            <li><a href="shop-fullwidth.html">Products Style 2</a></li>
+                                                            <li><a href="shop-detail-2.html">Single Product Style 2</a></li>
+                                                            <li><a href="shop-masonry.html">Shop Masonry</a></li>
+                                                            <li><a href="my-account.html">My Account</a></li>
+                                                            <li><a href="cart.html">Cart</a></li>
+                                                            <li><a href="cart-empty.html">Empty Cart</a></li>
+                                                            <li><a href="wishlist.html">Wishlist</a></li>
+                                                        </ul>
+                                                    </li>
+                                                    <li class="mega-col-3">
+                                                        <h3 class="megamenu-title">Mega Menu</h3>
+                                                        <div class="megamenu-sidebar">
+                                                            <div class="widget widget_products commerce">
+                                                                <ul class="product_list_widget">
+                                                                    <li>
+                                                                        <a href="shop-detail-1.html">
+                                                                            <img src="images/products/thumb/product_60x60.jpg" alt="2a"/>
+                                                                            <span class="product-title">Cras rhoncus duis viverra</span>
+                                                                        </a>
+                                                                        <span class="amount">&pound;12.00</span>
+                                                                        &ndash;
+                                                                        <span class="amount">&pound;20.00</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="shop-detail-1.html">
+                                                                            <img src="images/products/thumb/product_60x60.jpg" alt="3a"/>
+                                                                            <span class="product-title">Morbi sed egestas</span>
+                                                                        </a>
+                                                                        <span class="amount">&pound;123.00</span>
+                                                                    </li>
+                                                                    <li>
+                                                                        <a href="shop-detail-1.html">
+                                                                            <img src="images/products/thumb/product_60x60.jpg" alt="4a"/>
+                                                                            <span class="product-title">Creamy Spring Pasta</span>
+                                                                        </a>
+                                                                        <span class="amount">&pound;321.00</span>
+                                                                    </li>
+                                                                </ul>
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                            <li><a href="collection.html"><span class="underline">Collections</span></a></li>
+                                            <li class="menu-item-has-children dropdown">
+                                                <a href="#" class="dropdown-hover">
+                                                    <span class="underline">Blog</span> <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="blog-default.html">Blog Default</a></li>
+                                                    <li><a href="blog-center.html">Blog Center</a></li>
+                                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
+                                                </ul>
+                                            </li>
+                                            <li class="menu-item-has-children dropdown">
+                                                <a href="#" class="dropdown-hover">
+                                                    <span class="underline">Pages</span> <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    <li><a href="about-us.html">About us</a></li>
+                                                    <li><a href="contact-us.html">Contact Us</a></li>
+                                                    <li><a href="faq.html">FAQ</a></li>
+                                                    <li><a href="404.html">404</a></li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-search-overlay hide">
+                    <div class="container">
+                        <div class="header-search-overlay-wrap">
+                            <form class="searchform">
+                                <input type="search" class="searchinput" name="s" autocomplete="off" value="" placeholder="Search..."/>
+                            </form>
+                            <button type="button" class="close">
+                                <span aria-hidden="true" class="fa fa-times"></span>
+                                <span class="sr-only">Close</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+
+
+    <div class="content-container no-padding">
+        <div class="container-full">
+            <div class="row row-fluid">
+                <div class="col-sm-12">
+                    @section('slider')
+                    <div class="rev_slider_wrapper fullwidthbanner-container">
+                        <div id="rev_slider" class="rev_slider fullwidthabanner">
+                            <ul>
+                                <li data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="" data-delay="6000" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                                    <img src="images/slideshow/dummy.png" alt="" width="1920" height="657" data-lazyload="images/slideshow/header-slide-img-1.jpg" />
+                                    <div class="tp-caption home1-small-black tp-resizeme" data-x="125" data-y="135" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
+                                        f/w new york 2015
+                                    </div>
+                                    <div class="tp-caption tp-resizeme" data-x="125" data-y="300" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" data-elementdelay="0.05">
+                                        <img src="images/slideshow/dummy.png" alt="" width="23" height="3" data-ww="23px" data-hh="3px" data-lazyload="images/slideshow/rev_home1_img3.png" />
+                                    </div>
+                                    <div class="tp-caption home1-small-black tp-resizeme" data-x="125" data-y="360" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
+                                        [ discover the collection ]
+                                    </div>
+                                    <div class="tp-caption home3-big-black tp-resizeme" data-x="125" data-y="188" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
+                                        New Fashion Week
+                                    </div>
+                                </li>
+                                <li data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="" data-delay="6000" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                                    <img src="images/slideshow/dummy.png" alt="" width="1920" height="657" data-lazyload="images/slideshow/header-slide-img-2.jpg" />
+                                    <div class="tp-caption home2-medium-white tp-resizeme" data-x="" data-y="200" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" data-end="8300">
+                                        autumn comming
+                                    </div>
+                                    <div class="tp-caption home2-big-white tp-resizeme" data-x="-1" data-y="250" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" data-end="8300">
+                                        sale up to 85%
+                                    </div>
+                                    <div class="tp-caption white-button rev-btn" data-x="" data-y="350" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" data-end="8300">
+                                        discover the collection now
+                                    </div>
+                                    <div class="tp-caption Fashion-BigDisplay tp-resizeme" data-x="100" data-y="100" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:300;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;e:Power3.easeInOut;s:300;e:Power3.easeInOut;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on"></div>
+                                </li>
+                            </ul>
+                            <div class="tp-bannertimer tp-bottom"></div>
+                        </div>
+                    </div>
+                    @show
+                </div>
+            </div>
+
+            @yield('content')
+
+        </div>
+    </div>
+
+    <footer id="footer" class="footer">
+        <div class="footer-newsletter">
+            <div class="container">
+                <div class="footer-newsletter-wrap">
+                    <h3 class="footer-newsletter-heading">NEWSLETTER</h3>
+                    <form class="mailchimp-form">
+                        <div class="mailchimp-form-content clearfix">
+                            <label for="subscribe_email" class="hide">Subscribe</label>
+                            <input type="email" id="subscribe_email" class="form-control" required="required" placeholder="Enter your email..." name="email">
+                            <button type="submit" class="btn mailchimp-submit">sign up</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-featured">
+            <div class="container">
+                <div class="row">
+                    <div class="footer-featured-col col-md-4 col-sm-6">
+                        <i class="fa fa-money"></i>
+                        <h4 class="footer-featured-title">
+                            100% <br> return money
+                        </h4>
+                        free return standard order in 30 days
+                    </div>
+                    <div class="footer-featured-col col-md-4 col-sm-6">
+                        <i class="fa fa-globe"></i>
+                        <h4 class="footer-featured-title">
+                            world wide <br> delivery
+                        </h4>
+                        free ship for payment over $100
+                    </div>
+                    <div class="footer-featured-col col-md-4 col-sm-6">
+                        <i class="fa fa-clock-o"></i>
+                        <h4 class="footer-featured-title">
+                            24h <br> shipment
+                        </h4>
+                        for standard package
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-widget">
+            <div class="container">
+                <div class="footer-widget-wrap">
+                    <div class="row">
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget_text">
+                                <div class="textwidget">
+                                    <ul class="address">
+                                        <li>
+                                            <i class="fa fa-home"></i>
+                                            <h4>Address:</h4>
+                                            <p>132 Jefferson Avenue, Suite 22, Redwood City, CA 94872, USA</p>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-mobile"></i>
+                                            <h4>Phone:</h4>
+                                            <p>(00) 123 456 789</p>
+                                        </li>
+                                        <li>
+                                            <i class="fa fa-envelope"></i>
+                                            <h4>Email:</h4>
+                                            <p><a href="mailto:email@domain.com">email@domain.com</a></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget_nav_menu">
+                                <h3 class="widget-title">
+                                    <span>infomation</span>
+                                </h3>
+                                <div class="menu-infomation-container">
+                                    <ul class="menu">
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Term &#038; Conditions</a></li>
+                                        <li><a href="#">Gift Voucher</a></li>
+                                        <li><a href="#">BestSellers</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget_nav_menu">
+                                <h3 class="widget-title">
+                                    <span>Customer Care</span>
+                                </h3>
+                                <div class="menu-customer-care-container">
+                                    <ul class="menu">
+                                        <li><a href="#">Support</a></li>
+                                        <li><a href="#">Sitemap</a></li>
+                                        <li><a href="#">FAQ</a></li>
+                                        <li><a href="#">Shipping</a></li>
+                                        <li><a href="#">Returns</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="footer-widget-col col-md-3 col-sm-6">
+                            <div class="widget widget_text">
+                                <h3 class="widget-title">
+                                    <span>open house</span>
+                                </h3>
+                                <div class="textwidget">
+                                    <ul class="open-time">
+                                        <li><span>Mon - Fri:</span><span>8am - 5pm</span> </li>
+                                        <li><span>Sat:</span><span>8am - 11am</span> </li>
+                                        <li><span>Sun: </span><span>Closed</span></li>
+                                    </ul>
+                                    <h3 class="widget-title">
+                                        <span>payment Menthod</span>
+                                    </h3>
+                                    <div class="payment">
+                                        <a href="#"><i class="fa fa-cc-mastercard"></i></a>
+                                        <a href="#"><i class="fa fa-cc-visa"></i></a>
+                                        <a href="#"><i class="fa fa-cc-paypal"></i></a>
+                                        <a href="#"><i class="fa fa-cc-discover"></i></a>
+                                        <a href="#"><i class="fa fa-credit-card"></i></a>
+                                        <a href="#"><i class="fa fa-cc-amex"></i></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-copyright text-center">
+            © 2015 WOOW - Responsive Commerce Theme
+        </div>
+    </footer>
+</div>
+
+<div class="modal fade user-login-modal" id="userloginModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="userloginModalForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Login</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="user-login-facebook">
+                        <button class="btn-login-facebook" type="button">
+                            <i class="fa fa-facebook"></i>Sign in with Facebook
+                        </button>
+                    </div>
+                    <div class="user-login-or"><span>or</span></div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" id="username" name="log" required class="form-control" value="" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" required value="" name="pwd" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="checkbox clearfix">
+                        <label class="form-flat-checkbox pull-left">
+                            <input type="checkbox" name="rememberme" id="rememberme" value="forever">
+                            <i></i>&nbsp;Remember Me
+                        </label>
+                        <span class="lostpassword-modal-link pull-right">
+									<a href="#lostpasswordModal" data-rel="lostpasswordModal">Lost your password?</a>
+								</span>
+                    </div>
+                </div>
+                <div class="modal-footer">
+							<span class="user-login-modal-register pull-left">
+								<a data-rel="registerModal" href="#">Not a Member yet?</a>
+							</span>
+                    <button type="submit" class="btn btn-default btn-outline">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade user-register-modal" id="userregisterModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="userregisterModalForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Register account</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="user-login-facebook">
+                        <button class="btn-login-facebook" type="button">
+                            <i class="fa fa-facebook"></i>Sign in with Facebook
+                        </button>
+                    </div>
+                    <div class="user-login-or"><span>or</span></div>
+                    <div class="form-group">
+                        <label>Username</label>
+                        <input type="text" name="user_login" required class="form-control" value="" placeholder="Username">
+                    </div>
+                    <div class="form-group">
+                        <label for="user_email">Email</label>
+                        <input type="email" id="user_email" name="user_email" required class="form-control" value="" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="user_password">Password</label>
+                        <input type="password" id="user_password" required value="" name="user_password" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="user_password">Retype password</label>
+                        <input type="password" id="cuser_password" required value="" name="cuser_password" class="form-control" placeholder="Retype password">
+                    </div>
+                </div>
+                <div class="modal-footer">
+							<span class="user-login-modal-link pull-left">
+								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
+							</span>
+                    <button type="submit" class="btn btn-default btn-outline">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal fade user-lostpassword-modal" id="userlostpasswordModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form id="userlostpasswordModalForm">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title">Forgot Password</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Username or E-mail:</label>
+                        <input type="text" name="user_login" required class="form-control" value="" placeholder="Username or E-mail">
+                    </div>
+                </div>
+                <div class="modal-footer">
+							<span class="user-login-modal-link pull-left">
+								<a data-rel="loginModal" href="#loginModal">Already have an account?</a>
+							</span>
+                    <button type="submit" class="btn btn-default btn-outline">Sign in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="minicart-side">
+    <div class="minicart-side-title">
+        <h4>Shopping Cart</h4>
+    </div>
+    <div class="minicart-side-content">
+        <div class="minicart">
+            <div class="minicart-header no-items show">
+                Your shopping bag is empty.
+            </div>
+            <div class="minicart-footer">
+                <div class="minicart-actions clearfix">
+                    <a class="button no-item-button" href="#">
+                        <span class="text">Go to the shop</span>
                     </a>
                 </div>
             </div>
-            <div class="logo">
-                <span class="link_logo"><img src="{{URL::to('img/logoblack.png')}}" alt="" class="link_logo"></span>
-            </div>
-            <nav id="nav">
-                <span class="js_btn_open_menu btn_open_menu"></span>
-                <ul>
-                    <li class="drop_down">
-                        <span>Главная</span>
-
-                    </li><li class="drop_down">
-                        <a href="svadebnye-platya/index.html">Платья</a>
-                        <ul><li><a href="#" title="Свадебные платья" >Свадебные платья</a></li>
-                            <li><a href="#" title="Вечерние платья" >Вечерние платья</a></li>
-                        </ul>
-                    </li>
-                    {{--<li class="drop_down">--}}
-                        {{--<a href="aksessuary/index.html">Аксессуары</a>--}}
-                        {{--<ul><li><a href="aksessuary/faty/index.html" title="Фаты" >Фаты</a></li>--}}
-                            {{--<li><a href="aksessuary/poyasa/index.html" title="Пояса" >Пояса</a></li>--}}
-                            {{--<li><a href="aksessuary/ukrasheniya/index.html" title="Украшения" >Украшения</a></li>--}}
-                            {{--<li><a href="aksessuary/svadebnye-aksessuary/index.html" title="Свадебные подвязки" >Свадебные подвязки</a></li>--}}
-                            {{--<li><a href="aksessuary/nakidki/index.html" title="Накидки" >Накидки</a></li>--}}
-                            {{--<li><a href="aksessuary/svadebnye-nabory/index.html" title="Свадебные наборы" >Свадебные наборы</a></li>--}}
-                            {{--<li><a href="aksessuary/bolero/index.html" title="Болеро" >Болеро</a></li>--}}
-                            {{--<li><a href="aksessuary/obuv/index.html" title="Обувь" >Обувь</a></li>--}}
-                            {{--<li><a href="aksessuary/perchatki/index.html" title="Перчатки" >Перчатки</a></li>--}}
-                            {{--<li><a href="aksessuary/korsety/index.html" title="Корсеты" >Корсеты</a></li>--}}
-                        {{--</ul>--}}
-                    {{--</li>--}}
-                    <li class="drop_down">
-                        <a href="#">Скидки</a>
-                    </li>
-                    <li class="drop_down">
-                        <a href="#">О нас</a>
-                        <ul>
-                            <li><a href="#" title="Наша история" >Наша история</a></li>
-                            <li><a href="#" title="Наша команда" >Наша команда</a></li>
-                            <li><a href="#" title="Наши невесты" >Наши невесты</a></li>
-                            <li><a href="#" title="Наши выпускницы" >Наши выпускницы</a></li>
-                            <li><a href="#" title="Отзывы" >Отзывы</a></li>
-                            <li><a href="#" title="Блог" >Блог</a></li>
-                            <li><a href="#" title="Событие" >Событие</a></li>
-                            {{--<li><a href="o-nas/vakansii/index.html" title="Вакансии" >Вакансии</a></li>--}}
-                            {{--<li><a href="o-nas/privacypolicy/index.html" title="Privacy  policy" >Privacy  policy</a></li>--}}
-                        </ul>
-                    </li>
-                    <li class="drop_down">
-                        <a href="#">Контакты</a>
-                        {{--<ul>--}}
-                            {{--<li><a href="kontakty/kiev/index.html" title="Киев" >Киев</a></li>--}}
-                            {{--<li><a href="kontakty/harkov/index.html" title="Харьков" >Харьков</a></li>--}}
-                            {{--<li><a href="kontakty/dnepropetrovsk/index.html" title="Днепр" >Днепр</a></li>--}}
-                            {{--<li><a href="kontakty/odessa/index.html" title="Одесса" >Одесса</a></li>--}}
-                            {{--<li><a href="kontakty/zaporozhe/index.html" title="Запорожье" >Запорожье</a></li>--}}
-                        {{--</ul>--}}
-                    </li>
-                    <li class="fitting_room last"><a href="http://fashionbride.ua/moya-primerochnaya/"><span>моя примерочная</span><strong class="number">( 0 )</strong></a></li>
-                </ul>
-            </nav>
-            <span class="back_link js_back_link back_link_active"></span>
-            <ul class="list_copy js_list_copy">
-                <li>
-                    <a href="vopros-otvet/index.html">FAQ</a>
-                </li><li>
-                    <a href="o-nas/otzyvy1/index.html">Отзывы</a>
-                </li><li>
-                    <a href="o-nas/blog/index.html">Блог</a>
-                </li>
-                <li><a href="index.html#" class="js_direct">Написать письмо</a></li>
-            </ul>
-        </div>
-        {{--<a href="index.html#" class="look_site js_look_site">--}}
-            {{--<span>смотреть сайт</span>--}}
-        {{--</a>--}}
-        <div class="new-header"></div>
-    </div>
-
-    <!--end-wrap_banner-->
-
-    <div class="carousel-block">
-
-        @yield('content')
-
-    <!--start-footer-->
-
-    <div class="holder-footer">
-        <div class="wrap">
-            <div class="menu">
-                <span class="heading"><em>меню</em></span>
-                <ul class="list js_list">
-                    <li>
-                        <span>Главная</span>
-                    </li><li>
-                        <a href="svadebnye-platya/index.html">Свадебные платья</a>
-                    </li><li>
-                        <a href="vechernie-platya/index.html">Вечерние платья</a>
-                    </li><li>
-                        <a href="aksessuary/index.html">Аксессуары</a>
-                    </li><li>
-                        <a href="skidki/index.html">Скидки</a>
-                    </li><li>
-                        <a href="o-nas/index.html">О нас</a>
-                    </li><li>
-                        <a href="kontakty/index.html">Контакты</a>
-                    </li><li>
-                        <a href="sitemap/index.html">Карта сайта</a>
-                    </li>
-                </ul>
-                <ul class="social-networks">
-                    <li class="facebook"> <a target="_blank" href="https://www.facebook.com/dominiss.odessa/" rel="nofollow"><!--noindex-->facebook<!--/noindex--></a></li>
-                    <li class="b"><a target="_blank" href="https://vk.com/fashion_bride_dominiss" rel="nofollow"><!--noindex-->vk<!--/noindex--></a></li>
-                    <li class="istagram"><a target="_blank" href="https://www.instagram.com/fashionbride_official/" rel="nofollow"><!--noindex-->instagram<!--/noindex--></a></li>
-                    <li class="pin"><a target="_blank" href="http://www.pinterest.com/svadebnyd/" rel="nofollow"><!--noindex-->pin<!--/noindex--></a></li>
-                    <!--<li class="tw"><a target="_blank" href="#">tw</a></li>-->
-                    <li class="od"><a target="_blank" href="http://www.odnoklassniki.ru/group55534845886514/topic/62107075777842" rel="nofollow"><!--noindex-->od<!--/noindex--></a></li>
-                    <li class="you"><a target="_blank" href="https://www.youtube.com/channel/UC0ZfEJeQQ5o8AQS1AAEzjQQ/feed" rel="nofollow"><!--noindex-->you<!--/noindex--></a></li>
-                </ul>
-            </div>
-            <div class="contact">
-                <span class="heading"><em>контакты</em></span>
-                <div class="holder-address js_holder-address">
-                    <address>
-                        <p><b>г. Киев</b></p>
-                        <p>бульвар Леси Украинки, 14</p>
-                        <p><a href="tel:+380991007010">+38 (099) 100 70 10</a></p>
-                        <p><a href="tel:+380961007010">+38 (096) 100 70 10</a></p>
-                        <p><a href="skype:Fbride09?chat">skype: Fbride09</a></p>
-                        <p><a href="mailto:fashionbride.odessa@gmail.com">mail: fashionbride.kiev@gmail.com</a></p>
-                        <p><a href="svadebnye-platya-v-kieve/index.html">Свадебные платья в Киеве</a></p>
-                        <p><a href="vechernie-platya-v-kieve/index.html">Вечерние платья в Киеве</a></p>
-                    </address>
-                    <address>
-                        <p><b>г. Харьков</b></p>
-                        <p>улица Сумская, 24</p>
-                        <p><a href="tel:+380509555190">+38 (050) 955 51 90</a></p>
-                        <p><a href="tel:+380577648033">+38 (057) 764 80 33</a></p>
-                        <p><a href="skype:Fbride09?chat">skype: Fbride09</a></p>
-                        <p><a href="mailto:info@fashion-bride.com.ua">mail: info@fashion-bride.com.ua</a></p>
-                        <p><a href="svadebnye-platya/index.html">Свадебные платья в Харькове</a></p>
-                        <p><a href="vechernie-platya/index.html">Вечерние платья в Харькове</a></p>
-                    </address>
-                    <address>
-                        <p><b>г. Днепр</b></p>
-                        <p>проспект Гагарина, 123</p>
-                        <p><a href="tel:+380661120168">+38 (066) 112 01 68</a></p>
-                        <p><a href="tel:+380980929080">+38 (098) 092 90 80</a></p>
-                        <p><a href="skype:Fbride09?chat">skype: Fbride09</a></p>
-                        <p><a href="mailto:dnepr@fashion-bride.com.ua">mail: dnepr@fashion-bride.com.ua</a></p>
-                        <p><a href="svadebnye-platya-v-dnepropetrovske/index.html">Свадебные платья в Днепре</a></p>
-                        <p><a href="vechernie-platya-v-dnepropetrovske/index.html">Вечерние платья в Днепре</a></p>
-                    </address>
-                    <div class="clear_both"></div>
-                    <address>
-                        <p><b>г. Одесса</b></p>
-                        <p>улица Греческая, 12</p>
-                        <p><a href="tel:+380487074404">+38 (048) 707 44 04</a></p>
-                        <p><a href="tel:+380949316404">+38 (048) 707 44 04</a></p>
-                        <p><a href="skype:Fbride09?chat">skype: Fbride09</a></p>
-                        <p><a href="mailto:fashionbride.odessa@gmail.com">mail: fashionbride.odessa@gmail.com</a></p>
-                        <p><a href="svadebnye-platya-v-odesse/index.html">Свадебные платья в Одессе</a></p>
-                        <p><a href="vechernie-platya-v-odesse/index.html">Вечерние платья в Одессе</a></p>
-                    </address>
-                    <address>
-                        <p><b>г. Запорожье</b></p>
-                        <p>проспект Соборный, 186</p>
-                        <p><a href="tel:+380612246718">+38 (061) 224 67 18</a></p>
-                        <p><a href="tel:+380506619040">+38 (050) 661 90 40</a></p>
-                        <p><a href="skype:Fbride09?chat">skype: Fbride09</a></p>
-                        <p><a href="mailto:zp@fashion-bride.com.ua">mail: zp@fashion-bride.com.ua</a></p>
-                        <p><a href="svadebnye-platya-v-zaporozhe/index.html">Свадебные платья в Запорожье</a></p>
-                        <p><a href="vechernie-platya-v-zaporozhe/index.html">Вечерние платья в Запорожье</a></p>
-                    </address>
-                </div>
-            </div>
         </div>
     </div>
-    <div class="copy">
-        <p>Fashion Bride © 2014-2018</p>
-
-    </div>
-</footer>
-
-<!--end-footer-->
-
-<div class="go-top js_go-top"></div>
-<div id="overlay"></div>
-
-<!--start-popup_sing_up-->
-
-<!--noindex-->
-
-<div class="popup_sing_up js_popup_sing_up">
-    <span class="close js_close"></span>
-    <span style="font-weight: 500;font-size: 22px; color: #a1a1a1; margin-left: 200px;text-transform: uppercase;">Запись на примерку</span>
-    <form class="comment_form js_validate js_fitting" id="fitting" action="index.html">
-        <label>
-            ваше имя *:
-            <input type="text" name="fitting[name]" value="" required />
-            <span class="error">поле не заполнено</span>
-        </label>
-        <label>
-            e-mail *:
-            <input type="text" name="fitting[email]" value="" data-validate="email" required/>
-            <span class="error">неверный формат e-mail</span>
-        </label>
-        <label>
-            Телефон *:
-            <input type="text" name="fitting[phone]" value="" data-validate="number" required/>
-            <span class="error">поле не заполнено</span>
-        </label>
-        <label class="js_city">
-            Город *:
-            <select class="select" name="fitting[city]" tabindex="1" required>
-                <option value="" selected>--- Не выбрано ---</option>
-                <option value='1902_1901'>"FASHION BRIDE", Киев</option><option value='1903_1901'>"DOMINISS", Киев</option><option value='45_42'>"FASHION BRIDE", Харьков</option><option value='47_42'>"DOMINISS", Харьков</option><option value='46_42'>"DOMINISS", Харьков</option><option value='1904_42'>"BRIDAL STORY", Харьков</option><option value='49_43'>"FASHION BRIDE", Днепр</option><option value='48_43'>"BRIDE OUTLET", Днепр</option><option value='1759_43'>"DOMINISS", Днепр</option><option value='1134_1133'>"FASHION BRIDE", Одесса</option><option value='2413_1133'>"BRIDAL STORY", Одесса</option><option value='50_44'>"FASHION BRIDE", Запорожье</option><option value='1760_44'>"DOMINISS", Запорожье</option>
-            </select>
-            <span class="error">выберите город</span>
-        </label>
-        <!--
-        <label class="js_salon">
-            Салон *:
-            <select class="select" name="fitting[salon]" tabindex="1">
-
-            </select>
-            <span class="error">выберите салон</span>
-        </label>
-        -->
-        <div class="bottom">
-            <label class="left">
-                дата *:
-                <input id="datepicker" name="fitting[date]" type="text" value="" required/>
-                <span class="error">поле не заполнено</span>
-            </label>
-            <label>
-                время:
-                <select class="select" name="fitting[time]" tabindex="1">
-                    <option value="10:00">10:00</option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
-                    <option value="15:00">15:00</option>
-                    <option value="15:00">16:00</option>
-                    <option value="15:00">17:00</option>
-                    <option value="15:00">18:00</option>
-                </select>
-                <span class="error">поле не заполнено</span>
-            </label>
-        </div>
-        <label>
-            Укажите название платья или ссылку на платье *:
-            <input type="text" name="fitting[cloth]" value=" " required />
-            <span class="error">поле не заполнено</span>
-        </label>
-        <label>
-            примечание:
-            <textarea rows="3" name="fitting[content]"></textarea>
-        </label>
-        <div class="check_row">
-            <label>
-                <input type="checkbox" name="fitting[subscribe]" value="true" checked />
-                <span>подписаться на новости</span>
-                <span>* - поля объязательное для заполнения</span>
-            </label>
-        </div>
-        <input type="submit" name="submit" value="записаться" class="submit"/>
-    </form>
-</div>
-<div class="sent_letter js_sent_letter_fitting">
-    <span>"Спасибо, с вами в ближайшее время свяжется наш менеджер"</span>
 </div>
 
-<!--end-popup_sing_up-->
+<script type="text/javascript">
 
-<div class="popup_sing_up js_validate js_popup_direct"><!--start-popup_sing_up-->
-    <span class="close js_close"></span>
-    <div class="strong_dir">написать</div>
-    <form class="comment_form js_direct" id="direct" action="index.html">
-        <label>
-            ваше имя:
-            <input type="text" name="direct[name]" value="" required />
-            <span class="error">поле не заполнено</span>
-        </label>
-        <label>
-            e-mail:
-            <input type="text" name="direct[email]" value="" data-validate="email" required/>
-            <span class="error">неверный формат e-mail</span>
-        </label>
+    var tpj=jQuery;
 
-        <label>
-            Сообщение:
-            <textarea name="direct[content]"></textarea>
-        </label>
-        <input type="submit" name="submit" value="Отправить письмо" class="submit"/>
-    </form>
-</div><!--end-popup_sing_up-->
-
-<div class="sent_letter js_sent_letter">
-    <span>"Спасибо ваш отзыв принят, после прохождения модерации он появится на нашем сайте" </span>
-</div>
-
-
-<div class="sent_letter js_sent_letter_direct">
-    <span>"Вы отправили письмо директору"</span>
-</div>
-
-
-<a href="index.html#" class="button_fitting btn_callback js_btn_callback">
-    <span></span>
-    <div class="text_button">Обратный звонок</div>
-</a>
-
-<div class="callback js_callback popup_sing_up">
-    <span class="close js_close"></span>
-    <form action="index.html" method="POST" class="js_validate js_phone">
-        <strong>Введите свой номер телефона и мы перезвоним вам!</strong>
-        <label>
-            <input type="text" name="phone" data-validate="number" required/>
-            <span class="error">поле не заполнено</span>
-        </label>
-        <input class="submit" type="submit" name="submit_phone" value="Отправить"/>
-    </form>
-
-</div>
-<div class="sent_letter sent_phone js_sent_phone">
-    <span>"Мы свяжемся с Вами в ближайшее время"</span>
-</div>
-
-<div class="sent_letter sent_phone js_sent_phone">
-    <span>"Мы свяжемся с Вами в ближайшее время"</span>
-</div>
-
-<!--/noindex-->
-
+    var revapi7;
+    tpj(document).ready(function() {
+        if(tpj("#rev_slider").revolution == undefined){
+            revslider_showDoubleJqueryError("#rev_slider");
+        }else{
+            revapi7 = tpj("#rev_slider").show().revolution({
+                sliderType:"standard",
+                sliderLayout:"fullwidth",
+                dottedOverlay:"none",
+                delay:9000,
+                navigation: {
+                    keyboardNavigation:"off",
+                    keyboard_direction: "horizontal",
+                    mouseScrollNavigation:"off",
+                    onHoverStop:"on",
+                    touch:{
+                        touchenabled:"on",
+                        swipe_threshold: 75,
+                        swipe_min_touches: 50,
+                        swipe_direction: "horizontal",
+                        drag_block_vertical: false
+                    }
+                    ,
+                    arrows: {
+                        style:"gyges",
+                        enable:true,
+                        hide_onmobile:true,
+                        hide_under:600,
+                        hide_onleave:true,
+                        hide_delay:200,
+                        hide_delay_mobile:1200,
+                        tmp:'',
+                        left: {
+                            h_align:"left",
+                            v_align:"center",
+                            h_offset:30,
+                            v_offset:0
+                        },
+                        right: {
+                            h_align:"right",
+                            v_align:"center",
+                            h_offset:30,
+                            v_offset:0
+                        }
+                    }
+                    ,
+                    bullets: {
+                        enable:true,
+                        hide_onmobile:true,
+                        hide_under:600,
+                        style:"hephaistos",
+                        hide_onleave:true,
+                        hide_delay:200,
+                        hide_delay_mobile:1200,
+                        direction:"horizontal",
+                        h_align:"center",
+                        v_align:"bottom",
+                        h_offset:0,
+                        v_offset:30,
+                        space:5,
+                        tmp:''
+                    }
+                },
+                gridwidth:1170,
+                gridheight:600,
+                lazyType:"smart",
+                parallax: {
+                    type:"mouse",
+                    origo:"slidercenter",
+                    speed:2000,
+                    levels:[2,3,4,5,6,7,12,16,10,50],
+                },
+                shadow:0,
+                spinner:"off",
+                stopLoop:"off",
+                stopAfterLoops:-1,
+                stopAtSlide:-1,
+                shuffle:"off",
+                autoHeight:"off",
+                disableProgressBar:"on",
+                hideThumbsOnMobile:"off",
+                hideSliderAtLimit:0,
+                hideCaptionAtLimit:0,
+                hideAllCaptionAtLilmit:0,
+                startWithSlide:0,
+                debugMode:false,
+                fallbacks: {
+                    simplifyAll:"off",
+                    nextSlideOnWindowFocus:"off",
+                    disableFocusListener:false,
+                }
+            });
+        }
+    });	/*ready*/
+</script>
 </body>
 </html>

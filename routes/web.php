@@ -12,8 +12,8 @@
 */
 
 Route::get('/', 'IndexController@index');
-Route::get('/catalog', 'IndexController@catalog');
-Route::get('/catalog/{short_name}', 'IndexController@detail');
+Route::get('/catalog/{category_short_name?}', 'IndexController@catalog');
+Route::get('/catalog/{category_short_name}/{short_name}', 'IndexController@detail');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
 
@@ -45,6 +45,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::post('/blog', 'Admin\BlogController@store');
 
     Route::get('/feedbacks', 'Admin\FeedbackController@index');
+    Route::post('/addfeedback', 'Admin\FeedbackController@store');
+    Route::get('feedback/{id}/activ', 'Admin\FeedbackController@activ');
+    Route::get('feedback/{id}/delete', 'Admin\FeedbackController@destroy');
 
 });
 

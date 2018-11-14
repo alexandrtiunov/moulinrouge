@@ -27,7 +27,7 @@
                                 <h4 class="modal-title" id="myModalLabel">Добавить новый отзыв </h4>
 
                             </div>
-                            <form action="#" method="post">
+                            <form action="{{action('Admin\FeedbackController@store')}}" method="post">
                                 {{csrf_field()}}
                                 <div class="modal-body">
 
@@ -53,7 +53,7 @@
                                     <div class="form-group row">
                                         <label for="text-input" class="col-xs-2 col-form-label">Телефон</label>
                                         <div class="col-xs-10">
-                                            <input class="form-control" type="text" name="phone" required>
+                                            <input class="form-control" type="text" name="phone_number" required>
                                         </div>
                                     </div>
 
@@ -119,7 +119,7 @@
                 <th>Email</th>
                 <th>Номер телефона</th>
                 <th>Текст отзыва</th>
-                <th>Статус</th>
+                {{--<th>Статус</th>--}}
                 <th>Action</th>
             </tr>
             </thead>
@@ -132,7 +132,7 @@
                     <td>{{$feedback->email}}</td>
                     <td>{{$feedback->phone_number}}</td>
                     <td>{{$feedback->text}}</td>
-                    <td>{{$feedback->status}}<input type="checkbox" class="checkStatus"></td>
+
                     <td>
 
                         {{--Модальное окно обновления коллекции по id--}}
@@ -141,7 +141,12 @@
 
                         {{--Конец окна--}}
 
-                        <a href="{{action('Admin\CategoryController@destroy', $category['id'])}}" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                        @if($feedback->status == 0)
+                            <a href="{{action('Admin\FeedbackController@activ', $feedback['id'])}}" class="activ"
+                               title="Опубликовать отзыв" data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+                        @endif
+
+                        <a href="{{action('Admin\FeedbackController@destroy', $feedback['id'])}}" class="delete" title="Удалить отзыв" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
 
                     </td>
                 </tr>

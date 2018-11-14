@@ -2,173 +2,1307 @@
 
 @section('content')
 
-
-    <!--start-carousel-block-->
-
-    <div class="center">
-        <div class="bx-wrapper" style="max-width: 1922px; margin: 0px auto;">
-            <div class="bx-viewport" style="width: 100%; overflow: hidden; position: relative; height: 403px;">
-                <ul class="bxslider"
-                    style="width: 1215%; position: relative; transition-duration: 0s; transform: translate3d(-1547px, 0px, 0px);">
-                    @foreach($products as $product)
-                    <li style="float: left; list-style: none; position: relative; width: 312px; margin-right: 10px;">
-                        <a href="svadebnye-platya/atelier-pronovias/index.html">
-                            @foreach($resources as $resource)
-                                @if($resource['product_id'] == $product['id'])
-                                    <img src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}"
-                                    alt="{{$product->name}} | Moulin Rouge" title="{{$product->name}}">
-                                @endif
-                            @endforeach
-                            <span>{{$product->name}}</span>
+    <div class="main-content">
+        <div class="container">
+            <div class="row row-fluid mb-6 pt-6">
+                <div class="col-sm-4">
+                    <div class="caroufredsel product-slider box_border nav-position-right" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
+                        <div class="product-slider-title">
+                            <h3 class="el-heading">Новинки</h3>
+                        </div>
+                        <div class="caroufredsel-wrap">
+                            <div class="commerce columns-1">
+                                <ul class="products columns-1">
+                                    @foreach($products as $product)
+                                        @if($product['atribut_id'] == 3)
+                                            <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            @foreach($resources as $resource)
+                                                                @if($resource['product_id'] == $product['id'])
+                                                            <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    @break
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:80%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&#8372; {{$product->price}},00
+																					</span>
+																					{{--&ndash;--}}
+																					{{--<span class="amount">--}}
+																						{{--&pound;20.00--}}
+																					{{--</span>--}}
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <a href="#" class="caroufredsel-prev"></a>
+                            <a href="#" class="caroufredsel-next"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="caroufredsel product-slider box_border nav-position-right" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
+                        <div class="product-slider-title">
+                            <h3 class="el-heading">Прокат</h3>
+                        </div>
+                        <div class="caroufredsel-wrap">
+                            <div class="commerce columns-1">
+                                <ul class="products columns-1">
+                                    @foreach($products as $product)
+                                        @if($product['atribut_id'] == 4)
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            @foreach($resources as $resource)
+                                                                @if($resource['product_id'] == $product['id'])
+                                                                    <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    @break
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&#8372; {{$product->price}},00
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <a href="#" class="caroufredsel-prev"></a>
+                            <a href="#" class="caroufredsel-next"></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-4">
+                    <div class="caroufredsel product-slider box_border nav-position-right" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
+                        <div class="product-slider-title">
+                            <h3 class="el-heading">Скидки</h3>
+                        </div>
+                        <div class="caroufredsel-wrap">
+                            <div class="commerce columns-1">
+                                <ul class="products columns-1" data-columns="1">
+                                    @foreach($products as $product)
+                                        @if($product->discount_id != null)
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <span class="onsale">Sale!</span>
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            @foreach($resources as $resource)
+                                                                @if($resource['product_id'] == $product['id'])
+                                                                    <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    @break
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<del>
+																						<span class="amount">
+																							&#8372; {{$product->price}},00
+																						</span>
+																					</del>
+																					<ins>
+																						<span class="amount">
+																							&#8372; {{$product->discount->new_price}},00
+																						</span>
+																					</ins>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                        @endif
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <a href="#" class="caroufredsel-prev"></a>
+                            <a href="#" class="caroufredsel-next"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-fluid mb-7">
+                <div class="col-sm-6">
+                    <div class="box-ft box-ft-1">
+                        <img src="{{URL::to('img/nashi_nevesty.jpg')}}" alt="">
+                        <a href="#">
+											<span class="bof-tf-title-wrap">
+												<span class="bof-tf-title-wrap-2">
+													{{--<span class="bof-tf-sub-title">New Comming</span>--}}
+													<span class="bof-tf-title">Наши невесты</span>
+												</span>
+											</span>
                         </a>
-                    </li>
-                        @endforeach
-                </ul>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="holder-box"><!--start-holder-box-->
+                        <div class="main-box">
+                            {{--<iframe width="1200" height="675" src="https://www.youtube.com/embed?listType=playlist&list=PLJBFx2xjUauhwdim9AwFeV-Nzg_gEIv3o&wmode=opaque&amp;autoplay=1&amp;controls=1&amp;rel=0&amp;showinfo=0&loop=1&mute=1" allowfullscreen id="video_main"></iframe>--}}
+                            {{--<iframe width="620" height="349" src="https://www.youtube.com/embed/D4HFKRI72x8?&playlist=D4HFKRI72x8&amp;&wmode=opaque&amp;autoplay=1&amp;controls=1&amp;rel=0&amp;showinfo=0&loop=1&mute=1" allowfullscreen id="video_main"></iframe>--}}
+                            <iframe width="560" height="315" src="https://www.youtube.com/embed/duMeHPx1-Ik?&playlist=D4HFKRI72x8&amp;&wmode=opaque&amp;autoplay=0&amp;controls=1&amp;rel=0&amp;showinfo=0&loop=1&mute=1" allowfullscreen id="video_main"></iframe>
+                        </div>
+                    </div>
+                </div>
+        </div>
+        <div class="container">
+            <div class="row row-fluid mb-10">
+                <div class="col-sm-12">
+                    <div class="caroufredsel product-slider nav-position-center" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
+                        <div class="product-slider-title">
+                            <h3 class="el-heading">ТОП ПРОДАЖ</h3>
+                        </div>
+                        <div class="caroufredsel-wrap">
+                            <div class="commerce columns-4">
+                                <ul class="products columns-4" data-columns="4">
+                                    @foreach($products as $product)
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            @foreach($resources as $resource)
+                                                                @if($resource['product_id'] == $product['id'])
+                                                                    <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    @break
+                                                                @endif
+                                                            @endforeach
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&#8372; {{$product->price}},00
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+
+                                        @endforeach
+                                </ul>
+                            </div>
+                            <a href="#" class="caroufredsel-prev"></a>
+                            <a href="#" class="caroufredsel-next"></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="bx-controls bx-has-controls-direction">
-                <div class="bx-controls-direction">
-                    <a class="bx-prev" href="">Prev</a>
-                    <a class="bx-next disabled" href="">Next</a>
+        </div>
+        <div class="container-full">
+            <div class="row row-fluid mb-0 row-no-padding">
+                <div class="col-sm-12 p-0">
+                    <div class="post-grid-wrap">
+                        <ul class="row list">
+                            @foreach($articles as $article)
+                            <li class="col-sm-12">
+                                <article class="hentry">
+                                    <div class="hentry-wrap">
+                                        <div class="entry-featured">
+                                            <a href="blog-detail.html">
+                                                <img width="700" height="450" src="../img/blog-photo/{{$article->short_name}}/{{$article->img_path}}" alt="" />
+                                            </a>
+                                        </div>
+                                        <div class="entry-info">
+                                            <div class="entry-header">
+                                                <h3 class="entry-title">
+                                                    <a href="blog-detail.html">
+                                                        {{$article->title}}
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="entry-content">
+                                                <p>
+                                                    {{htmlspecialchars_decode($article->text)}}
+                                                </p>
+                                            </div>
+                                            <div class="entry-meta">
+																<span class="meta-date">
+																	Дата:
+																	<time datetime="2015-08-11T06:27:49+00:00">{{$article->created_at}}</time>
+																</span>
+                                                <span class="meta-author">
+																	Автор:
+																	<a href="#">{{$article->user->name}}</a>
+																</span>
+                                                {{--<span class="meta-category">--}}
+																	{{--Category:--}}
+																	{{--<a href="#">Aliquam</a>, <a href="#">Nunc</a>--}}
+																{{--</span>--}}
+                                            </div>
+                                            <a class="read-more btn btn-outline" href="blog-detail.html">
+                                                Подробнее <i>+</i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </article>
+                            </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-fluid mt-10 mb-10">
+                <div class="col-sm-12">
+                    <div class="caroufredsel product-slider nav-position-center" data-height="variable" data-visible-min="1" data-responsive="1" data-infinite="1" data-autoplay="0">
+                        <div class="product-slider-title">
+                            <h3 class="el-heading">New Arrivals</h3>
+                        </div>
+                        <div class="caroufredsel-wrap">
+                            <div class="commerce columns-4">
+                                <ul class="products columns-4" data-columns="4">
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Quisque libero sagittis</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;17.50
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Creamy Spring Pasta</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;32.10
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <span class="onsale">Sale!</span>
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Donec tincidunt justo</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<del>
+																						<span class="amount">
+																							&pound;23.00
+																						</span>
+																					</del>
+																					<ins>
+																						<span class="amount">
+																							&pound;20.00
+																						</span>
+																					</ins>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Cras rhoncus duis viverra</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;12.00
+																					</span>
+																					&ndash;
+																					<span class="amount">
+																						&pound;20.00
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Nunc lacus sem</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;10.95
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Mauris egestas</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;14.95
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Morbi fermentum</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;17.45
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="#">Morbi fermentum</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<del>
+																						<span class="amount">
+																							&pound;23.00
+																						</span>
+																					</del>
+																					<ins>
+																						<span class="amount">
+																							&pound;20.00
+																						</span>
+																					</ins>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Ut quis Aenean</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;10.95
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Pesto Cauliflower</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;15.05
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Jalapeno Dressing Salad</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;17.75
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                    <li class="product">
+                                        <div class="product-container">
+                                            <figure>
+                                                <div class="product-wrap">
+                                                    <div class="product-images">
+                                                        <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
+                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
+                                                        </div>
+                                                        <div class="loop-action">
+                                                            <div class="shop-loop-quickview">
+                                                                <a title="Quick view" href="#">
+                                                                    Quick view
+                                                                </a>
+                                                            </div>
+                                                            <div class="loop-add-to-cart">
+                                                                <a href="#" class="add_to_cart_button">
+                                                                    Add to cart
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <figcaption>
+                                                    <div class="shop-loop-product-info">
+                                                        <div class="info-meta clearfix">
+                                                            <div class="star-rating">
+                                                                <span style="width:100%"></span>
+                                                            </div>
+                                                            <div class="loop-add-to-wishlist">
+                                                                <div class="yith-wcwl-add-to-wishlist">
+                                                                    <div class="yith-wcwl-add-button">
+                                                                        <a href="#" class="add_to_wishlist">
+                                                                            Add to Wishlist
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="info-content-wrap">
+                                                            <h3 class="product_title">
+                                                                <a href="shop-detail-1.html">Green Chile Burritos</a>
+                                                            </h3>
+                                                            <div class="info-price">
+																				<span class="price">
+																					<span class="amount">
+																						&pound;10.75
+																					</span>
+																				</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </figcaption>
+                                            </figure>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <a href="#" class="caroufredsel-prev"></a>
+                            <a href="#" class="caroufredsel-next"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-full">
+            <div class="row row-fluid custom-bg-1 mb-0 pt-9 pb-10">
+                <div class="col-sm-12">
+                    <h3 class="text-uppercase mb-2 white text-center">
+                        the one for you
+                    </h3>
+                    <div class="mb-6">
+                        <p class="text-center white">We offer a range of models to accommodate a variety body shapes and sizes</p>
+                    </div>
+                    <a class="btn btn-white-outline btn-align-center" href="#">
+                        <span>find your leather coats</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row row-fluid mb-0 pt-10">
+                <div class="col-sm-12">
+                    <h3 class="text-center heading-center-custom mb-3">
+                        what clients say !
+                    </h3>
+                    <div class="mb-7">
+                        <p class="text-center">
+                            Platea hac egestas himenaeos mi non libero lacus mollis, a lacinia dapibus turpis curae neque ut fringilla lacinia
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-fluid mb-7">
+                <div class="col-sm-12">
+                    <div class="testimonial mb-3">
+                        <div class="caroufredsel" data-visible-min="1" data-visible-max="2" data-scroll-fx="scroll" data-speed="5000" data-responsive="1" data-infinite="1" data-autoplay="0">
+                            <div class="caroufredsel-wrap">
+                                <ul class="caroufredsel-items">
+                                    <li class="caroufredsel-item col-sm-6">
+                                        <div class="testimonial-wrap">
+                                            <div class="testimonial-text">
+                                                <span>&ldquo;</span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                <span>&rdquo;</span>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="testimonial-avatar">
+                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
+                                                </div>
+                                                <span class="testimonial-author">Hughnei</span>
+                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="caroufredsel-item col-sm-6">
+                                        <div class="testimonial-wrap">
+                                            <div class="testimonial-text">
+                                                <span>&ldquo;</span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                <span>&rdquo;</span>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="testimonial-avatar">
+                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
+                                                </div>
+                                                <span class="testimonial-author">dangdong</span>
+                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="caroufredsel-item col-sm-6">
+                                        <div class="testimonial-wrap">
+                                            <div class="testimonial-text">
+                                                <span>&ldquo;</span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                <span>&rdquo;</span>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="testimonial-avatar">
+                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
+                                                </div>
+                                                <span class="testimonial-author">Hughnei</span>
+                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="caroufredsel-item col-sm-6">
+                                        <div class="testimonial-wrap">
+                                            <div class="testimonial-text">
+                                                <span>&ldquo;</span>
+                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                <span>&rdquo;</span>
+                                            </div>
+                                            <div class="clearfix">
+                                                <div class="testimonial-avatar">
+                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
+                                                </div>
+                                                <span class="testimonial-author">dangdong</span>
+                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                                <a href="#" class="caroufredsel-prev hide"></a>
+                                <a href="#" class="caroufredsel-next hide"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row row-fluid mb-0 pb-5">
+                <div class="col-sm-12">
+                    <div class="client client-slider">
+                        <div class="caroufredsel" data-height="variable" data-visible-min="1" data-visible-max="4" data-responsive="1" data-infinite="1" data-autoplay="1" data-speed="15000">
+                            <div class="caroufredsel-wrap">
+                                <ul class="caroufredsel-items row">
+                                    <li class="caroufredsel-item col-md-3">
+                                        <img alt="" src="images/client/client_270x100.png">
+                                    </li>
+                                    <li class="caroufredsel-item col-md-3">
+                                        <img alt="" src="images/client/client_270x100.png">
+                                    </li>
+                                    <li class="caroufredsel-item col-md-3">
+                                        <img alt="" src="images/client/client_270x100.png">
+                                    </li>
+                                    <li class="caroufredsel-item col-md-3">
+                                        <img alt="" src="images/client/client_270x100.png">
+                                    </li>
+                                    <li class="caroufredsel-item col-md-3">
+                                        <img alt="" src="images/client/client_270x100.png">
+                                    </li>
+                                    <li class="caroufredsel-item col-md-3">
+                                        <img alt="" src="images/client/client_270x100.png">
+                                    </li>
+                                </ul>
+                                <a href="#" class="caroufredsel-prev"></a>
+                                <a href="#" class="caroufredsel-next"></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-
-    <!--end-carousel-block-->
-
-    <!--noindex-->
-    <a class="button_fitting js_button_fitting" href="index.html#">
-        <span></span>
-        <div class="text_button">Записаться на примерку</div>
-    </a>
-    <!--/noindex-->
-    <div class="holder-box">
-
-        <!--start-holder-box-->
-
-        <div class="main-box">
-            {{--<iframe width="560" height="200" src="https://www.youtube.com/embed?listType=playlist&list=PLJBFx2xjUauhwdim9AwFeV-Nzg_gEIv3o&wmode=opaque&amp;autoplay=1&amp;controls=1&amp;rel=0&amp;showinfo=0&loop=1&mute=1" allowfullscreen id="video_main"></iframe>--}}
-        </div>
-        <!--<div href="#" class="box box_discounts">
-    <a href="skidki/"><img src="/images/maket1234.jpg" style="width: 100%;" alt="Акция №1 здесь может быть длинное название | Fashion Bride" title="Акция №1 здесь может быть длинное название" /></a>
-    <div class="discounts">
-        <strong>-30%</strong>
-                <span>на все платья pronovias</span>
-                <em>с 12 по 18 ноября</em>
     </div>
-    <div class="title">
-        <a href="skidki/">Посмотреть все акции</a>
-    </div>
-</div>-->
-        <div class="box box_discounts">
-            <a href="o-nas/sobytie/skidki-do-50-sale-pronovias-v-svadebnyh-salonah/index.html"
-               alt="28 fduecnf crblrf - 50% на 2 коллекции DOMINISS | Fasion
-                Bride" title="DOMINISS Trunk-Show в Киеве 24-27.05.2017"></a>
-            <img src="assets/images/pronovias_ukraine_sale.jpg">
-            <div class="discounts">
-                <div class="red_italic"><strong><span class="font_30"></span>
-                    </strong></div>
-                <span class="font_italic"></span>
-            </div>
-            <div class="title">
-                <a href="skidki/index.html"></a>
-            </div>
-        </div>
-        <a href="o-nas/nashi-vypusknicy/index.html" class="box">
-            <img src="assets/cache/images/2504f2f11fc5e609903fa1d044846288.jpg" alt="Наши выпускницы | Fashion Bride" title="Наши выпускницы"/>
-            <div class="title">
-                <span>Наши выпускницы</span>
-            </div>
-        </a><a href="o-nas/nevesty-v-nashih-plyatyah/index.html" class="box">
-            <img src="assets/cache/images/dda80b26896035cb279763c55fc3992d.jpg" alt="Наши невесты | Fashion Bride" title="Наши невесты"/>
-            <div class="title">
-                <span>Наши невесты</span>
-            </div>
-        </a>
-        <div class="box box_t-b">
-            <a href="o-nas/sobytie/dominiss-ukrainskij-brend-kotoryj-pokoril-milan/index.html" class="top">
-                <img src="assets/cache/images/616ac2de4b2798bc97de0cf56a2278c6.jpg" alt="DOMINISS – украинский бренд, который покорил Милан | Fashion Bride" title="DOMINISS – украинский бренд, который покорил Милан"/>
-                <div class="title">
-                    <span>DOMINISS – украинский бренд, который покорил Милан</span>
-                </div>
-            </a>
-            <div class="bottom">
-                <img src="images/img12.jpg" alt="images"/>
-                <a href="index.html#" class="sign_up js_button_fitting"><span>записаться на примерку</span></a>
-            </div>
-        </div>
-    </div><!--end-holder-box-->
-    <div class="about-salon"><!--start-about-salon-->
-        <div class="left">
-            <div class="alignleft">
-                <img src="images/img13.jpg" alt="images"/>
-            </div>
-            <div class="alignright">
-                <span>Наша история</span>
-                <p>Шесть лет назад в самом центре Харькова был открыт эксклюзивный свадебный салон Fashion Bride, который представил невестам широкий ассортимент свaдебных и вечерних платьев известных мировых брендов.</p>
-                <a class="more" href="o-nas/nasha-istoriya/index.html">подробнее</a>
-            </div>
-        </div>
-        <div class="right">
-            <span>Алиса:</span>
-            <p>Покупала платье в городе Киеве)
-                Помогала мне в этом милая и миниатюрная девушка,Светлана )
-                Именно первое платье,которое она предложила-стало именно тем платьем,от которого дыхание перекрыло!) моё моё и ещё раз моё)
-                Спасибо огромное!)</p>
-            <a href="o-nas/otzyvy1/index.html">Читать все отзывы</a>
-        </div>
-    </div><!--end-about-salon-->
-    <div class="block_blog"><!--start-block_blog-->
-        <!--start-block_blog-->
-        <div class="heading">
-            <span>блог</span>
-        </div>
-        <div class="colums">
-            <a href="o-nas/blog/bridal_story_dumrovsky_fashion_night_26_08_2018/index.html" class="colum">
-                <img src="assets/cache/images/9b1d23cf16d48ced021a8c5eedf2bd5e.jpg" alt="Участие Bridal Story в показе 'Dubrovsky Fashion Night' 26.08.2018 | Fashion Bride" title="Участие Bridal Story в показе "Dubrovsky Fashion Night" 26.08.2018"/>
-                <strong>Участие Bridal Story в показе "Dubrovsky Fashion Night" 26.08.2018</strong>
-                <p></p>
-            </a><a href="o-nas/blog/miss_ukraine_2019/index.html" class="colum">
-                <img src="assets/cache/images/6a36070e561426871c284a7618991cd0.jpg" alt="Ми стали частиною грандіозної події «Міс Україна 2018» | Fashion Bride" title="Ми стали частиною грандіозної події «Міс Україна 2018»"/>
-                <strong>Ми стали частиною грандіозної події «Міс Україна 2018»</strong>
-                <p></p>
-            </a><a href="o-nas/blog/generalnoe-sponsorstvo-filma-pod-otkrytym-nebom/index.html" class="colum">
-                <img src="assets/cache/images/158b12b7ec934ba2e47a86d3380c0cb5.jpg" alt="Генеральное спонсорство фильма под открытым небом. | Fashion Bride" title="Генеральное спонсорство фильма под открытым небом."/>
-                <strong>Генеральное спонсорство фильма под открытым небом.</strong>
-                <p></p>
-            </a>
-        </div>
-        <div class="more-article">
-            <a href="o-nas/blog/index.html">читать все статьи</a>
-        </div>
-        <div class="text-main text_color_font">
-            <h3 class="text_center" style="text-align: center;"><span style="font-size: 160%;">Свадебные салоны Fashion Bride в Харькове, Киеве, Днепре, Одессе, Запорожье</span></h3>
-            <p>Свадебные салоны &laquo;Fashion Bride&raquo; представляют Вашему вниманию изысканные вечерние, выпускные и свадебные платья от всемирно известных испанских, американских брендов.</p>
-            <p>В сети наших салонов представлены свадебные, вечерние и выпускные платья, которые, несомненно, будут самым важным украшением в самый ответственный для Вас день. На нашем сайте вы можете просмотреть каталог свадебных платье, в котором представлены самые изысканные и неповторимые платья от ведущих брендов из Испании, Америки и Украины: PRONOVIAS, SAN PATRICK, W 1, ATALIER DIAGONAL, ENZOANI, BLUE BY ENZOANI, DOMINISS. Также на сайте представлены выпускные и вечерние платья от таких известных испанских и американских брендов, как FIESTA - PRONOVIAS, IT.S MY PARTY - SAN PATRICK, LOVE, JOVANI, TARIK EDIZ, TONY BOWLS.</p>
-            <p>Изысканные <a href="svadebnye-platya/index.html" title="Свадебные платья в Харькове">свадебные платья</a>, фото которых представлены на нашем сайте, не оставят равнодушной ни одну представительницу женского пола. Увидеть платья в живую, оценить их материал, качество кроя можно посетив наш свадебный салон &laquo;Fashion Bride&raquo;, который расположен в центре Харькова на улице Сумской, 24, в центре Днепра на проспекте Гагарина, 123 и в центре Запорожья на проспекте Ленина, 186, в Одессе на улице Греческой, 12 и в Киеве. В наших салонах есть VIP - зал, в котором вы без лишних глаз и спешки можете примерить все понравившиеся варианты платьев и выбрать самый лучший. Стилисты - консультанты &nbsp;нашего салона уделят Вам максимум внимания и помогут подобрать платье, которое скроет все недостатки и акцентирует внимание окружающих на Ваших достоинствах. Кроме того, у нас имеется огромный ассортимент аксессуаров &mdash; фаты, перчатки, обувь, диадемы, бижутерия &mdash; которые помогут подчеркнуть уникальность, неповторимость и чувство вкуса каждой невесты.</p>
-            <p>Мы всегда рады предоставить нашим клиентам скидки на все брендовые платья из прошлых коллекций. В нашем салоне вы можете приобрести свадебные, вечерние и выпускные платья своей мечты .</p>
-            <p>Подарите себе неповторимый праздник с платьями от &laquo;Fashion Bride&raquo;!</p>
-        </div>
-        <div class="slider-partners block_blog">
-            <div class="heading">
-                <span>Партнеры</span>
-            </div>
-            <ul class="bxslider_partners">
-                <li><img src="images/partners_01.jpg" alt="images"/></li>
-                <li><img src="images/partners_02.jpg" alt="images"/></li>
-                <li><img src="images/partners_03.jpg" alt="images"/></li>
-                <li><img src="images/partners_04.jpg" alt="images"/></li>
-                <!--<li><img src="images/partners_05.jpg" alt="images"/></li>-->
-                <li><img src="images/partners.jpg" alt="images"/></li>
-            </ul>
-        </div>
-    </div>
-
-    <!--end-block_blog-->
-
-    <div class="h_footer"></div>
-    </div>
-    <footer id="footer" class="shadow">
-
 
     @stop
