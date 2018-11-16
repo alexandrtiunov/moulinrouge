@@ -197,7 +197,7 @@
             <tbody>
         @foreach($products as $product)
             <tr class="atribut-table-product {{$product->atribut->type}}">
-                <td scope="row"><a href="http:\\moulinrouge\catalog\{{$product->short_name}}">{{$product->id}}</a></td>
+                <td scope="row"><a href="{{action('IndexController@detail', [$product->category->short_name, $product->short_name])}}" target="_blank">{{$product->id}}</a></td>
                 <td>{{$product->category->name}}</td>
                 <td>{{$product->name}}</td>
                 <td>{{$product->article}}</td>

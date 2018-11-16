@@ -15,7 +15,7 @@
                                 <ul class="products columns-1">
                                     @foreach($products as $product)
                                         @if($product['atribut_id'] == 3)
-                                            <li class="product">
+                                            <li class="product {{$product->name}}">
                                         <div class="product-container">
                                             <figure>
                                                 <div class="product-wrap">
@@ -23,23 +23,23 @@
                                                         <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                             @foreach($resources as $resource)
                                                                 @if($resource['product_id'] == $product['id'])
-                                                            <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                            <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
                                                                     @break
                                                                 @endif
                                                             @endforeach
                                                         </div>
-                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
-                                                        </div>
+                                                        {{--<div class="shop-loop-thumbnail shop-loop-back-thumbnail">--}}
+                                                            {{--<img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>--}}
+                                                        {{--</div>--}}
                                                         <div class="loop-action">
                                                             <div class="shop-loop-quickview">
-                                                                <a title="Quick view" href="#">
-                                                                    Quick view
+                                                                <a title="Detail" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
+                                                                    Подробнее
                                                                 </a>
                                                             </div>
                                                             <div class="loop-add-to-cart">
-                                                                <a href="#" class="add_to_cart_button">
-                                                                    Add to cart
+                                                                <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                    В примерочную
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -63,18 +63,18 @@
                                                         </div>
                                                         <div class="info-content-wrap">
                                                             <h3 class="product_title">
-                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                                <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                             </h3>
                                                             <div class="info-price">
-																				<span class="price">
-																					<span class="amount">
-																						&#8372; {{$product->price}},00
-																					</span>
+                                                                <span class="price">
+                                                                    <span class="amount">
+                                                                        &#8372; {{$product->price}},00
+                                                                    </span>
 																					{{--&ndash;--}}
 																					{{--<span class="amount">--}}
 																						{{--&pound;20.00--}}
 																					{{--</span>--}}
-																				</span>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -101,7 +101,7 @@
                                 <ul class="products columns-1">
                                     @foreach($products as $product)
                                         @if($product['atribut_id'] == 4)
-                                    <li class="product">
+                                    <li class="product {{$product->name}}">
                                         <div class="product-container">
                                             <figure>
                                                 <div class="product-wrap">
@@ -109,23 +109,20 @@
                                                         <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                             @foreach($resources as $resource)
                                                                 @if($resource['product_id'] == $product['id'])
-                                                                    <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
                                                                     @break
                                                                 @endif
                                                             @endforeach
                                                         </div>
-                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
-                                                        </div>
                                                         <div class="loop-action">
                                                             <div class="shop-loop-quickview">
-                                                                <a title="Quick view" href="#">
-                                                                    Quick view
+                                                                <a title="Detail" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
+                                                                    Подробнее
                                                                 </a>
                                                             </div>
                                                             <div class="loop-add-to-cart">
-                                                                <a href="#" class="add_to_cart_button">
-                                                                    Add to cart
+                                                                <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                    В примерочную
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -149,14 +146,14 @@
                                                         </div>
                                                         <div class="info-content-wrap">
                                                             <h3 class="product_title">
-                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                                <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                             </h3>
                                                             <div class="info-price">
-																				<span class="price">
-																					<span class="amount">
-																						&#8372; {{$product->price}},00
-																					</span>
-																				</span>
+                                                                <span class="price">
+                                                                    <span class="amount">
+                                                                        &#8372; {{$product->price}},00
+                                                                    </span>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -182,8 +179,9 @@
                             <div class="commerce columns-1">
                                 <ul class="products columns-1" data-columns="1">
                                     @foreach($products as $product)
+                                        @if($product['atribut_id'] != 1 && $product['atribut_id'] != 5)
                                         @if($product->discount_id != null)
-                                    <li class="product">
+                                    <li class="product {{$product->name}}">
                                         <div class="product-container">
                                             <figure>
                                                 <div class="product-wrap">
@@ -192,23 +190,20 @@
                                                         <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                             @foreach($resources as $resource)
                                                                 @if($resource['product_id'] == $product['id'])
-                                                                    <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
                                                                     @break
                                                                 @endif
                                                             @endforeach
                                                         </div>
-                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
-                                                        </div>
                                                         <div class="loop-action">
                                                             <div class="shop-loop-quickview">
-                                                                <a title="Quick view" href="#">
-                                                                    Quick view
+                                                                <a title="Detail" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
+                                                                    Подробнее
                                                                 </a>
                                                             </div>
                                                             <div class="loop-add-to-cart">
-                                                                <a href="#" class="add_to_cart_button">
-                                                                    Add to cart
+                                                                <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                    В примерочную
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -232,21 +227,21 @@
                                                         </div>
                                                         <div class="info-content-wrap">
                                                             <h3 class="product_title">
-                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                                <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                             </h3>
                                                             <div class="info-price">
-																				<span class="price">
-																					<del>
-																						<span class="amount">
-																							&#8372; {{$product->price}},00
-																						</span>
-																					</del>
-																					<ins>
-																						<span class="amount">
-																							&#8372; {{$product->discount->new_price}},00
-																						</span>
-																					</ins>
-																				</span>
+                                                                <span class="price">
+                                                                    <del>
+                                                                        <span class="amount">
+                                                                            &#8372; {{$product->price}},00
+                                                                        </span>
+                                                                    </del>
+                                                                    <ins>
+                                                                        <span class="amount">
+                                                                            &#8372; {{$product->discount->new_price}},00
+                                                                        </span>
+                                                                    </ins>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -254,6 +249,7 @@
                                             </figure>
                                         </div>
                                     </li>
+                                        @endif
                                         @endif
                                     @endforeach
                                 </ul>
@@ -271,12 +267,12 @@
                     <div class="box-ft box-ft-1">
                         <img src="{{URL::to('img/nashi_nevesty.jpg')}}" alt="">
                         <a href="#">
-											<span class="bof-tf-title-wrap">
-												<span class="bof-tf-title-wrap-2">
-													{{--<span class="bof-tf-sub-title">New Comming</span>--}}
-													<span class="bof-tf-title">Наши невесты</span>
-												</span>
-											</span>
+                            <span class="bof-tf-title-wrap">
+                                <span class="bof-tf-title-wrap-2">
+                                    {{--<span class="bof-tf-sub-title">New Comming</span>--}}
+                                    <span class="bof-tf-title">Наши невесты</span>
+                                </span>
+                            </span>
                         </a>
                     </div>
                 </div>
@@ -301,6 +297,7 @@
                             <div class="commerce columns-4">
                                 <ul class="products columns-4" data-columns="4">
                                     @foreach($products as $product)
+                                        @if($product['atribut_id'] != 1 && $product['atribut_id'] != 5)
                                     <li class="product">
                                         <div class="product-container">
                                             <figure>
@@ -309,23 +306,20 @@
                                                         <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                             @foreach($resources as $resource)
                                                                 @if($resource['product_id'] == $product['id'])
-                                                                    <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                    <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
                                                                     @break
                                                                 @endif
                                                             @endforeach
                                                         </div>
-                                                        <div class="shop-loop-thumbnail shop-loop-back-thumbnail">
-                                                            <img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>
-                                                        </div>
                                                         <div class="loop-action">
                                                             <div class="shop-loop-quickview">
-                                                                <a title="Quick view" href="#">
-                                                                    Quick view
+                                                                <a title="Detail" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
+                                                                    Подробнее
                                                                 </a>
                                                             </div>
                                                             <div class="loop-add-to-cart">
-                                                                <a href="#" class="add_to_cart_button">
-                                                                    Add to cart
+                                                                <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                    В примерочную
                                                                 </a>
                                                             </div>
                                                         </div>
@@ -349,14 +343,14 @@
                                                         </div>
                                                         <div class="info-content-wrap">
                                                             <h3 class="product_title">
-                                                                <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                                <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                             </h3>
                                                             <div class="info-price">
-																				<span class="price">
-																					<span class="amount">
-																						&#8372; {{$product->price}},00
-																					</span>
-																				</span>
+                                                                <span class="price">
+                                                                    <span class="amount">
+                                                                        &#8372; {{$product->price}},00
+                                                                    </span>
+                                                                </span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -364,7 +358,7 @@
                                             </figure>
                                         </div>
                                     </li>
-
+                                        @endif
                                         @endforeach
                                 </ul>
                             </div>
@@ -386,7 +380,7 @@
                                     <div class="hentry-wrap">
                                         <div class="entry-featured">
                                             <a href="blog-detail.html">
-                                                <img width="700" height="450" src="../img/blog-photo/{{$article->short_name}}/{{$article->img_path}}" alt="" />
+                                                <img width="700" height="450" src="{{URL::to('/img/blog-photo/' . $article->short_name . '/' . $article->img_path)}}" alt="" />
                                             </a>
                                         </div>
                                         <div class="entry-info">

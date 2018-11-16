@@ -112,6 +112,7 @@ $('document').ready(function () {
             method: 'GET',
             data: data,
             success: function (response) {
+                console.log(response);
                 var new_blog = $(response).find('.product-table.table.table-bordered').html();
                 $('.product-table.table.table-bordered').html(new_blog);
 

@@ -26,7 +26,7 @@
                                                                     @if($resource['product_id'] == $product['id'])
                                                                 <li class="caroufredsel-item">
                                                                     <a href="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/617x769/{{$resource->img_preview_H769_path}}" data-rel="magnific-popup-verticalfit">
-                                                                        <img  src="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/617x769/{{$resource->img_preview_H769_path}}" alt=""/>
+                                                                        <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/617x769/' . $resource->img_preview_H769_path)}}" alt=""/>
                                                                     </a>
                                                                 </li>
                                                                     @endif
@@ -45,8 +45,8 @@
                                                                     @if($resource['product_id'] == $product['id'])
                                                                 <li class="caroufredsel-item selected">
                                                                     <div class="thumb">
-                                                                        <a href="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/617x769/{{$resource->img_preview_H769_path}}" data-rel="0">
-                                                                            <img  src="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                        <a href="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/167x250/' . $resource->img_preview_H250_path)}}" data-rel="0">
+                                                                            <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/167x250/' . $resource->img_preview_H250_path)}}" alt=""/>
                                                                         </a>
                                                                     </div>
                                                                 </li>
@@ -66,7 +66,7 @@
                                                         {{--<span class="amount">&pound;20.50</span>--}}
                                                     {{--</del>--}}
                                                     <ins>
-                                                        <span class="amount">&pound;19.00</span>
+                                                        <span class="amount">&#8372; {{$product->price}},00</span>
                                                     </ins>
                                                 </p>
                                                 <div class="product-excerpt">
@@ -76,22 +76,25 @@
                                                 </div>
                                                 <form class="cart">
                                                     <div class="add-to-cart-table">
-                                                        <div class="quantity">
-                                                            <input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>
-                                                        </div>
-                                                        <button type="submit" class="button">Add to cart</button>
+                                                        {{--<div class="quantity">--}}
+                                                            {{--<input type="number" step="1" min="1" name="quantity" value="1" title="Qty" class="input-text qty text" size="4"/>--}}
+                                                        {{--</div>--}}
+                                                        <a href="{{action('CartController@index')}}" class="add_to_cart_button button" data-toggle="{{$product->name}}">
+                                                            В примерочную
+                                                        </a>
+                                                        {{--<button type="submit" class="button">В примерочную</button>--}}
                                                     </div>
                                                 </form>
-                                                <p><a href="#"><strong>Add to Wishlist</strong></a></p>
+                                                {{--<p><a href="#"><strong>Add to Wishlist</strong></a></p>--}}
                                                 <div class="clear"></div>
                                                 <div class="product_meta">
 															<span class="posted_in">
-																Categories:
-																<a href="#">Maecenas</a>, <a href="#">Nulla</a>
+																Категория:
+																<a href="{{action('IndexController@catalog', $product->category->short_name)}}">{{$product->category->name}}</a></a>
 															</span>
                                                     <span class="posted_in">
-																Brand:
-																<a href="#">Barbour</a>, <a href="#">Carvela</a>, <a href="#">Crocs</a>.
+																Коллекция:
+																<a href="#">{{$product->collection->name}}-{{$product->collection->year}}</a>
 															</span>
                                                 </div>
                                                 <div class="share-links">

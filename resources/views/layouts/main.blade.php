@@ -3,7 +3,10 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0"/>
-    <title>WooW | HTML Commerce Template</title>
+
+    @section('title')
+        <title>Moulin Rouge | Свадебный салон</title>
+    @show
 
     <link rel="shortcut icon" href="images/favicon.ico">
 
@@ -51,6 +54,7 @@
     <script type='text/javascript' src='{{ URL::to('js/main/extensions/revolution.extension.parallax.min.js') }}'></script>
 
     <script type='text/javascript' src='{{ URL::to('js/site.js') }}'></script>
+    <script type='text/javascript' src='{{ URL::to('js/jquery.cookie.js') }}'></script>
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -211,8 +215,8 @@
                                             </a>
                                             <a class="navbar-brand" href="./">
                                                 <img class="logo" alt="WOOW" src="{{URL::to('img/logoblack.png')}}">
-                                                <img class="logo-fixed" alt="WOOW" src="{{URL::to('img/logoblack.png')}}">
-                                                <img class="logo-mobile" alt="WOOW" src="images/logo-mobile.png">
+                                                <img class="logo-fixed" alt="Moulin Rouge" src="{{URL::to('img/logoblack.png')}}">
+                                                <img class="logo-mobile" alt="Moulin Rouge" src="{{URL::to('img/logoblack.png')}}">
                                             </a>
                                         </div>
                                         <div class="navbar-header-right">
@@ -223,10 +227,10 @@
                                             </div>
                                             <div class="navbar-minicart navbar-minicart-topbar">
                                                 <div class="navbar-minicart">
-                                                    <a class="minicart-link" href="#">
+                                                    <a class="minicart-link" href="{{action('CartController@index')}}">
 																<span class="minicart-icon">
 																	<i class="fa fa-shopping-cart"></i>
-																	<span>0</span>
+																	<span class="count">{{count($productsCart)}}</span>
 																</span>
                                                     </a>
                                                 </div>
@@ -246,14 +250,16 @@
                                                 </a>
                                             </li>
                                             <li class="current-menu-item menu-item-has-children dropdown">
-                                                <a href="./" class="dropdown-hover">
+                                                <a href="{{action('IndexController@catalog')}}" class="dropdown-hover">
                                                     <span class="underline">Платья</span> <span class="caret"></span>
                                                 </a>
                                                 <ul class="dropdown-menu">
                                                     @foreach($categories as $category)
+                                                        @if($category->activity == 1)
                                                         <li>
                                                             <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
                                                         </li>
+                                                        @endif
                                                     @endforeach
                                                 </ul>
                                             </li>
@@ -444,7 +450,7 @@
                     <div class="footer-featured-col col-md-4 col-sm-6">
                         <i class="fa fa-money"></i>
                         <h4 class="footer-featured-title">
-                            100% <br> return money
+                            100% <br> возврат денег
                         </h4>
                         free return standard order in 30 days
                     </div>
@@ -475,13 +481,14 @@
                                     <ul class="address">
                                         <li>
                                             <i class="fa fa-home"></i>
-                                            <h4>Address:</h4>
-                                            <p>132 Jefferson Avenue, Suite 22, Redwood City, CA 94872, USA</p>
+                                            <h4>Адрес:</h4>
+                                            <p>г. Краматорск, ул. Парковая, 20, Украина</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-mobile"></i>
-                                            <h4>Phone:</h4>
-                                            <p>(00) 123 456 789</p>
+                                            <h4>Телефон:</h4>
+                                            <p>(099) 92-33-776</p>
+                                            <p>(063) 258-20-25</p>
                                         </li>
                                         <li>
                                             <i class="fa fa-envelope"></i>
@@ -495,15 +502,15 @@
                         <div class="footer-widget-col col-md-3 col-sm-6">
                             <div class="widget widget_nav_menu">
                                 <h3 class="widget-title">
-                                    <span>infomation</span>
+                                    <span>Информация</span>
                                 </h3>
                                 <div class="menu-infomation-container">
                                     <ul class="menu">
-                                        <li><a href="#">About Us</a></li>
-                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">О Нас</a></li>
+                                        <li><a href="#">Контакты</a></li>
                                         <li><a href="#">Term &#038; Conditions</a></li>
                                         <li><a href="#">Gift Voucher</a></li>
-                                        <li><a href="#">BestSellers</a></li>
+                                        <li><a href="#">Топ продаж</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -527,13 +534,13 @@
                         <div class="footer-widget-col col-md-3 col-sm-6">
                             <div class="widget widget_text">
                                 <h3 class="widget-title">
-                                    <span>open house</span>
+                                    <span>Время работы</span>
                                 </h3>
                                 <div class="textwidget">
                                     <ul class="open-time">
-                                        <li><span>Mon - Fri:</span><span>8am - 5pm</span> </li>
-                                        <li><span>Sat:</span><span>8am - 11am</span> </li>
-                                        <li><span>Sun: </span><span>Closed</span></li>
+                                        <li><span>Пн - Пт:</span><span>8am - 5pm</span> </li>
+                                        <li><span>Сб:</span><span>8am - 11am</span> </li>
+                                        <li><span>Вс: </span><span>Closed</span></li>
                                     </ul>
                                     <h3 class="widget-title">
                                         <span>payment Menthod</span>
@@ -554,7 +561,7 @@
             </div>
         </div>
         <div class="footer-copyright text-center">
-            © 2015 WOOW - Responsive Commerce Theme
+            © 2018 MoulinRouge | Свадебный салон
         </div>
     </footer>
 </div>
@@ -676,12 +683,12 @@
 </div>
 <div class="minicart-side">
     <div class="minicart-side-title">
-        <h4>Shopping Cart</h4>
+        <h4>Моя примерочная</h4>
     </div>
     <div class="minicart-side-content">
         <div class="minicart">
             <div class="minicart-header no-items show">
-                Your shopping bag is empty.
+                В примерочной не добавлены товары.
             </div>
             <div class="minicart-footer">
                 <div class="minicart-actions clearfix">

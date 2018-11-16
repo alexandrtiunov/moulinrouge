@@ -8,6 +8,7 @@ use App\Product;
 use App\Resource;
 use Illuminate\Http\Request;
 use App\Category;
+use App\Http\Cart\ProductInCart;
 
 class IndexController extends Controller
 {
@@ -19,42 +20,75 @@ class IndexController extends Controller
         $resources = Resource::all();
         $categories = Category::all();
 
+        $productsCart = ProductInCart::addProduct();
+//        dd($productsCart);
+
         return view('index', [
             'products' => $products,
             'resources'=> $resources,
             'articles'=> $articles,
             'categories'=> $categories,
+            'productsCart'=> $productsCart,
         ]);
     }
 
-    public function catalog(Request $request, $categoryShortName = null){
+    public function catalog(Request $request, $categoryShortName = null, $collectionShortName = null){
 
-        if($request->has('collection')){
-            $w = $request->input('col-val');
-//            $products = Product::where('content', 'like', '%' . $w . '%')->paginate(5);
-            echo $w;
-        }
+        dump($categoryShortName, $collectionShortName);
+        $resources = Resource::all();
+        $categories = Category::all();
+        $collections = Collection::all();
+        $productsCart = ProductInCart::addProduct();
+
 
         if ($categoryShortName) {
             $category = Category::where('short_name', $categoryShortName)->first();
             $catId = $category->id;
             $products = Product::where('category_id', $catId)->get();
-        }
-        else {
-            $products = Product::orderBy('id', 'desc')->paginate(20)->toArray();
-        }
 
-        $resources = Resource::all();
-        $categories = Category::all();
-        $collections = Collection::all();
+            $title = $categoryShortName;
 
-        return view('products', [
-            'products' => $products,
-            'resources'=> $resources,
-            'category'=> $category,
-            'categories'=> $categories,
-            'collections'=> $collections,
+                if (isset($collectionShortName)){
+
+                    $collection = Collection::where('short_name', $collectionShortName)->first();
+                    $collectionId = $collection->id;
+                    $products = Product::where('collection_id', $collectionId)->get();
+
+//                    dump($products, $collectionId);
+                    return view('products', [
+                        'products' => $products,
+                        'resources'=> $resources,
+                        'category'=> $category,
+                        'categories'=> $categories,
+                        'collections'=> $collections,
+                        'productsCart'=> $productsCart,
+                        'title'=> $title,
+                    ]);
+                }
+
+            return view('products', [
+                'products' => $products,
+                'resources'=> $resources,
+                'category'=> $category,
+                'categories'=> $categories,
+                'collections'=> $collections,
+                'productsCart'=> $productsCart,
+                'title'=> $title,
             ]);
+        }else {
+            $products = Product::orderBy('id', 'desc')->paginate(20);
+
+            $title = "Каталог товаров";
+
+            return view('catalog', [
+                'products' => $products,
+                'resources'=> $resources,
+                'title'=> $title,
+                'categories'=> $categories,
+                'collections'=> $collections,
+                'productsCart'=> $productsCart,
+            ]);
+        }
     }
 
     public function detail($category_short_name, $short_name){
@@ -63,11 +97,13 @@ class IndexController extends Controller
 
         $categories = Category::all();
         $resources = Resource::all();
+        $productsCart = ProductInCart::addProduct();
 
         return view('detail', compact('detail', 'short_name'), [
             'product' => $product,
             'categories'=> $categories,
             'resources'=> $resources,
+            'productsCart'=> $productsCart,
         ]);
     }
 

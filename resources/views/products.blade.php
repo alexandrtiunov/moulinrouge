@@ -11,40 +11,41 @@
             <div class="row">
                 <div class="col-md-9 main-wrap">
                     <div class="main-content">
-                        <div class="shop-toolbar">
-                            <form class="commerce-ordering clearfix">
-                                <div class="commerce-ordering-select">
-                                    <label class="hide">Sorting:</label>
-                                    <div class="form-flat-select">
-                                        <select name="orderby" class="orderby">
-                                            <option value="" selected='selected'>Default sorting</option>
-                                            <option value="">Sort by popularity</option>
-                                            <option value="">Sort by average rating</option>
-                                            <option value="">Sort by newness</option>
-                                            <option value="">Sort by price: low to high</option>
-                                            <option value="">Sort by price: high to low</option>
-                                        </select>
-                                        <i class="fa fa-angle-down"></i>
-                                    </div>
-                                </div>
-                                <div class="commerce-ordering-select">
-                                    <label class="hide">Show:</label>
-                                    <div class="form-flat-select">
-                                        <select name="per_page" class="per_page">
-                                            <option value="" selected='selected'>12</option>
-                                            <option value="">24</option>
-                                            <option value="">36</option>
-                                        </select>
-                                        <i class="fa fa-angle-down"></i>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+                        {{--<div class="shop-toolbar">--}}
+                            {{--<form class="commerce-ordering clearfix">--}}
+                                {{--<div class="commerce-ordering-select">--}}
+                                    {{--<label class="hide">Sorting:</label>--}}
+                                    {{--<div class="form-flat-select">--}}
+                                        {{--<select name="orderby" class="orderby">--}}
+                                            {{--<option value="" selected='selected'>Default sorting</option>--}}
+                                            {{--<option value="">Sort by popularity</option>--}}
+                                            {{--<option value="">Sort by average rating</option>--}}
+                                            {{--<option value="">Sort by newness</option>--}}
+                                            {{--<option value="">Sort by price: low to high</option>--}}
+                                            {{--<option value="">Sort by price: high to low</option>--}}
+                                        {{--</select>--}}
+                                        {{--<i class="fa fa-angle-down"></i>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                                {{--<div class="commerce-ordering-select">--}}
+                                    {{--<label class="hide">Show:</label>--}}
+                                    {{--<div class="form-flat-select">--}}
+                                        {{--<select name="per_page" class="per_page">--}}
+                                            {{--<option value="" selected='selected'>12</option>--}}
+                                            {{--<option value="">24</option>--}}
+                                            {{--<option value="">36</option>--}}
+                                        {{--</select>--}}
+                                        {{--<i class="fa fa-angle-down"></i>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
+                            {{--</form>--}}
+                        {{--</div>--}}
                         <div class="shop-loop grid">
                             <ul class="products">
                                 @foreach($products as $product)
+                                    @if($product['atribut_id'] != 1 && $product['atribut_id'] != 5)
                                     @if($product->category_id == $category['id'])
-                                <li class="product col-md-3 col-sm-6">
+                                <li class="product {{$product->name}}">
                                     <div class="product-container">
                                         <figure>
                                             <div class="product-wrap">
@@ -52,7 +53,7 @@
                                                     <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                         @foreach($resources as $resource)
                                                             @if($resource['product_id'] == $product['id'])
-                                                                <img  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/322x405/{{$resource->img_preview_H405_path}}" alt=""/>
+                                                                <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
                                                                 @break
                                                             @endif
                                                         @endforeach
@@ -62,13 +63,13 @@
                                                     {{--</div>--}}
                                                     <div class="loop-action">
                                                         <div class="shop-loop-quickview">
-                                                            <a title="Quick view" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
+                                                            <a title="Detail" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
                                                                 Подробнее
                                                             </a>
                                                         </div>
                                                         <div class="loop-add-to-cart">
-                                                            <a href="#" class="add_to_cart_button">
-                                                                Add to cart
+                                                            <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                В примерочную
                                                             </a>
                                                         </div>
                                                     </div>
@@ -92,18 +93,18 @@
                                                     </div>
                                                     <div class="info-content-wrap">
                                                         <h3 class="product_title">
-                                                            <a href="shop-detail-1.html">{{$product->name}}</a>
+                                                            <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                         </h3>
                                                         <div class="info-price">
-																	<span class="price">
-																		<span class="amount">
-																			&#8372; {{$product->price}},00
-																		</span>
+                                                            <span class="price">
+                                                                <span class="amount">
+                                                                    &#8372; {{$product->price}},00
+                                                                </span>
 																		{{--&ndash;--}}
 																		{{--<span class="amount">--}}
 																			{{--&pound;20.00--}}
 																		{{--</span>--}}
-																	</span>
+                                                            </span>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -111,6 +112,7 @@
                                         </figure>
                                     </div>
                                 </li>
+                                    @endif
                                     @endif
                                 @endforeach
                             </ul>
@@ -139,8 +141,18 @@
                             <ul>
                                 @foreach($collections as $collection)
                                 <li>
-                                    <a name="collection" class="collection_id" href="#">
-                                        {{$collection->name}}-{{$collection->year}}</a><small class="count">{{count($collection->product)}}</small>
+                                    <?php
+                                    $countProducts = [];
+                                    foreach ($collection->product as $item){
+                                        if($item->atribut_id != 1 && $item->atribut_id != 5){
+                                            $countProducts[] .= $item;
+                                        }
+
+                                    }?>
+
+                                    <a name="collection" class="collection_id" href="{{action('IndexController@catalog', [$category->short_name, $collection->short_name])}}">
+                                    {{$collection->name}}-{{$collection->year}}</a><small class="count">{{count($countProducts)}}</small>
+
                                 </li>
                                 @endforeach
                             </ul>
@@ -149,9 +161,11 @@
                             <h4 class="widget-title"><span>Категории</span></h4>
                             <ul class="product-categories">
                                 @foreach($categories as $category)
+                                    @if($category->activity == 1)
                                 <li>
                                     <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category->name}}</a>
                                 </li>
+                                    @endif
                                     @endforeach
 
                             </ul>
