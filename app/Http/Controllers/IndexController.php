@@ -21,7 +21,6 @@ class IndexController extends Controller
         $categories = Category::all();
 
         $productsCart = ProductInCart::addProduct();
-//        dd($productsCart);
 
         return view('index', [
             'products' => $products,
@@ -34,7 +33,6 @@ class IndexController extends Controller
 
     public function catalog(Request $request, $categoryShortName = null, $collectionShortName = null){
 
-        dump($categoryShortName, $collectionShortName);
         $resources = Resource::all();
         $categories = Category::all();
         $collections = Collection::all();

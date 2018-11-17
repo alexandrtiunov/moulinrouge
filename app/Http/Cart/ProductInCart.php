@@ -7,6 +7,7 @@
  */
 
 namespace App\Http\Cart;
+use App\Category;
 use App\Product;
 
 
@@ -31,5 +32,14 @@ class ProductInCart
             }
         }
         return $productsCart;
+    }
+
+    public static function viewProduct ($productsCart){
+
+        $productName = "";
+        foreach ($productsCart as $item){
+            $productName .= $item->name . ", ";
+        }
+        return $productName;
     }
 }

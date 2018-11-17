@@ -33,7 +33,7 @@ class UploadResource
         if($width > 167){
             $img->crop(167, 250, 50);
         }
-        $img->basename = $img->filename . '_W-167_' . ' H-250' . '.jpg';
+        $img->basename = $img->filename . '_W-167_' . 'H-250' . '.jpg';
         $pathToPreview ['img_preview_H250_path'] =  $img->basename;
         $productPathPreview = str_replace(' ', '_', $product['name'] . '_' . $product['article'] . '/' . '167x250');
         if (!file_exists(public_path('/img/product/preview/' . $productPathPreview))) {

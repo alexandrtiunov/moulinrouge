@@ -106,3 +106,24 @@
     background-color: #f16868;
     display: none;
 }
+
+.col-form-label{
+    float: left;
+}
+
+.date.form-control{
+    width: 300px;
+}
+.time.form-control{
+    width: 206px;
+    float: right;
+    margin: -40px 0;
+}
+.date.col-form-label{
+    margin-right: 55%;
+}
+
+.minicart-icon{
+    font: 1em/13px 'PragmaticaC',sans-serif;
+    text-transform: uppercase;
+}

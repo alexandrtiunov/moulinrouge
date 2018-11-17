@@ -10,10 +10,6 @@ jQuery('document').ready(function () {
         var data = $('.product.' + name); // получаем блок с товаром
         var url = $(this).attr('href'); // получаем ссылку
 
-        // for(var i = 0; i < data.length; i++){
-        //     console.log(data[i]);
-        // }
-
         $.cookie("product" + name, name, {path: '/' })  ; // записываем в куки имя товара
 
         // отправляем аяксом на полученную ссылку
@@ -49,7 +45,7 @@ jQuery('document').ready(function () {
        var productName = $(this).attr('data-toggle');
        var cart = $('.count');
 
-       $.cookie("product" + productName, null, {expires: -1});
+       $.cookie("product" + productName, null, {path: '/', expires: -1});
 
         $.ajax({
             url: url,
@@ -75,6 +71,34 @@ jQuery('document').ready(function () {
                 });
             }
         });
+    });
+
+    $('#fitting').on('show.bs.modal', function (event) {
+        var button = $(event.relatedTarget); // Button that triggered the modal
+        var recipient = button.data('whatever');
+        console.log(recipient);
+        var modal = $(this);
+        modal.find('.dress-name').text(recipient);
+        modal.find('.modal-body .dress-name').val(recipient);
+    });
+
+    // input ввод имени - разрешено вводить только цифры и буквы и точку
+    $('.name.form-control').bind("change keyup input click", function() {
+        if (this.value.match(/[^A-Za-zА-Яа-я]/g)) {
+            this.value = this.value.replace(/[^A-Za-zА-Яа-я]/g, '');
+        }
+    });
+    // input ввод email - регулярное выражение
+    $('.email.form-control').bind("change keyup input click", function() {
+        if (this.value.match(/[^A-Za-z0-9@\.]/g)) {
+            this.value = this.value.replace(/[^A-Za-z0-9@\.]/g, '');
+        }
+    });
+    // input ввод email - регулярное выражение
+    $('.phone.form-control').bind("change keyup input click", function() {
+        if (this.value.match(/[^0-9-\(\)\.]/g)) {
+            this.value = this.value.replace(/[^0-9-\(\)\.]/g, '');
+        }
     });
 
 });//end ready

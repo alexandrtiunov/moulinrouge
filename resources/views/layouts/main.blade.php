@@ -9,6 +9,7 @@
     @show
 
     <link rel="shortcut icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="{{URL::to('css/main.css')}}" type="text/css">
 
     <link rel='stylesheet' href='{{ URL::to('css/main/settings.css') }}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{ URL::to('css/bootstrap.min.css') }}' type='text/css' media='all'/>
@@ -23,6 +24,7 @@
     <link rel='stylesheet' href='{{ URL::to('css/main/commerce.css') }}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{ URL::to('css/main/custom.css') }}' type='text/css' media='all'/>
     <link rel='stylesheet' href='{{ URL::to('css/main/magnific-popup.css') }}' type='text/css' media='all'/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
 
     <script type='text/javascript' src='{{ URL::to('js/jquery-3.0.0.min.js') }}'></script>
     <script type='text/javascript' src='{{ URL::to('js/main/jquery-migrate.min.js') }}'></script>
@@ -148,27 +150,27 @@
 <div id="wrapper" class="wide-wrap">
     <div class="offcanvas-overlay"></div>
     <header class="header-container header-type-center header-navbar-center header-scroll-resize">
-        <div class="topbar">
-            <div class="container topbar-wap">
-                <div class="row">
-                    <div class="col-sm-6 col-left-topbar">
-                        <div class="left-topbar">
-                            Shop unique and handmade items directly
-                            <a href="#">About<i class="fa fa-long-arrow-right"></i></a>
-                        </div>
-                    </div>
-                    <div class="col-sm-6 col-right-topbar">
-                        <div class="right-topbar">
-                            <div class="user-login">
-                                <ul class="nav top-nav">
-                                    <li><a data-rel="loginModal" href="#"> Войти </a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+        {{--<div class="topbar">--}}
+            {{--<div class="container topbar-wap">--}}
+                {{--<div class="row">--}}
+                    {{--<div class="col-sm-6 col-left-topbar">--}}
+                        {{--<div class="left-topbar">--}}
+                            {{--Shop unique and handmade items directly--}}
+                            {{--<a href="#">About<i class="fa fa-long-arrow-right"></i></a>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                    {{--<div class="col-sm-6 col-right-topbar">--}}
+                        {{--<div class="right-topbar">--}}
+                            {{--<div class="user-login">--}}
+                                {{--<ul class="nav top-nav">--}}
+                                    {{--<li><a data-rel="loginModal" href="#"> Войти </a></li>--}}
+                                {{--</ul>--}}
+                            {{--</div>--}}
+                        {{--</div>--}}
+                    {{--</div>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="navbar-container">
             <div class="navbar navbar-default navbar-scroll-fixed">
                 <div class="navbar-default-wrap">
@@ -180,22 +182,22 @@
                                         <div class="navbar-header-left">
                                             <div class="social">
                                                 <a href="#" title="Facebook" target="_blank">
-                                                    <i class="fa fa-facebook facebook-bg-hover"></i>
+                                                    <i class="fab fa-facebook-f"></i>
                                                 </a>
-                                                <a href="#" title="Twitter" target="_blank">
-                                                    <i class="fa fa-twitter twitter-bg-hover"></i>
-                                                </a>
-                                                <a href="#" title="Google+" target="_blank">
-                                                    <i class="fa fa-google-plus google-plus-bg-hover"></i>
-                                                </a>
-                                                <a href="#" title="Pinterest" target="_blank">
-                                                    <i class="fa fa-pinterest pinterest-bg-hover"></i>
-                                                </a>
-                                                <a href="#" title="RSS" target="_blank">
-                                                    <i class="fa fa-rss rss-bg-hover"></i>
-                                                </a>
+                                                {{--<a href="#" title="Twitter" target="_blank">--}}
+                                                    {{--<i class="fa fa-twitter twitter-bg-hover"></i>--}}
+                                                {{--</a>--}}
+                                                {{--<a href="#" title="Google+" target="_blank">--}}
+                                                    {{--<i class="fa fa-google-plus google-plus-bg-hover"></i>--}}
+                                                {{--</a>--}}
+                                                {{--<a href="#" title="Pinterest" target="_blank">--}}
+                                                    {{--<i class="fa fa-pinterest pinterest-bg-hover"></i>--}}
+                                                {{--</a>--}}
+                                                {{--<a href="#" title="RSS" target="_blank">--}}
+                                                    {{--<i class="fa fa-rss rss-bg-hover"></i>--}}
+                                                {{--</a>--}}
                                                 <a href="#" title="Instagram" target="_blank">
-                                                    <i class="fa fa-instagram instagram-bg-hover"></i>
+                                                    <i class="fab fa-instagram"></i>
                                                 </a>
                                             </div>
                                         </div>
@@ -220,26 +222,27 @@
                                             </a>
                                         </div>
                                         <div class="navbar-header-right">
-                                            <div class="navbar-search">
-                                                <a class="navbar-search-button" href="#">
-                                                    <i class="fa fa-search"></i>
-                                                </a>
-                                            </div>
+                                            {{--<div class="navbar-search">--}}
+                                                {{--<a class="navbar-search-button" href="#">--}}
+                                                    {{--<i class="fa fa-search"></i>--}}
+                                                {{--</a>--}}
+                                            {{--</div>--}}
                                             <div class="navbar-minicart navbar-minicart-topbar">
                                                 <div class="navbar-minicart">
                                                     <a class="minicart-link" href="{{action('CartController@index')}}">
 																<span class="minicart-icon">
-																	<i class="fa fa-shopping-cart"></i>
+                                                                    Моя примерочная
+																	<i class="fas fa-person-booth" title="Моя примерочная" alt="Моя примерочная"></i>
 																	<span class="count">{{count($productsCart)}}</span>
 																</span>
                                                     </a>
                                                 </div>
                                             </div>
-                                            <div class="navbar-wishlist">
-                                                <a href="#">
-                                                    <i class="fa fa-heart-o"></i>
-                                                </a>
-                                            </div>
+                                            {{--<div class="navbar-wishlist">--}}
+                                                {{--<a href="#">--}}
+                                                    {{--<i class="fa fa-heart-o"></i>--}}
+                                                {{--</a>--}}
+                                            {{--</div>--}}
                                         </div>
                                     </div>
                                     <nav class="collapse navbar-collapse primary-navbar-collapse">

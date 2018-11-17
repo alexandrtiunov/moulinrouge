@@ -144,10 +144,11 @@
                                     <?php
                                     $countProducts = [];
                                     foreach ($collection->product as $item){
-                                        if($item->atribut_id != 1 && $item->atribut_id != 5){
-                                            $countProducts[] .= $item;
+                                        if($item->category_id == $category->id){
+                                            if($item->atribut_id != 1 && $item->atribut_id != 5){
+                                                $countProducts[] .= $item;
+                                            }
                                         }
-
                                     }?>
 
                                     <a name="collection" class="collection_id" href="{{action('IndexController@catalog', [$category->short_name, $collection->short_name])}}">

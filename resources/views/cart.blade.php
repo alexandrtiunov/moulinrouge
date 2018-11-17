@@ -41,7 +41,7 @@
                                             <td class="product-thumbnail hidden-xs">
                                                 <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
                                                     <img width="100" height="150"
-                                                         src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/167х250/' . $resource->img_preview_H250_path)}}" alt="Product-2"/>
+                                                         src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/167x250/' . $resource->img_preview_H250_path)}}" alt="Product-2"/>
                                                 </a>
                                             </td>
                                             <td class="product-name">
@@ -59,7 +59,60 @@
                                 <div class="cart-collaterals">
                                     <div class="cart_totals">
                                         <div class="wc-proceed-to-checkout">
-                                            <a href="#" class="checkout-button button alt wc-forward">Записаться на примерку</a>
+                                            <a href="#" class="checkout-button button alt wc-forward" data-toggle="modal" data-target="#fitting" data-whatever="{{$productName}}">Записаться на примерку</a>
+
+                                            <div class="modal fade" id="fitting" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                <div class="modal-dialog" role="document">
+                                                    <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            <h4 class="modal-title" id="myModalLabel">Записаться на примерку</h4>
+
+                                                        </div>
+                                                        <form action="{{action('CartController@store')}}" method="post">
+                                                            {{csrf_field()}}
+                                                            <div class="modal-body">
+                                                                <div class="form-group">
+                                                                    <label for="name" class="col-form-label">Ваше имя:</label>
+                                                                    <input type="text" class="name form-control" name="name" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="email" class="col-form-label">E-mail:</label>
+                                                                    <input type="email" class="email form-control" name="email" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="phone" class="col-form-label">Телефон:</label>
+                                                                    <input type="text" class="phone form-control" name="phone" required>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="date" class="date col-form-label">Дата:</label>
+                                                                    <label for="time" class="time col-form-label">Время:</label>
+                                                                    <input type="date" class="date form-control" name="date" value="{{$date}}" required>
+                                                                    <select size="1" id="role" class="time form-control" name="time" required>
+                                                                            <option selected value="10">10.00</option>
+                                                                            <option  value="11">11.00</option>
+                                                                            <option  value="12">12.00</option>
+                                                                            <option  value="13">13.00</option>
+                                                                            <option  value="14">14.00</option>
+                                                                            <option  value="15">15.00</option>
+                                                                            <option  value="16">16.00</option>
+                                                                            <option  value="17">17.00</option>
+                                                                            <option  value="18">18.00</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="form-group">
+                                                                    <label for="dress-name" class="col-form-label">Название платья или ссылка на платье:</label>
+                                                                    <input type="text" class="dress-name form-control" name="dress-name" required>
+                                                                </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                                <button type="submit" class="btn btn-primary">Записаться</button>
+                                                            </div>
+                                                        </form>
+                                                    </div>
                                         </div>
                                     </div>
                                 </div>

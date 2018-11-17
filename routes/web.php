@@ -13,9 +13,10 @@
 
 Route::get('/', 'IndexController@index');
 Route::get('/catalog/{category_short_name?}/{collection_short_name?}', 'IndexController@catalog');
-Route::get('/catalog/{category_short_name}/{short_name}', 'IndexController@detail');
+Route::get('/product/{category_short_name}/{short_name}', 'IndexController@detail');
 
 Route::get('/moya-primerochnaya', 'CartController@index');
+Route::post('/moya-primerochnaya', 'CartController@store');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
 
