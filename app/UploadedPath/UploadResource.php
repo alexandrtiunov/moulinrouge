@@ -79,4 +79,26 @@ class UploadResource
 
         return $pathToPreview;
     }
+
+    public static function pathToArticleImage($resource, $article){
+
+//        $pathToArticleImage = [];
+
+        // первью размером 500x500
+
+        $img = Image::make(public_path() . '/img/blog-photo/' . $article['short_name'] . '/article-photo/' . $resource['img_path'])
+            ->resize(null, 500, function ($constraint){
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        $img->basename = $img->filename . '_H-500' . '.jpg';
+        $pathToArticleImage =  $img->basename;
+        $pathArticleImage = str_replace(' ', '_', $article['short_name']);
+        if (!file_exists(public_path('/img/blog-photo/' . $pathArticleImage . '/article-photo/'))) {
+            mkdir(public_path('/img/blog-photo/' . $pathArticleImage . '/article-photo/'), 777, true);
+        }
+        $img->save(public_path('/img/blog-photo/' . $pathArticleImage. '/article-photo/' . $img->basename));
+
+        return $pathToArticleImage;
+    }
 }

@@ -173,7 +173,8 @@ $('document').ready(function () {
     });
 
     // текстовый редактор
-    $('.article-text, .feedback-text').markItUp(mySettings);
+    $('.article-text, .feedback-text, .edit-article-text').markItUp(mySettings);
+
 
     // по клику на кнопку удаления/неактивности категории, если к категории привязаны какие-либо товары
     // всплывает уведомление о невозможности произвести действие
@@ -195,5 +196,12 @@ $('document').ready(function () {
             arr.hide();
         });
     });
+
+    // // Меняет в тексте блога &lt на < и &gt на >, для выделения текста и т.д
+    // $('.entry-content').each(function(){
+    //     var $this = $(this);
+    //     var t = $this.text();
+    //     $this.html(t.replace('&lt','<').replace('&gt', '>'));
+    // });
 
 });

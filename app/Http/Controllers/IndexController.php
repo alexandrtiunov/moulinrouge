@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Blog;
 use App\Collection;
+use App\Feedback;
 use App\Product;
 use App\Resource;
 use Illuminate\Http\Request;
@@ -19,6 +20,7 @@ class IndexController extends Controller
         $articles = Blog::orderBy('id', 'desc')->get();
         $resources = Resource::all();
         $categories = Category::all();
+        $fedbacks = Feedback::orderBy('id', 'desc')->get();
 
         $productsCart = ProductInCart::addProduct();
 
@@ -28,6 +30,7 @@ class IndexController extends Controller
             'articles'=> $articles,
             'categories'=> $categories,
             'productsCart'=> $productsCart,
+            'fedbacks'=> $fedbacks,
         ]);
     }
 

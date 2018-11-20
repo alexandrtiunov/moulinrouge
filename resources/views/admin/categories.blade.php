@@ -164,7 +164,7 @@
                         $count = count($w);
                             if($count == 1){
                                 $prod = "товар";
-                            }elseif($count > 1 || $count < 5){
+                            }elseif($count > 1 && $count < 5){
                                 $prod = "товара";
                             }else{
                                 $prod = "товаров";

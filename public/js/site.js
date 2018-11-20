@@ -101,4 +101,12 @@ jQuery('document').ready(function () {
         }
     });
 
+
+    // Меняет в тексте блога &lt на < и &gt на >, для выделения текста и т.д
+    $('.text, .text1, .testimonial-text').each(function(){
+        var $this = $(this);
+        var t = $this.text();
+        $this.html(t.replace('&lt','<').replace('&gt', '>'));
+    });
+
 });//end ready

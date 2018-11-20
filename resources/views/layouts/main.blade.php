@@ -70,21 +70,33 @@
 <div class="offcanvas open">
     <div class="offcanvas-wrap">
         <div class="offcanvas-user clearfix">
-            <a class="offcanvas-user-wishlist-link" href="wishlist.html">
-                <i class="fa fa-heart-o"></i> My Wishlist
+            <a class="offcanvas-user-wishlist-link" href="{{action('CartController@index')}}">
+                <i class="fas fa-person-booth" title="Моя примерочная" alt="Моя примерочная"></i> Примерочная
             </a>
-            <a class="offcanvas-user-account-link" href="my-account.html">
-                <i class="fa fa-user"></i> Login
-            </a>
+            {{--<a class="offcanvas-user-account-link" href="my-account.html">--}}
+                {{--<i class="fa fa-user"></i> Login--}}
+            {{--</a>--}}
         </div>
         <nav class="offcanvas-navbar">
             <ul class="offcanvas-nav">
-                <li class="menu-item-has-children dropdown current-menu-ancestor">
-                    <a href="./" class="dropdown-hover">Home <span class="caret"></span></a>
+                <li class="current-menu-item menu-item-has-children dropdown">
+                    <a href="/" class="dropdown-hover">
+                        <span class="underline">Главная</span>
+                        {{--<span class="caret"></span>--}}
+                    </a>
+                </li>
+                <li class="current-menu-item menu-item-has-children dropdown">
+                    <a href="{{action('IndexController@catalog')}}" class="dropdown-hover">
+                        <span class="underline">Платья</span> <span class="caret"></span>
+                    </a>
                     <ul class="dropdown-menu">
-                        <li><a href="home-v2.html">Home v2</a></li>
-                        <li><a href="home-v3.html">Home v3</a></li>
-                        <li><a href="home-v4.html">Home v4</a></li>
+                        @foreach($categories as $category)
+                            @if($category->activity == 1)
+                                <li>
+                                    <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
+                                </li>
+                            @endif
+                        @endforeach
                     </ul>
                 </li>
                 <li class="menu-item-has-children dropdown">
@@ -127,12 +139,14 @@
                 </li>
                 <li><a href="collection.html">Collections</a></li>
                 <li class="menu-item-has-children dropdown">
-                    <a href="#" class="dropdown-hover">Blog <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="blog-default.html">Blog Default</a></li>
-                        <li><a href="blog-center.html">Blog Center</a></li>
-                        <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                    </ul>
+                    <a href="{{action('BlogController@index')}}" class="dropdown-hover">Блог
+                        {{--<span class="caret"></span>--}}
+                    </a>
+                    {{--<ul class="dropdown-menu">--}}
+                        {{--<li><a href="blog-default.html">Blog Default</a></li>--}}
+                        {{--<li><a href="blog-center.html">Blog Center</a></li>--}}
+                        {{--<li><a href="blog-masonry.html">Blog Masonry</a></li>--}}
+                    {{--</ul>--}}
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-hover">Pages <span class="caret"></span></a>
@@ -211,9 +225,9 @@
                                             <a class="navbar-search-button search-icon-mobile" href="#">
                                                 <i class="fa fa-search"></i>
                                             </a>
-                                            <a class="cart-icon-mobile" href="#">
-                                                <i class="elegant_icon_bag_alt"></i>
-                                                <span>0</span>
+                                            <a class="cart-icon-mobile" href="{{action('CartController@index')}}">
+                                                <i class="fas fa-person-booth"></i>
+                                                <span>{{count($productsCart)}}</span>
                                             </a>
                                             <a class="navbar-brand" href="./">
                                                 <img class="logo" alt="WOOW" src="{{URL::to('img/logoblack.png')}}">
@@ -337,14 +351,15 @@
                                             </li>
                                             <li><a href="collection.html"><span class="underline">Collections</span></a></li>
                                             <li class="menu-item-has-children dropdown">
-                                                <a href="#" class="dropdown-hover">
-                                                    <span class="underline">Blog</span> <span class="caret"></span>
+                                                <a href="{{action('BlogController@index')}}" class="dropdown-hover">
+                                                    <span class="underline">Блог</span>
+                                                    {{--<span class="caret"></span>--}}
                                                 </a>
-                                                <ul class="dropdown-menu">
-                                                    <li><a href="blog-default.html">Blog Default</a></li>
-                                                    <li><a href="blog-center.html">Blog Center</a></li>
-                                                    <li><a href="blog-masonry.html">Blog Masonry</a></li>
-                                                </ul>
+                                                {{--<ul class="dropdown-menu">--}}
+                                                    {{--<li><a href="blog-default.html">Blog Default</a></li>--}}
+                                                    {{--<li><a href="blog-center.html">Blog Center</a></li>--}}
+                                                    {{--<li><a href="blog-masonry.html">Blog Masonry</a></li>--}}
+                                                {{--</ul>--}}
                                             </li>
                                             <li class="menu-item-has-children dropdown">
                                                 <a href="#" class="dropdown-hover">

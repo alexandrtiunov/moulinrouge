@@ -379,14 +379,14 @@
                                 <article class="hentry">
                                     <div class="hentry-wrap">
                                         <div class="entry-featured">
-                                            <a href="blog-detail.html">
+                                            <a href="{{action('BlogController@detail', $article['short_name'])}}">
                                                 <img width="700" height="450" src="{{URL::to('/img/blog-photo/' . $article->short_name . '/' . $article->img_path)}}" alt="" />
                                             </a>
                                         </div>
                                         <div class="entry-info">
                                             <div class="entry-header">
                                                 <h3 class="entry-title">
-                                                    <a href="blog-detail.html">
+                                                    <a href="{{action('BlogController@detail', $article['short_name'])}}">
                                                         {{$article->title}}
                                                     </a>
                                                 </h3>
@@ -1157,32 +1157,32 @@
                 </div>
             </div>
         </div>
-        <div class="container-full">
-            <div class="row row-fluid custom-bg-1 mb-0 pt-9 pb-10">
-                <div class="col-sm-12">
-                    <h3 class="text-uppercase mb-2 white text-center">
-                        the one for you
-                    </h3>
-                    <div class="mb-6">
-                        <p class="text-center white">We offer a range of models to accommodate a variety body shapes and sizes</p>
-                    </div>
-                    <a class="btn btn-white-outline btn-align-center" href="#">
-                        <span>find your leather coats</span>
-                    </a>
-                </div>
-            </div>
-        </div>
+        {{--<div class="container-full">--}}
+            {{--<div class="row row-fluid custom-bg-1 mb-0 pt-9 pb-10">--}}
+                {{--<div class="col-sm-12">--}}
+                    {{--<h3 class="text-uppercase mb-2 white text-center">--}}
+                        {{--the one for you--}}
+                    {{--</h3>--}}
+                    {{--<div class="mb-6">--}}
+                        {{--<p class="text-center white">We offer a range of models to accommodate a variety body shapes and sizes</p>--}}
+                    {{--</div>--}}
+                    {{--<a class="btn btn-white-outline btn-align-center" href="#">--}}
+                        {{--<span>find your leather coats</span>--}}
+                    {{--</a>--}}
+                {{--</div>--}}
+            {{--</div>--}}
+        {{--</div>--}}
         <div class="container">
             <div class="row row-fluid mb-0 pt-10">
                 <div class="col-sm-12">
                     <h3 class="text-center heading-center-custom mb-3">
-                        what clients say !
+                        ОТЗЫВЫ
                     </h3>
-                    <div class="mb-7">
-                        <p class="text-center">
-                            Platea hac egestas himenaeos mi non libero lacus mollis, a lacinia dapibus turpis curae neque ut fringilla lacinia
-                        </p>
-                    </div>
+                    {{--<div class="mb-7">--}}
+                        {{--<p class="text-center">--}}
+                            {{--Platea hac egestas himenaeos mi non libero lacus mollis, a lacinia dapibus turpis curae neque ut fringilla lacinia--}}
+                        {{--</p>--}}
+                    {{--</div>--}}
                 </div>
             </div>
             <div class="row row-fluid mb-7">
@@ -1191,70 +1191,24 @@
                         <div class="caroufredsel" data-visible-min="1" data-visible-max="2" data-scroll-fx="scroll" data-speed="5000" data-responsive="1" data-infinite="1" data-autoplay="0">
                             <div class="caroufredsel-wrap">
                                 <ul class="caroufredsel-items">
+                                    @foreach($fedbacks as $fedback)
                                     <li class="caroufredsel-item col-sm-6">
                                         <div class="testimonial-wrap">
                                             <div class="testimonial-text">
                                                 <span>&ldquo;</span>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                                {{$fedback->text}}
                                                 <span>&rdquo;</span>
                                             </div>
                                             <div class="clearfix">
                                                 <div class="testimonial-avatar">
                                                     <img src="images/avatar/thumb_50x50.jpg" alt=""/>
                                                 </div>
-                                                <span class="testimonial-author">Hughnei</span>
-                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
+                                                <span class="testimonial-author">{{$fedback->name}} {{$fedback->surname}}</span>
+                                                {{--<span class="testimonial-company">CEO/Founder Sitesao</span>--}}
                                             </div>
                                         </div>
                                     </li>
-                                    <li class="caroufredsel-item col-sm-6">
-                                        <div class="testimonial-wrap">
-                                            <div class="testimonial-text">
-                                                <span>&ldquo;</span>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                <span>&rdquo;</span>
-                                            </div>
-                                            <div class="clearfix">
-                                                <div class="testimonial-avatar">
-                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
-                                                </div>
-                                                <span class="testimonial-author">dangdong</span>
-                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="caroufredsel-item col-sm-6">
-                                        <div class="testimonial-wrap">
-                                            <div class="testimonial-text">
-                                                <span>&ldquo;</span>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                <span>&rdquo;</span>
-                                            </div>
-                                            <div class="clearfix">
-                                                <div class="testimonial-avatar">
-                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
-                                                </div>
-                                                <span class="testimonial-author">Hughnei</span>
-                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
-                                            </div>
-                                        </div>
-                                    </li>
-                                    <li class="caroufredsel-item col-sm-6">
-                                        <div class="testimonial-wrap">
-                                            <div class="testimonial-text">
-                                                <span>&ldquo;</span>
-                                                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                                                <span>&rdquo;</span>
-                                            </div>
-                                            <div class="clearfix">
-                                                <div class="testimonial-avatar">
-                                                    <img src="images/avatar/thumb_50x50.jpg" alt=""/>
-                                                </div>
-                                                <span class="testimonial-author">dangdong</span>
-                                                <span class="testimonial-company">CEO/Founder Sitesao</span>
-                                            </div>
-                                        </div>
-                                    </li>
+                                    @endforeach
                                 </ul>
                                 <a href="#" class="caroufredsel-prev hide"></a>
                                 <a href="#" class="caroufredsel-next hide"></a>

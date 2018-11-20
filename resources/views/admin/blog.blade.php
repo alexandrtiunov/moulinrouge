@@ -131,12 +131,12 @@
             @foreach($articles as $article)
                 <tr>
                     @if($article->status == 1)
-                        <td style="background-color: greenyellow" scope="row">{{$article->id}}</td>
+                        <td style="background-color: greenyellow" scope="row"><a href="{{action('BlogController@detail', $article['short_name'])}}"target="_blank">{{$article->id}}</a></td>
                     @else
-                        <td style="background-color: red" scope="row">{{$article->id}}</td>
+                        <td style="background-color: red" scope="row"><a href="{{action('BlogController@detail', $article['short_name'])}}"target="_blank">{{$article->id}}</a></td>
                     @endif
                     <td>{{$article->title}}</td>
-                    <td>{{html_entity_decode($article->text)}}</td>
+                    <td class="entry-content">{{html_entity_decode(mb_strimwidth($article->text, 0, 100, "..."))}}</td>
                     {{--<td>{{$article->short_name}}</td>--}}
                     <td><img style="width: 150px; height: 100px;" src="../img/blog-photo/{{$article->short_name}}/{{$article->img_path}}"> </td>
                     <td>{{$article->user->name}}</td>
@@ -144,7 +144,7 @@
 
                         {{--Модальное окно обновления статьи по id--}}
 
-                        <a href="{{action('Admin\CategoryController@edit', $article['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#edit{{$article['id']}}"><i class="material-icons">&#xE8B8;</i></a>
+                        <a href="{{action('Admin\BlogController@edit', $article['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#edit{{$article['id']}}"><i class="material-icons">&#xE8B8;</i></a>
 
                         <div class="modal fade" id="edit{{$article['id']}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -156,7 +156,7 @@
                                         <h4 class="modal-title" id="myModalLabel">Обновить статью: {{$article->title}}</h4>
 
                                     </div>
-                                    <form action="#" method="post">
+                                    <form action="{{action('Admin\BlogController@update', $article['id'])}}" method="post" enctype="multipart/form-data">
                                         {{csrf_field()}}
                                         {{--{{ method_field('PUT')}}--}}
                                         {{--<input name="_method" value="PUT" type="hidden">--}}
@@ -178,19 +178,36 @@
                                             <div class="form-group row">
                                                 <label for="text-input" class="col-xs-2 col-form-label">Текст статьи</label>
                                                 <div class="col-xs-10">
-                                                    <input class="form-control" type="text" name="text" value="{{$article->text}}" required>
+                                                    <textarea class="edit-article-text form-control" type="text" name="text" required>{{htmlspecialchars_decode($article->text)}}</textarea>
                                                 </div>
                                             </div>
 
                                             <div class="form-group row">
-                                                <label for="file" class="col-xs-2 col-form-label">Фото/афиша</label>
+                                                <label for="img_path" class="col-xs-2 col-form-label">Фото/афиша</label>
                                                 <div class="col-xs-10">
-                                                    <input class="form-control" type="file" name="file" required>
+                                                    <input class="form-control" type="file" name="img_path">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label for="status" class="col-xs-2 col-form-label">Статус</label>
+                                                <div class="col-xs-10">
+                                                    @if($article->status == 0)
+                                                    <select size="1" id="role" class="form-control" name="status" required>
+                                                        <option selected value="{{$article->status}}">Не опубликованно</option>
+                                                        <option value="1">Опубликованно</option>
+                                                    </select>
+                                                        @else
+                                                        <select size="1" id="role" class="form-control" name="status" required>
+                                                            <option selected value="{{$article->status}}">Опубликованно</option>
+                                                            <option value="0">Не опубликованно</option>
+                                                        </select>
+                                                        @endif
                                                 </div>
                                             </div>
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Обновить товар</button>
+                                                <button type="submit" class="btn btn-primary">Обновить статью</button>
                                             </div>
                                         </div>
                                     </form>
@@ -202,7 +219,7 @@
 
                         {{--Модальное окно просмотра существующих и добавления новых фотографий статьи по id--}}
 
-                        <a href="{{action('Admin\PhotoController@addphoto', $article['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#addPhoto{{$article['id']}}"><i class="material-icons">&#xe439;</i></a>
+                        <a href="{{action('Admin\PhotoController@articleStore', $article['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#addPhoto{{$article['id']}}"><i class="material-icons">&#xe439;</i></a>
 
                         <div class="modal fade" id="addPhoto{{$article['id']}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -221,7 +238,11 @@
                                             <input type="hidden" name="_method" value="PUT">
                                             <span class="choose">Выбрать</span>
                                             <table>
-                                                <td><img style="width: 150px; height: 200px;" src="../img/blog-photo/{{$article->short_name}}/{{$article->img_path}}"></td>
+                                                @foreach($resources as $resource)
+                                                    @if($resource->blog_id == $article->id)
+                                                        <td><img style="width: 150px; height: 200px;" src="{{URL::to('/img/blog-photo/' . $article->short_name . '/article-photo/' . $resource->img_path)}}"></td>
+                                                    @endif
+                                                @endforeach
                                                 {{--@foreach($resources as $resource)--}}
                                                     {{--@if($resource['product_id'] == $product['id'])--}}
                                                         {{--<td>--}}
@@ -243,7 +264,7 @@
                                             </div>
                                         </form>
                                     </div>
-                                    <form action="" method="post" enctype="multipart/form-data">
+                                    <form action="{{action('Admin\PhotoController@articleStore', $article['id'])}}" method="post" enctype="multipart/form-data">
                                         {{csrf_field()}}
 
                                         <div class="modal-body">

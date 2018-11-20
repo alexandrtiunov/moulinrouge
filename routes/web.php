@@ -12,6 +12,8 @@
 */
 
 Route::get('/', 'IndexController@index');
+Route::get('/blog', 'BlogController@index');
+Route::get('/blog/{article_short_name}', 'BlogController@detail');
 Route::get('/catalog/{category_short_name?}/{collection_short_name?}', 'IndexController@catalog');
 Route::get('/product/{category_short_name}/{short_name}', 'IndexController@detail');
 
@@ -30,13 +32,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::get('category/{id}/activ', 'Admin\CategoryController@activ');
 
     Route::get('/', 'Admin\DiscountController@index');
-    Route::get('/{id}/edit', 'Admin\DiscountController@edit');
-    Route::post('{id}/add', 'Admin\DiscountController@store');
-    Route::put('{id}/update', 'Admin\DiscountController@update');
+    Route::get('discount/{id}/edit', 'Admin\DiscountController@edit');
+    Route::post('discount/{id}/add', 'Admin\DiscountController@store');
+    Route::put('discount/{id}/update', 'Admin\DiscountController@update');
 
     Route::get('{id}/addphoto', 'Admin\PhotoController@addphoto');
     Route::post('{id}/addphoto', 'Admin\PhotoController@store');
     Route::put('{id}/deletephoto', 'Admin\PhotoController@destroy');
+    Route::post('{id}/addarticlephoto', 'Admin\PhotoController@articleStore');
 
     Route::put('{id}/atribut', 'Admin\AtributController@update');
 
@@ -46,6 +49,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
 
     Route::get('/blog', 'Admin\BlogController@index');
     Route::post('/blog', 'Admin\BlogController@store');
+    Route::get('blog/{id}/edit', 'Admin\BlogController@edit');
+    Route::post('blog/{id}/update', 'Admin\BlogController@update');
 
     Route::get('/feedbacks', 'Admin\FeedbackController@index');
     Route::post('/addfeedback', 'Admin\FeedbackController@store');
