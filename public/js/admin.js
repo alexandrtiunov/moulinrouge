@@ -67,7 +67,13 @@ $('document').ready(function () {
     // input ввод цены - разрешено вводить только цифры и точку
     $('.price.form-control').bind("change keyup input click", function() {
         if (this.value.match(/[^0-9\.]/g)) {
-            this.value = this.value.replace(/[^0-9]/g, '');
+            this.value = this.value.replace(/[^0-9\.]/g, '');
+        }
+    });
+    // input ввод артикула товара - разрешено вводить только буквы и цифры
+    $('.article.form-control').bind("change keyup input click", function() {
+        if (this.value.match(/[^A-Za-zА-Яа-я0-9\.\-]/g)) {
+            this.value = this.value.replace(/[^A-Za-zА-Яа-я0-9\.\-]/g, '');
         }
     });
 

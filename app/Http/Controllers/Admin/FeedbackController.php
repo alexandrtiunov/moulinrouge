@@ -43,16 +43,16 @@ class FeedbackController extends Controller
 
         $feedback = Feedback::find($id);
 
-        $feedback->status = 1;
-
-        $feedback->save();
-
-//        $method = __METHOD__;
-//        $categoryLog = $category;
-//        $categoryLog['user'] = Auth::user()->name;
-//        LogFile::categoryLog($categoryLog, $method);
-
-        return back()->with('update', 'Отзыв опубликован');
+        if($feedback->status == 0){
+            $feedback->status = 1;
+            $feedback->save();
+            return back()->with('update', 'Отзыв опубликован');
+        }elseif($feedback->status == 1){
+            $feedback->status = 0;
+            $feedback->save();
+            return back()->with('update', 'Отзыв снят с публикации');
+        }
+        return back()->with('error', 'error');
     }
 
     public function destroy($id){

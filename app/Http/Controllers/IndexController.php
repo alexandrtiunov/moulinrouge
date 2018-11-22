@@ -17,7 +17,7 @@ class IndexController extends Controller
     public function index(){
 
         $products = Product::orderBy('id', 'desc')->get();
-        $articles = Blog::orderBy('id', 'desc')->get();
+        $articles = Blog::orderBy('id', 'desc')->take(2)->get();
         $resources = Resource::all();
         $categories = Category::all();
         $fedbacks = Feedback::orderBy('id', 'desc')->get();

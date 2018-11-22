@@ -21,9 +21,10 @@ class DiscountController extends Controller
 
         $discount = $this->validate(request(), [
             'percent' => 'required',
-            'date' => 'required'
+//            'date' => 'required'
         ]);
         $discount['user_id'] = Auth::user()->id;
+        $discount['date'] = date('Y-m-d');
         $discount['product_id'] = $product->id;
         $discount['new_price'] = round($product->price - ($product->price * $discount['percent']) / 100, 0, PHP_ROUND_HALF_DOWN);;
 
@@ -54,9 +55,10 @@ class DiscountController extends Controller
 
         $this->validate(request(), [
            "percent" => "required",
-           "date" => "required",
+//           "date" => "required",
         ]);
 
+        $discount['date'] = date('Y-m-d');
         $discount['percent'] = $request->get('percent');
         // Если значение дисконта = 0, цена равняется 0
         // В остальном производится подсчет новой цены на товар с округлением

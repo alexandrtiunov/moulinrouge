@@ -11,35 +11,6 @@
             <div class="row">
                 <div class="col-md-9 main-wrap">
                     <div class="main-content">
-                        {{--<div class="shop-toolbar">--}}
-                            {{--<form class="commerce-ordering clearfix">--}}
-                                {{--<div class="commerce-ordering-select">--}}
-                                    {{--<label class="hide">Sorting:</label>--}}
-                                    {{--<div class="form-flat-select">--}}
-                                        {{--<select name="orderby" class="orderby">--}}
-                                            {{--<option value="" selected='selected'>Default sorting</option>--}}
-                                            {{--<option value="">Sort by popularity</option>--}}
-                                            {{--<option value="">Sort by average rating</option>--}}
-                                            {{--<option value="">Sort by newness</option>--}}
-                                            {{--<option value="">Sort by price: low to high</option>--}}
-                                            {{--<option value="">Sort by price: high to low</option>--}}
-                                        {{--</select>--}}
-                                        {{--<i class="fa fa-angle-down"></i>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="commerce-ordering-select">--}}
-                                    {{--<label class="hide">Show:</label>--}}
-                                    {{--<div class="form-flat-select">--}}
-                                        {{--<select name="per_page" class="per_page">--}}
-                                            {{--<option value="" selected='selected'>12</option>--}}
-                                            {{--<option value="">24</option>--}}
-                                            {{--<option value="">36</option>--}}
-                                        {{--</select>--}}
-                                        {{--<i class="fa fa-angle-down"></i>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</form>--}}
-                        {{--</div>--}}
                         <div class="shop-loop grid">
                             <ul class="products">
                                 @foreach($products as $product)
@@ -50,6 +21,9 @@
                                         <figure>
                                             <div class="product-wrap">
                                                 <div class="product-images">
+                                                    @if($product->discount_id != null)
+                                                        <span class="onsale">Sale!</span>
+                                                    @endif
                                                     <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                         @foreach($resources as $resource)
                                                             @if($resource['product_id'] == $product['id'])
@@ -58,9 +32,6 @@
                                                             @endif
                                                         @endforeach
                                                     </div>
-                                                    {{--<div class="shop-loop-thumbnail shop-loop-back-thumbnail">--}}
-                                                        {{--<img width="375" height="505" src="images/products/product_328x442alt.jpg" alt=""/>--}}
-                                                    {{--</div>--}}
                                                     <div class="loop-action">
                                                         <div class="shop-loop-quickview">
                                                             <a title="Detail" href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">
@@ -77,35 +48,35 @@
                                             </div>
                                             <figcaption>
                                                 <div class="shop-loop-product-info">
-                                                    <div class="info-meta clearfix">
-                                                        <div class="star-rating">
-                                                            <span style="width:80%"></span>
-                                                        </div>
-                                                        <div class="loop-add-to-wishlist">
-                                                            <div class="yith-wcwl-add-to-wishlist">
-                                                                <div class="yith-wcwl-add-button">
-                                                                    <a href="#" class="add_to_wishlist">
-                                                                        Add to Wishlist
-                                                                    </a>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
                                                     <div class="info-content-wrap">
                                                         <h3 class="product_title">
                                                             <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                         </h3>
-                                                        <div class="info-price">
-                                                            <span class="price">
-                                                                <span class="amount">
-                                                                    &#8372; {{$product->price}},00
+                                                        @if($product->discount_id == null)
+                                                            <div class="info-price">
+
+                                                                <span class="price">
+                                                                    <span class="amount">
+                                                                        &#8372; {{$product->price}},00
+                                                                    </span>
                                                                 </span>
-																		{{--&ndash;--}}
-																		{{--<span class="amount">--}}
-																			{{--&pound;20.00--}}
-																		{{--</span>--}}
-                                                            </span>
-                                                        </div>
+                                                            </div>
+                                                            @else
+                                                            <div class="info-price">
+                                                                <span class="price">
+                                                                    <del>
+                                                                        <span class="amount">
+                                                                            &#8372; {{$product->price}},00
+                                                                        </span>
+                                                                    </del>
+                                                                    <ins>
+                                                                        <span class="amount">
+                                                                            &#8372; {{$product->discount->new_price}},00
+                                                                        </span>
+                                                                    </ins>
+                                                                </span>
+                                                            </div>
+                                                        @endif
                                                     </div>
                                                 </div>
                                             </figcaption>

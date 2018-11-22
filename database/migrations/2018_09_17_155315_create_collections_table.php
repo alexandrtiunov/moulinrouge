@@ -18,6 +18,7 @@ class CreateCollectionsTable extends Migration
             $table->string('name');
             $table->string('year');
             $table->string('short_name');
+            $table->integer('activity')->default(1);
             $table->timestamps();
         });
     }

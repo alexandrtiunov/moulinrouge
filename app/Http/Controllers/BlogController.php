@@ -34,6 +34,7 @@ class BlogController extends Controller
         $categories = Category::all();
         $productsCart = ProductInCart::addProduct();
         $resources = BlogResource::all();
+        $articles = Blog::orderBy('id', 'desc')->take(5)->get();
 
         return view('article', [
             'article' => $article,
@@ -41,6 +42,7 @@ class BlogController extends Controller
             'categories' => $categories,
             'productsCart' => $productsCart,
             'resources' => $resources,
+            'articles' => $articles,
         ]);
 
     }

@@ -127,3 +127,28 @@
     font: 1em/13px 'PragmaticaC',sans-serif;
     text-transform: uppercase;
 }
+
+.login{
+    height: 40px;
+    float: right;
+    margin-right: 20px;
+    margin-top: 9px;
+}
+
+.nav-item{
+    list-style-type: none;
+}
+
+.row-admin{
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.photo-position {
+    float: left;
+    width: 26%;
+    margin-left: 5%;
+    padding-top: 2%;
+}

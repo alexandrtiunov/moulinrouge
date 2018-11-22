@@ -21,16 +21,16 @@
                                     @if($article->status == 1)
                                 <article class="masonry-item col-md-4 col-sm-6 hentry">
                                     <div class="hentry-wrap">
-                                        <div class="entry-featured">
+                                        <div class="blog-img entry-featured">
                                             <a href="{{action('BlogController@detail', $article['short_name'])}}">
-                                                <img width="700" height="450"
-                                                     src="{{URL::to('/img/blog-photo/' . $article['short_name']. '/' . $article['img_path'])}}" alt="{{$article['title']}}"/>
+                                                <img src="{{URL::to('/img/blog-photo/' . $article['short_name']. '/' . $article['img_path'])}}" alt="{{$article['title']}}"/>
                                             </a>
                                         </div>
                                         <div class="entry-info">
                                             <div class="entry-header">
                                                 <h2 class="entry-title">
-                                                    <a href="{{action('BlogController@detail', $article['short_name'])}}" title="{{$article['title']}}">{{mb_strimwidth($article['title'], 0, 30, '...')}} </a>
+                                                    <a href="{{action('BlogController@detail', $article['short_name'])}}" title="{{$article['title']}}">
+                                                        {{mb_strimwidth($article['title'], 0, 30, '...')}} </a>
                                                 </h2>
                                             </div>
                                             <div class="text entry-content">

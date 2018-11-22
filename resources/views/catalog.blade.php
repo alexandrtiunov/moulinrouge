@@ -24,6 +24,9 @@
                                                 <figure>
                                                     <div class="product-wrap">
                                                         <div class="product-images">
+                                                            @if($product->discount_id != null)
+                                                                <span class="onsale">Sale!</span>
+                                                            @endif
                                                             <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                                 @foreach($resources as $resource)
                                                                     @if($resource['product_id'] == $product['id'])
@@ -51,35 +54,34 @@
                                                     </div>
                                                     <figcaption>
                                                         <div class="shop-loop-product-info">
-                                                            <div class="info-meta clearfix">
-                                                                <div class="star-rating">
-                                                                    <span style="width:80%"></span>
-                                                                </div>
-                                                                <div class="loop-add-to-wishlist">
-                                                                    <div class="yith-wcwl-add-to-wishlist">
-                                                                        <div class="yith-wcwl-add-button">
-                                                                            <a href="#" class="add_to_wishlist">
-                                                                                Add to Wishlist
-                                                                            </a>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
                                                             <div class="info-content-wrap">
                                                                 <h3 class="product_title">
                                                                     <a href="{{action('IndexController@detail', [$product->category->short_name, $product['short_name']])}}">{{$product->name}}</a>
                                                                 </h3>
-                                                                <div class="info-price">
-                                                                <span class="price">
-                                                                    <span class="amount">
-                                                                        &#8372; {{$product->price}},00
-                                                                    </span>
-                                                                    {{--&ndash;--}}
-                                                                    {{--<span class="amount">--}}
-                                                                    {{--&pound;20.00--}}
-                                                                    {{--</span>--}}
-                                                                </span>
-                                                                </div>
+                                                                @if($product->discount_id == null)
+                                                                    <div class="info-price">
+                                                                        <span class="price">
+                                                                            <span class="amount">
+                                                                                &#8372; {{$product->price}},00
+                                                                             </span>
+                                                                        </span>
+                                                                    </div>
+                                                                @else
+                                                                    <div class="info-price">
+                                                                        <span class="price">
+                                                                            <del>
+                                                                                <span class="amount">
+                                                                                    &#8372; {{$product->price}},00
+                                                                                </span>
+                                                                            </del>
+                                                                            <ins>
+                                                                                <span class="amount">
+                                                                                    &#8372; {{$product->discount->new_price}},00
+                                                                                </span>
+                                                                            </ins>
+                                                                        </span>
+                                                                    </div>
+                                                                @endif
                                                             </div>
                                                         </div>
                                                     </figcaption>

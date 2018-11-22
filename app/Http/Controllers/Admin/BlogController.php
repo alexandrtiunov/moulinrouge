@@ -85,8 +85,6 @@ class BlogController extends Controller
             $article->img_path = $request->get('img_path');
         }
 
-
-        dd($article);
             $article->save();
 
         return redirect('admin/blog')->with('update', 'Статья обновлена');

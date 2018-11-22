@@ -86,7 +86,7 @@ class LogFile
         $file = 'log.txt';
 
         if($method == "App\Http\Controllers\Admin\CategoryController::store"){
-            $log = '[' . $date . ']' . " - добавлена категория, название: " . $category['name'] . ", пользователь: " . $category->users->name . PHP_EOL;
+            $log = '[' . $date . ']' . " - добавлена категория, название: " . $category['name'] . ", пользователь: " . $category['name'] . PHP_EOL;
         }elseif ($method == "App\Http\Controllers\Admin\CategoryController::update" && $variable['name'] != $category->name) {
             $log = '[' . $date . ']' . " - обновлено название категории с " . $category['name'] . "на " . $variable['name'] . ", пользователь: " . $variable['user_id'] . PHP_EOL;
         }elseif($method == "App\Http\Controllers\Admin\CategoryController::update" && $variable['short_name'] != $category->short_name){
@@ -117,6 +117,18 @@ class LogFile
         if($method == "App\Http\Controllers\Admin\CollectionController::store"){
             $log = '[' . $date . ']' . " - добавлена коллекция, название: " . $collection['name'] . " год: " .
                 $collection['year'] . ", пользователь: " . $collection['user'] . PHP_EOL;
+        }elseif ($method == "App\Http\Controllers\Admin\CollectionController::update" && $variable['name'] != $collection->name) {
+            $log = '[' . $date . ']' . " - обновлено название коллекции с " . $collection['name'] . "на " . $variable['name'] . ", пользователь: " . $variable['user_id'] . PHP_EOL;
+        }elseif($method == "App\Http\Controllers\Admin\CollectionController::update" && $variable['short_name'] != $collection->short_name){
+            $log = '[' . $date . ']' . " - обновлено название URL с " . $collection['short_name'] . " на " . $variable['short_name'] . ", пользователь: " . $variable['user_id'] . PHP_EOL;
+        }
+
+
+        if($method == "App\Http\Controllers\Admin\CollectionController::destroy"){
+            $log = '[' . $date . ']' . " - коллекция, название: " . $collection['name'] . '-' . $collection['year'] . "перенесена в раздел НЕ АКТИВНА, пользователь: " . $collection['user'] . PHP_EOL;
+        }
+        if($method == "App\Http\Controllers\Admin\CollectionController::activ"){
+            $log = '[' . $date . ']' . " - категория, название: " . $collection['name'] . '-' . $collection['year'] . " АКТИВНА для пользования, пользователь: " . $collection['user'] . PHP_EOL;
         }
 
         if(!is_dir($path)){

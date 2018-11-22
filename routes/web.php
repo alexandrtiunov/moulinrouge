@@ -20,6 +20,8 @@ Route::get('/product/{category_short_name}/{short_name}', 'IndexController@detai
 Route::get('/moya-primerochnaya', 'CartController@index');
 Route::post('/moya-primerochnaya', 'CartController@store');
 
+Route::get('/contact', 'ContactController@index');
+
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
 
     Route::resource('products', 'Admin\AdminController');
@@ -44,8 +46,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::put('{id}/atribut', 'Admin\AtributController@update');
 
     Route::get('/collections', 'Admin\CollectionController@index');
+    Route::get('collection/{id}/edit', 'Admin\CollectionController@edit');
     Route::post('/addcollection', 'Admin\CollectionController@store');
+    Route::put('collection/{id}/edit', 'Admin\CollectionController@update');
     Route::get('/deletecollection', 'Admin\CollectionController@destroy');
+    Route::get('collection/{id}/delete', 'Admin\CollectionController@destroy');
+    Route::get('collection/{id}/activ', 'Admin\CollectionController@activ');
 
     Route::get('/blog', 'Admin\BlogController@index');
     Route::post('/blog', 'Admin\BlogController@store');

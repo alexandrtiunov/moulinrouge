@@ -135,7 +135,7 @@
 
                     <td>
 
-                        {{--Модальное окно обновления коллекции по id--}}
+                        {{--Модальное окно обновления отзыва по id--}}
 
 
 
@@ -144,9 +144,12 @@
                         @if($feedback->status == 0)
                             <a href="{{action('Admin\FeedbackController@activ', $feedback['id'])}}" class="activ"
                                title="Опубликовать отзыв" data-toggle="tooltip"><i class="material-icons">&#xe86c;</i></a>
+                        @elseif($feedback->status == 1)
+                            <a href="{{action('Admin\FeedbackController@activ', $feedback['id'])}}" class="deactiv"
+                               title="Снять с публикации" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
                         @endif
 
-                        <a href="{{action('Admin\FeedbackController@destroy', $feedback['id'])}}" class="delete" title="Удалить отзыв" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+                        <a href="{{action('Admin\FeedbackController@destroy', $feedback['id'])}}" class="delete" title="Удалить отзыв" style="color: red;" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
 
                     </td>
                 </tr>

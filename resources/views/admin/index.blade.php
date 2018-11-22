@@ -2,8 +2,41 @@
 
 @section('content')
 
-<div id="nav">
+    <div class="login">
 
+        <ul class="navbar-nav ml-auto">
+            <!-- Authentication Links -->
+            @guest
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+            </li>
+            @else
+                <li class="nav-item dropdown">
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        {{ Auth::user()->name }} <span class="caret"></span>
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            {{ __('Выйти') }}
+                        </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+                </li>
+                @endguest
+        </ul>
+
+    </div>
+
+<div id="nav">
 
     <div class="buttons">
 
@@ -40,7 +73,9 @@
                                         <select size="1" id="role" class="form-control" name="category_id" required>
                                             <option value="">Выбери категорию</option>
                                             @foreach($categories as $category)
-                                                <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @if($category['activity'] != 0)
+                                                    <option value="{{$category->id}}">{{$category->name}}</option>
+                                                @endif
                                             @endforeach
                                         </select>
                                         <a href="{{action('Admin\CategoryController@index')}}">Добавить новую категорю</a>
@@ -61,7 +96,7 @@
                                 <div class="form-group row">
                                     <label for="article" class="col-xs-2 col-form-label">Артикул</label>
                                     <div class="col-xs-10">
-                                        <input class="form-control" type="text" name="article" required>
+                                        <input class="article form-control" type="text" name="article" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -287,7 +322,6 @@
                                             <label for="collection_id" class="col-xs-2 col-form-label">Коллекция</label>
                                             <div class="col-xs-10">
                                                 <select size="1" id="role" class="form-control" name="collection_id" required>
-                                                    {{--<option value="{{$product->collection_id}}">{{$product->collection->name}}</option>--}}
                                                     @foreach($collections as $collection)
                                                         <option value="{{$collection->id}}">{{$collection->name}} - {{$collection->year}}</option>
                                                     @endforeach
@@ -298,7 +332,6 @@
                                             <label for="example-password-input" class="col-xs-2 col-form-label">Статус</label>
                                             <div class="col-xs-10">
                                                 <select size="1" id="role" class="form-control" name="atribut_id" required>
-                                                    {{--<option value="">Выбери атрибут</option>--}}
                                                     <option selected value="{{$product->atribut_id}}">{{$product->atribut->type}}</option>
                                                     @foreach($atributs as $atribut)
                                                         <option value="{{$atribut->id}}">{{$atribut->type}}</option>
@@ -338,10 +371,6 @@
                                                 <div class="col-xs-10">
                                                     <select size="1" id="role" class="form-control" name="atribut_id" required>
                                                         <option selected value="1">Модерация</option>
-                                                        {{--<option selected disabled value="{{$product->atribut_id}}">{{$product->atribut->type}}</option>--}}
-                                                        {{--@foreach($atributs as $atribut)--}}
-                                                            {{--<option disabled value="{{$atribut->id}}">{{$atribut->type}}</option>--}}
-                                                        {{--@endforeach--}}
                                                     </select>
                                                 </div>
                                             </div>
@@ -378,23 +407,24 @@
                                         {{ method_field('PUT')}}
                                         <input type="hidden" name="_method" value="PUT">
                                         <span class="choose">Выбрать</span>
-                                        <table>
+                                        <div class="row-admin">
                                             @foreach($resources as $resource)
                                                 @if($resource['product_id'] == $product['id'])
-                                                    <td>
-                                                        <div class="photo">
+                                                    <div class="photo-position">
+                                                        <div class="card">
+                                                            <div class="item">
                                                             <img class="image"
                                                                  src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/167x250/{{$resource->img_preview_H250_path}}"
                                                                  data-full="../img/product-foto-main/{{$resource->img_path}}">
-                                                            {{--<img id="image" hidden src="../img/product-foto-main/{{$resource->img_path}}">--}}
+                                                        </div>
                                                         </div>
                                                         <div class="checkPhoto">
                                                             <input class="choosePhoto" type="checkbox" name="delete[]" value="{{$resource['id']}}">
                                                         </div>
-                                                    </td>
+                                                    </div>
                                                 @endif
                                             @endforeach
-                                        </table>
+                                        </div>
                                         <div class="btn-delete">
                                             <input class="btn btn-outline-danger" type="submit" value="Удалить выбранные">
                                         </div>
@@ -477,7 +507,7 @@
                                                 </div>
                                             </div>
 
-                                            <form action="{{action('Admin\DiscountController@update', $product['id'])}}" method="post" id="form2">
+                                            <form action="{{action('Admin\DiscountController@update', $product['id'])}}" method="post">
                                                 {{csrf_field()}}
                                                 {{ method_field('PUT')}}
                                                 <input name="_method" value="PUT" type="hidden">
@@ -486,13 +516,6 @@
                                                     <label for="percent" class="col-xs-2 col-form-label">Скидка, %</label>
                                                     <div class="col-xs-10">
                                                         <input  class="price form-control" type="text" name="percent" placeholder="Введите % дисконта к основной цене" required>
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group row">
-                                                    <label for="date" class="col-xs-2 col-form-label">Дата</label>
-                                                    <div class="col-xs-10">
-                                                        <input class="form-control" type="date" name="date" >
                                                     </div>
                                                 </div>
 
@@ -553,13 +576,6 @@
                                             <label for="percent" class="col-xs-2 col-form-label">Скидка, %</label>
                                             <div class="col-xs-10">
                                                 <input  class="form-control" type="text" name="percent" required>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group row">
-                                            <label for="date" class="col-xs-2 col-form-label">Дата</label>
-                                            <div class="col-xs-10">
-                                                <input class="form-control" type="date" name="date" >
                                             </div>
                                         </div>
                                     </div>

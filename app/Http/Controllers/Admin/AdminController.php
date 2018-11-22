@@ -36,6 +36,7 @@ class AdminController extends Controller
         $collections = Collection::all();
         $atributs = Atribut::all();
         $resources = Resource::all();
+        $date = date('d.m.Y');
 
         return view('admin.index', [
             'products' => $products,
@@ -43,7 +44,8 @@ class AdminController extends Controller
             'categories' => $categories,
             'collections' => $collections,
             'atributs' => $atributs,
-            'resources' => $resources
+            'resources' => $resources,
+            'date' => $date,
         ]);
     }
 

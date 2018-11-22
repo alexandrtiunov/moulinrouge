@@ -31,7 +31,7 @@ class UploadResource
         });
         $width = $img->width();
         if($width > 167){
-            $img->crop(167, 250, 50);
+            $img->crop(167, 250);
         }
         $img->basename = $img->filename . '_W-167_' . 'H-250' . '.jpg';
         $pathToPreview ['img_preview_H250_path'] =  $img->basename;
@@ -48,8 +48,8 @@ class UploadResource
             $constraint->upsize();
         });
         $width = $img->width();
-        if($width > 322){
-            $img->crop(322, 405, 50);
+        if($width > 270){
+            $img->crop(270, 405);
         }
         $img->basename = $img->filename . '_W-322_' . ' H-405' . '.jpg';
         $pathToPreview ['img_preview_H405_path'] =  $img->basename;
@@ -67,7 +67,7 @@ class UploadResource
         });
         $width = $img->width();
         if($width > 617){
-            $img->crop(617, 769, 50);
+            $img->crop(617, 769);
         }
         $img->basename = $img->filename . '_W-617_' . ' H-769' . '.jpg';
         $pathToPreview ['img_preview_H769_path'] =  $img->basename;

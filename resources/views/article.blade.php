@@ -27,20 +27,6 @@
                                     <p class="text1">
                                         {{htmlspecialchars_decode($article->text)}}
                                     </p>
-                                    {{--<p>--}}
-                                        {{--<img class="alignleft" src="images/blog/thumb/blog_300x300.jpg" alt="blog-7" width="300" height="300"/>--}}
-                                    {{--</p>--}}
-                                    {{--<p>--}}
-                                        {{--The fashion set stayed true to their roots this week, whether that be swirling around the interior of a river boat in floor-length Giambattista Valli, à la Bianca Brandolini D’Adda, louchely leaning against the scenery in innately covetable summer classics in Positano, as Lisa Love did, or heading for the beach in Louis Vuitton resort denim hot pants and monogrammed Speedy in tow, as Marie-Amélie Sauvé did (oh, the access!).--}}
-                                    {{--</p>--}}
-                                    {{--<p>&nbsp;</p>--}}
-                                    {{--<p>&nbsp;</p>--}}
-                                    {{--<p>&nbsp;</p>--}}
-                                    {{--<h3>Bianca Brandolini</h3>--}}
-                                    {{--<p>--}}
-                                        {{--<strong>Natasha Poly</strong> took in the ocean breeze in Formentera in a voluminous caftan, while Caroline Trentini’s white tee, Vuitton skirt, and Stan Smiths in Sao Paulo were a decidedly more city-friendly take on early August style (and will certainly transition more easily into fall). And while we treasure these lazy, late summer days, fall—and its sartorial demands—is just around the corner: For inspiration, look no further than little North West’s latest wardrobe addition, a clutch of pint-sized Balmain blazers that will have the tot segueing into the season sans problème.--}}
-                                    {{--</p>--}}
-                                    {{--<p>&nbsp;</p>--}}
                                     @foreach($resources as $resource)
                                         @if($resource->blog_id == $article->id)
                                             <p style="text-align: center;">
@@ -48,13 +34,6 @@
                                             </p>
                                         @endif
                                     @endforeach
-                                    {{--<p style="text-align: center;">--}}
-                                        {{--<img src="images/blog/thumb/blog_500x500.jpg" alt="blog-15" width="500" height="500"/>--}}
-                                    {{--</p>--}}
-                                    {{--<h3>Aenean a auctor mi.</h3>--}}
-                                    {{--<p>--}}
-                                        {{--Cras feugiat luctus nulla vitae posuere. Suspendisse potenti. Morbi dignissim, leo non mollis ultricies, risus ipsum vulputate leo, quis rhoncus libero orci quis ex. Donec molestie convallis dictum. Praesent at dapibus massa. Ut placerat enim vitae porta rutrum. Nullam faucibus volutpat nunc vitae cursus. Suspendisse diam ipsum, ultricies vel posuere at, sodales et lorem. Nulla non ornare nisi, sed condimentum lorem. Morbi sed vehicula magna. Donec vitae ultricies velit, sit amet sollicitudin ligula.--}}
-                                    {{--</p>--}}
                                     <div class="entry-meta icon-meta">
 												<span class="meta-date">
 													Дата публикаци:
@@ -126,100 +105,6 @@
                                 </div>
                             </div>
                         </nav>
-                        {{--<div class="related-post">--}}
-                            {{--<div class="related-post-title">--}}
-                                {{--<h3><span>Related News</span></h3>--}}
-                            {{--</div>--}}
-                            {{--<div class="row related-post-items">--}}
-                                {{--<div class="related-post-item col-md-4 col-sm-6">--}}
-                                    {{--<div class="entry-featured">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<img width="700" height="450" src="images/blog/blog_270x174.jpg" alt="Blog-9"/>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                    {{--<h4 class="post-title">--}}
-                                        {{--<a href="#">Late Summer Days</a>--}}
-                                    {{--</h4>--}}
-                                    {{--<div class="entry-meta icon-meta">--}}
-												{{--<span class="meta-date">--}}
-													{{--Date:--}}
-													{{--<time datetime="2015-04-27T03:07:02+00:00">April 27, 2015</time>--}}
-												{{--</span>--}}
-                                        {{--<span class="meta-separator"> </span>--}}
-                                        {{--<span class="meta-category">--}}
-													{{--Category:--}}
-													{{--<a href="#">Aliquam</a>, <a href="#">Nunc</a>, <a href="#">Praesent</a>--}}
-												{{--</span>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="excerpt">--}}
-                                        {{--<p>--}}
-                                            {{--The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...--}}
-                                        {{--</p>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="readmore-link">--}}
-                                        {{--<a href="#">Read More</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="related-post-item col-md-4 col-sm-6">--}}
-                                    {{--<div class="entry-featured">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<img width="700" height="450" src="images/blog/blog_270x174.jpg" alt="Blog-5"/>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                    {{--<h4 class="post-title">--}}
-                                        {{--<a href="#">Vuitton skirt</a>--}}
-                                    {{--</h4>--}}
-                                    {{--<div class="entry-meta icon-meta">--}}
-												{{--<span class="meta-date">--}}
-													{{--Date:--}}
-													{{--<time datetime="2015-04-27T03:07:02+00:00">August 11, 2015</time>--}}
-												{{--</span>--}}
-                                        {{--<span class="meta-separator"> </span>--}}
-                                        {{--<span class="meta-category">--}}
-													{{--Category:--}}
-													{{--<a href="#">Cras</a>, <a href="#">Nunc</a>, <a href="#">Praesent</a>--}}
-												{{--</span>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="excerpt">--}}
-                                        {{--<p>--}}
-                                            {{--The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...--}}
-                                        {{--</p>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="readmore-link">--}}
-                                        {{--<a href="#">Read More</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                                {{--<div class="related-post-item col-md-4 col-sm-6">--}}
-                                    {{--<div class="entry-featured">--}}
-                                        {{--<a href="#">--}}
-                                            {{--<img width="700" height="450" src="images/blog/blog_270x174.jpg" alt="Blog-4"/>--}}
-                                        {{--</a>--}}
-                                    {{--</div>--}}
-                                    {{--<h4 class="post-title">--}}
-                                        {{--<a href="#">Giambattista Valli</a>--}}
-                                    {{--</h4>--}}
-                                    {{--<div class="entry-meta icon-meta">--}}
-												{{--<span class="meta-date">--}}
-													{{--Date:--}}
-													{{--<time datetime="2015-04-27T03:07:02+00:00">August 11, 2015</time>--}}
-												{{--</span>--}}
-                                        {{--<span class="meta-separator"> </span>--}}
-                                        {{--<span class="meta-category">--}}
-													{{--Category:--}}
-													{{--<a href="#">Aliquam</a>, <a href="#">Nunc</a>, <a href="#">Praesent</a>--}}
-												{{--</span>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="excerpt">--}}
-                                        {{--<p>--}}
-                                            {{--The summer holidays are wonderful. Dressing for them can be significantly less so: Packing light...--}}
-                                        {{--</p>--}}
-                                    {{--</div>--}}
-                                    {{--<div class="readmore-link">--}}
-                                        {{--<a href="#">Read More</a>--}}
-                                    {{--</div>--}}
-                                {{--</div>--}}
-                            {{--</div>--}}
-                        {{--</div>--}}
                         <div id="comments" class="comments-area">
                             <div class="title-sep-wrap commentst-title">
                                 <h3 class="title-sep-text">2 Comments </h3>
@@ -345,81 +230,26 @@
                 </div>
                 <div class="col-md-3 sidebar-wrap">
                     <div class="main-sidebar">
-                        <div class="widget widget_categories">
-                            <h4 class="widget-title"><span>Categories</span></h4>
-                            <ul>
-                                <li><a href="#">Aliquam</a> (6)</li>
-                                <li><a href="#">Cras</a> (2)</li>
-                                <li><a href="#">Nunc</a> (10)</li>
-                                <li><a href="#">Praesent</a> (4)</li>
-                            </ul>
-                        </div>
                         <div class="widget widget-post-thumbnail">
-                            <h4 class="widget-title"><span>latest post</span></h4>
+                            <h4 class="widget-title"><span>Последние статьиt</span></h4>
                             <ul class="posts-thumbnail-list">
+                                @foreach($articles as $article)
                                 <li>
                                     <div class="posts-thumbnail-image">
-                                        <a href="blog-detail.html">
-                                            <img width="300" height="300" src="images/blog/thumb/blog_70x70.jpg" alt="Blog-1"/>
+                                        <a href="{{action('BlogController@detail', $article['short_name'])}}" title="{{$article['title']}}">
+
+                                            <img width="300" height="300" src="{{URL::to('/img/blog-photo/' . $article['short_name']. '/' . $article['img_path'])}}" alt="{{$article['title']}}" alt="Blog-1"/>
                                         </a>
                                     </div>
                                     <div class="posts-thumbnail-content">
-                                        <h4><a href="blog-detail.html">Monogrammed Speedy in Tow</a></h4>
+                                        <h4><a href="{{action('BlogController@detail', $article['short_name'])}}">{{$article->title}}</a></h4>
                                         <div class="posts-thumbnail-meta">
-                                            <time datetime="2015-08-11T06:27:49+00:00">August 11, 2015</time>
+                                            <time datetime="2015-08-11T06:27:49+00:00">{{$article->created_at}}5</time>
                                         </div>
                                     </div>
                                 </li>
-                                <li>
-                                    <div class="posts-thumbnail-image">
-                                        <a href="blog-detail.html">
-                                            <img width="300" height="300" src="images/blog/thumb/blog_70x70.jpg" alt="Blog-2"/>
-                                        </a>
-                                    </div>
-                                    <div class="posts-thumbnail-content">
-                                        <h4><a href="blog-detail.html">Summer Classics in Positano</a></h4>
-                                        <div class="posts-thumbnail-meta">
-                                            <time datetime="2015-08-11T06:27:49+00:00">August 11, 2015</time>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="posts-thumbnail-image">
-                                        <a href="blog-detail.html">
-                                            <img width="300" height="300" src="images/blog/thumb/blog_70x70.jpg" alt="Blog-3"/>
-                                        </a>
-                                    </div>
-                                    <div class="posts-thumbnail-content">
-                                        <h4><a href="blog-detail.html">That Most Modern</a></h4>
-                                        <div class="posts-thumbnail-meta">
-                                            <time datetime="2015-08-11T06:27:49+00:00">August 11, 2015</time>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li>
-                                    <div class="posts-thumbnail-image">
-                                        <a href="blog-detail.html">
-                                            <img width="300" height="300" src="images/blog/thumb/blog_70x70.jpg" alt="Blog-4"/>
-                                        </a>
-                                    </div>
-                                    <div class="posts-thumbnail-content">
-                                        <h4><a href="blog-detail.html">Giambattista Valli</a></h4>
-                                        <div class="posts-thumbnail-meta">
-                                            <time datetime="2015-08-11T06:27:49+00:00">August 11, 2015</time>
-                                        </div>
-                                    </div>
-                                </li>
+                                @endforeach
                             </ul>
-                        </div>
-                        <div class="widget widget_tag_cloud">
-                            <h4 class="widget-title"><span>Tags</span></h4>
-                            <div class="tagcloud">
-                                <a href='#'>Deals</a>
-                                <a href='#'>Dolor</a>
-                                <a href='#'>Lacus</a>
-                                <a href='#'>Praesent</a>
-                                <a href='#'>Quam</a>
-                            </div>
                         </div>
                     </div>
                 </div>
