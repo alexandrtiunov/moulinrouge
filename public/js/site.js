@@ -109,4 +109,21 @@ jQuery('document').ready(function () {
         $this.html(t.replace('&lt','<').replace('&gt', '>'));
     });
 
+    // по клику на фото открывается оригинал фото
+    $('.image').click(function () {
+        var img = $(this);
+        var src = img.attr('data-full'); // в data-full прописан путь к оригиналу
+        $(".row-site").append("<div class='popup'>"+ //Добавляем в тело документа разметку всплывающего окна
+            "<div class='popup_bg'></div>"+ // Блок, который будет служить фоном затемненным
+            "<img src='"+src+"' class='popup_img' />"+ // Само увеличенное фото
+            "</div>");
+        $(".popup").fadeIn(800);
+        $(".popup_bg").click(function () {
+            $('.popup').fadeOut(800);
+            setTimeout(function () {
+                $('.popup').remove()
+            }, 800);
+        });
+    });
+
 });//end ready

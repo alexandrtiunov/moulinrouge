@@ -24,11 +24,11 @@
                                                             <ul class="caroufredsel-items">
                                                                 @foreach($resources as $resource)
                                                                     @if($resource['product_id'] == $product['id'])
-                                                                <li class="caroufredsel-item">
-                                                                    <a href="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/617x769/{{$resource->img_preview_H769_path}}" data-rel="magnific-popup-verticalfit">
-                                                                        <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/617x769/' . $resource->img_preview_H769_path)}}" alt=""/>
-                                                                    </a>
-                                                                </li>
+                                                                        <li class="caroufredsel-item">
+                                                                            <a href="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/617x769/{{$resource->img_preview_H769_path}}" data-rel="magnific-popup-verticalfit">
+                                                                                <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/617x769/' . $resource->img_preview_H769_path)}}" alt=""/>
+                                                                            </a>
+                                                                        </li>
                                                                     @endif
                                                                 @endforeach
                                                             </ul>

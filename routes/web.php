@@ -21,7 +21,10 @@ Route::get('/product/{category_short_name}/{short_name}', 'IndexController@detai
 Route::get('/moya-primerochnaya', 'CartController@index');
 Route::post('/moya-primerochnaya', 'CartController@store');
 
+Route::get('/nashi-nevesty', 'NevestyController@index');
+
 Route::get('/contact', 'ContactController@index');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function () {
 
@@ -43,6 +46,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::post('{id}/addphoto', 'Admin\PhotoController@store');
     Route::put('{id}/deletephoto', 'Admin\PhotoController@destroy');
     Route::post('{id}/addarticlephoto', 'Admin\PhotoController@articleStore');
+    Route::post('/nevestyphoto', 'Admin\PhotoController@nevestyStore');
 
     Route::put('{id}/atribut', 'Admin\AtributController@update');
 
@@ -63,6 +67,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::post('/addfeedback', 'Admin\FeedbackController@store');
     Route::get('feedback/{id}/activ', 'Admin\FeedbackController@activ');
     Route::get('feedback/{id}/delete', 'Admin\FeedbackController@destroy');
+
+    Route::get('/nashi-nevesty', 'Admin\NevestyController@index');
 
 });
 

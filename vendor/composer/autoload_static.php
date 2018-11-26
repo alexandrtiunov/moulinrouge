@@ -348,6 +348,7 @@ class ComposerStaticInitbef0add6bbb1213ee2dc70bd79d2667e
     public static $classMap = array (
         'App\\Atribut' => __DIR__ . '/../..' . '/app/Atribut.php',
         'App\\Blog' => __DIR__ . '/../..' . '/app/Blog.php',
+        'App\\BlogResource' => __DIR__ . '/../..' . '/app/BlogResource.php',
         'App\\Category' => __DIR__ . '/../..' . '/app/Category.php',
         'App\\Collection' => __DIR__ . '/../..' . '/app/Collection.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
@@ -362,6 +363,7 @@ class ComposerStaticInitbef0add6bbb1213ee2dc70bd79d2667e
         'App\\Http\\Controllers\\Admin\\CollectionController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/CollectionController.php',
         'App\\Http\\Controllers\\Admin\\DiscountController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DiscountController.php',
         'App\\Http\\Controllers\\Admin\\FeedbackController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FeedbackController.php',
+        'App\\Http\\Controllers\\Admin\\NevestyController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/NevestyController.php',
         'App\\Http\\Controllers\\Admin\\PhotoController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PhotoController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -370,6 +372,7 @@ class ComposerStaticInitbef0add6bbb1213ee2dc70bd79d2667e
         'App\\Http\\Controllers\\Auth\\VerificationController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/VerificationController.php',
         'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\CartController' => __DIR__ . '/../..' . '/app/Http/Controllers/CartController.php',
+        'App\\Http\\Controllers\\ContactController' => __DIR__ . '/../..' . '/app/Http/Controllers/ContactController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/HomeController.php',
         'App\\Http\\Controllers\\IndexController' => __DIR__ . '/../..' . '/app/Http/Controllers/IndexController.php',

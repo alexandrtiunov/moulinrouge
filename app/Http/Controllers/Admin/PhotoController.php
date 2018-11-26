@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Blog;
 use App\BlogResource;
 use App\LogFile\LogFile;
+use App\OurResource;
 use App\Product;
 use App\Resource;
 use App\UploadResource;
@@ -116,6 +117,39 @@ class PhotoController extends Controller
             BlogResource::create($resources);// Запись в БД данных о созданном первью
 
             return back()->with('success', 'Фото товара добавлено');
+        }
+        return back()->with('error', 'error');
+    }
+
+    public function nevestyStore(Request $request){
+
+        $ourResources = $this->validate(request(), [
+            'image' => 'required',
+            'category_id' => 'required'
+        ]);
+
+        if ($request->hasFile('image')) {
+            $photos = $request->file('image');
+
+            $pathToNevestyImage = [];
+
+            foreach ($photos as $photo){
+                $ourResources['img_path'] = Product::getUniqueName($photo); // получение уникального имени файла
+                $photo->move(public_path() . '/img/nashi-nevesty/', $ourResources['img_path']);
+
+                $pathToNevestyImage[] = UploadResource::pathToNevestyImage($ourResources, $photo); //Создание и запись первью загружаемого фото
+
+                foreach ($pathToNevestyImage as $value){
+                    if($value){
+                        //получение данных для записи в БД
+                        $ourResources['img_preview_path'] = $value;
+                    }
+                }
+                if($ourResources){
+                    OurResource::create($ourResources);
+                }
+            }
+            return back()->with('success', 'Фото добавлено');
         }
         return back()->with('error', 'error');
     }

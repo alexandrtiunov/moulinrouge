@@ -81,7 +81,7 @@ $('document').ready(function () {
     $('.image').click(function () {
         var img = $(this);
         var src = img.attr('data-full'); // в data-full прописан путь к оригиналу
-        $(".modal.fade.in").append("<div class='popup'>"+ //Добавляем в тело документа разметку всплывающего окна
+        $(".row-admin").append("<div class='popup'>"+ //Добавляем в тело документа разметку всплывающего окна
             "<div class='popup_bg'></div>"+ // Блок, который будет служить фоном затемненным
             "<img src='"+src+"' class='popup_img' />"+ // Само увеличенное фото
             "</div>");

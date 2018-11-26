@@ -217,7 +217,7 @@
                 <div class="col-sm-6">
                     <div class="box-ft box-ft-1">
                         <img src="{{URL::to('img/nashi_nevesty.jpg')}}" alt="">
-                        <a href="#">
+                        <a href="{{action('NevestyController@index')}}">
                             <span class="bof-tf-title-wrap">
                                 <span class="bof-tf-title-wrap-2">
                                     {{--<span class="bof-tf-sub-title">New Comming</span>--}}

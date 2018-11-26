@@ -159,6 +159,9 @@
         <div class="nav-buttons">
             <a href="{{action('Admin\FeedbackController@index')}}" class="btn btn-info">Отзывы</a>
         </div>
+        <div class="nav-buttons">
+            <a href="{{action('Admin\NevestyController@index')}}" class="btn btn-info">Наши невесты</a>
+        </div>
 
         <div class="nav-buttons">
             <a href="/" class="btn btn-outline-info">Вернуться на сайт</a>

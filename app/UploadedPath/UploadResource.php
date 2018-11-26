@@ -102,4 +102,25 @@ class UploadResource
 
         return $pathToArticleImage;
     }
+
+    public static function pathToNevestyImage($resource, $photo){
+
+        $img = Image::make(public_path() . '/img/nashi-nevesty/' . $resource['img_path'])->resize(null, 405, function ($constraint){
+            $constraint->aspectRatio();
+            $constraint->upsize();
+        });
+        $width = $img->width();
+        if($width > 270){
+            $img->crop(270, 405);
+        }
+        $img->basename = $img->filename . 'H-405' . '.jpg';
+        $pathToPreview =  $img->basename;
+
+        if (!file_exists(public_path() . '/img/nashi-nevesty/')) {
+            mkdir(public_path('/img/nashi-nevesty/'), 777, true);
+        }
+        $img->save(public_path() . '/img/nashi-nevesty/' . $pathToPreview );
+
+        return $pathToPreview;
+    }
 }

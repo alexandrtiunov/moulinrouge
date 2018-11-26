@@ -139,7 +139,7 @@
     list-style-type: none;
 }
 
-.row-admin{
+.row-admin, .row-site{
     display: flex;
     -ms-flex-wrap: wrap;
     flex-wrap: wrap;
@@ -149,6 +149,12 @@
 .photo-position {
     float: left;
     width: 26%;
+    margin-left: 5%;
+    padding-top: 2%;
+}
+.our-nevesty {
+    float: left;
+    width: 17%;
     margin-left: 5%;
     padding-top: 2%;
 }

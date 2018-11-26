@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'App\\Atribut' => $baseDir . '/app/Atribut.php',
     'App\\Blog' => $baseDir . '/app/Blog.php',
+    'App\\BlogResource' => $baseDir . '/app/BlogResource.php',
     'App\\Category' => $baseDir . '/app/Category.php',
     'App\\Collection' => $baseDir . '/app/Collection.php',
     'App\\Console\\Kernel' => $baseDir . '/app/Console/Kernel.php',
@@ -22,6 +23,7 @@ return array(
     'App\\Http\\Controllers\\Admin\\CollectionController' => $baseDir . '/app/Http/Controllers/Admin/CollectionController.php',
     'App\\Http\\Controllers\\Admin\\DiscountController' => $baseDir . '/app/Http/Controllers/Admin/DiscountController.php',
     'App\\Http\\Controllers\\Admin\\FeedbackController' => $baseDir . '/app/Http/Controllers/Admin/FeedbackController.php',
+    'App\\Http\\Controllers\\Admin\\NevestyController' => $baseDir . '/app/Http/Controllers/Admin/NevestyController.php',
     'App\\Http\\Controllers\\Admin\\PhotoController' => $baseDir . '/app/Http/Controllers/Admin/PhotoController.php',
     'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => $baseDir . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
     'App\\Http\\Controllers\\Auth\\LoginController' => $baseDir . '/app/Http/Controllers/Auth/LoginController.php',
@@ -30,6 +32,7 @@ return array(
     'App\\Http\\Controllers\\Auth\\VerificationController' => $baseDir . '/app/Http/Controllers/Auth/VerificationController.php',
     'App\\Http\\Controllers\\BlogController' => $baseDir . '/app/Http/Controllers/BlogController.php',
     'App\\Http\\Controllers\\CartController' => $baseDir . '/app/Http/Controllers/CartController.php',
+    'App\\Http\\Controllers\\ContactController' => $baseDir . '/app/Http/Controllers/ContactController.php',
     'App\\Http\\Controllers\\Controller' => $baseDir . '/app/Http/Controllers/Controller.php',
     'App\\Http\\Controllers\\HomeController' => $baseDir . '/app/Http/Controllers/HomeController.php',
     'App\\Http\\Controllers\\IndexController' => $baseDir . '/app/Http/Controllers/IndexController.php',
