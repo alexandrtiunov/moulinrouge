@@ -15,6 +15,7 @@ Route::get('/', 'IndexController@index');
 Route::get('/blog', 'BlogController@index');
 Route::get('/blog/{article_short_name}', 'BlogController@detail');
 Route::get('/catalog/{category_short_name?}/{collection_short_name?}', 'IndexController@catalog');
+Route::get('/aksessuary', 'IndexController@aksessuary');
 Route::get('/product/{category_short_name}/{short_name}', 'IndexController@detail');
 
 Route::get('/moya-primerochnaya', 'CartController@index');

@@ -365,7 +365,6 @@
                                         {{csrf_field()}}
                                         {{ method_field('PUT')}}
                                         <input name="_method" value="PUT" type="hidden">
-                                        <div>
                                             <div class="form-group row">
                                                 <label for="example-password-input" class="col-xs-2 col-form-label">Статус</label>
                                                 <div class="col-xs-10">
@@ -374,7 +373,6 @@
                                                     </select>
                                                 </div>
                                             </div>
-                                        </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-primary">Вернуть из архива</button>
@@ -386,7 +384,7 @@
                     @endif
 
                     {{--Конец модального окна обновления продукта--}}
-
+                @if($product->atribut->type != "Архив")
                     {{--Модальное окно просмотра существующих и добавления новых фотографий товара по id--}}
 
                     <a href="{{action('Admin\PhotoController@addphoto', $product['id'])}}" class="settings" title="Edit" data-toggle="modal" data-target="#addPhoto{{$product['id']}}"><i class="material-icons">&#xe439;</i></a>
@@ -587,10 +585,10 @@
                             </div>
                         </div>
                     </div>
-                @endif
+                    @endif
 
                     {{--Коней модального окна добавления скидки--}}
-
+                @endif
                 </td>
             </tr>
         @endforeach

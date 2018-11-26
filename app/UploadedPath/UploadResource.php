@@ -14,6 +14,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 
 class UploadResource
 {
+
     /*
      * Get path to upload file
      *

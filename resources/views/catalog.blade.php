@@ -19,6 +19,7 @@
                             <ul class="products columns-4" data-columns="4">
                                 @foreach($products as $product)
                                     @if($product['atribut_id'] != 1 && $product['atribut_id'] != 5)
+                                        @if(strpos($product->category->name, "платья") != false)
                                         <li class="product {{$product->name}}">
                                             <div class="product-container">
                                                 <figure>
@@ -88,6 +89,7 @@
                                                 </figure>
                                             </div>
                                         </li>
+                                        @endif
                                     @endif
                                 @endforeach
                             </ul>

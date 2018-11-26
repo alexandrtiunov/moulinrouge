@@ -90,9 +90,28 @@
                     <ul class="dropdown-menu">
                         @foreach($categories as $category)
                             @if($category->activity == 1)
+                                @if(strpos($category['name'], "платья") != false)
                                 <li>
                                     <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
                                 </li>
+                                @endif
+                            @endif
+                        @endforeach
+                    </ul>
+                </li>
+                <li class="current-menu-item menu-item-has-children dropdown">
+                    <a href="{{action('IndexController@aksessuary')}}" class="dropdown-hover">
+                        <span class="underline">Аксессуары</span>
+                        <span class="caret"></span>
+                    </a>
+                    <ul class="dropdown-menu">
+                        @foreach($categories as $category)
+                            @if($category->activity == 1)
+                                @if(strpos($category['name'], "платья") == false)
+                                    <li>
+                                        <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
+                                    </li>
+                                @endif
                             @endif
                         @endforeach
                     </ul>
@@ -110,7 +129,8 @@
                 </li>
                 <li class="menu-item-has-children dropdown">
                     <a href="#" class="dropdown-hover">
-                        <span class="underline">О нас</span> <span class="caret"></span>
+                        <span class="underline">О нас</span>
+                        {{--<span class="caret"></span>--}}
                     </a>
                 </li>
             </ul>
@@ -187,9 +207,28 @@
                                                 <ul class="dropdown-menu">
                                                     @foreach($categories as $category)
                                                         @if($category->activity == 1)
+                                                            @if(strpos($category['name'], "платья") != false)
                                                         <li>
                                                             <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
                                                         </li>
+                                                             @endif
+                                                        @endif
+                                                    @endforeach
+                                                </ul>
+                                            </li>
+                                            <li class="current-menu-item menu-item-has-children dropdown">
+                                                <a href="{{action('IndexController@aksessuary')}}" class="dropdown-hover">
+                                                    <span class="underline">Аксессуары</span>
+                                                    <span class="caret"></span>
+                                                </a>
+                                                <ul class="dropdown-menu">
+                                                    @foreach($categories as $category)
+                                                        @if($category->activity == 1)
+                                                            @if(strpos($category['name'], "платья") == false)
+                                                                <li>
+                                                                    <a href="{{action('IndexController@catalog', $category["short_name"])}}">{{$category["name"]}}</a>
+                                                                </li>
+                                                            @endif
                                                         @endif
                                                     @endforeach
                                                 </ul>

@@ -92,6 +92,26 @@ class IndexController extends Controller
         }
     }
 
+    public function aksessuary(){
+        $resources = Resource::all();
+        $categories = Category::all();
+        $collections = Collection::all();
+        $productsCart = ProductInCart::addProduct();
+
+        $products = Product::orderBy('id', 'desc')->paginate(20);
+
+        $title = "Каталог товаров";
+
+        return view('aksessuary', [
+            'products' => $products,
+            'resources'=> $resources,
+            'title'=> $title,
+            'categories'=> $categories,
+            'collections'=> $collections,
+            'productsCart'=> $productsCart,
+        ]);
+    }
+
     public function detail($category_short_name, $short_name){
 
         $product = Product::where('short_name', $short_name)->first();
