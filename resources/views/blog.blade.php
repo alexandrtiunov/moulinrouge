@@ -34,7 +34,7 @@
                                                 </h2>
                                             </div>
                                             <div class="text entry-content">
-                                                {{htmlspecialchars_decode(mb_strimwidth($article['text'], 0, 100, "..."), ENT_HTML5)}}
+                                                {{htmlspecialchars_decode(mb_strimwidth($article['text'], 0, 80, "..."), ENT_HTML5)}}
                                             </div>
                                             <div class="entry-meta icon-meta">
 														<span class="meta-date">

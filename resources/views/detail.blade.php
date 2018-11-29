@@ -1,5 +1,58 @@
 @extends('layouts.main')
 
+@section('breadcrumb')
+
+    <div class="heading-container">
+        <div class="container heading-standar">
+            <div class="page-breadcrumb">
+                <ul class="breadcrumb">
+                    <li>
+                        <span>
+                            <a class="home" href="/">
+                                <span>Главная</span>
+                            </a>
+                        </span>
+                    </li>
+                    {{--@foreach($products as $product)--}}
+                        @if(isset($product->category->name))
+                            @if(strpos($product->category->name, "платья") != false)
+                                <li>
+                                    <span>
+                                        <a class="home" href="{{action('IndexController@catalog')}}">
+                                            <span>Платья</span>
+                                        </a>
+                                    </span>
+                                </li>
+                            @else
+                                <li>
+                                    <span>
+                                        <a class="home" href="{{action('IndexController@aksessuary')}}">
+                                            <span>Аксессуары</span>
+                                        </a>
+                                    </span>
+                                </li>
+                            @endif
+                        @else
+                            <li>
+                                <span>Каталог</span>
+                            </li>
+
+                        @endif
+                        <li>
+                            <span>{{$product->category->name}}</span>
+                            {{--@break--}}
+                            {{--@endforeach--}}
+                        </li>
+                        <li>
+                            <span>{{$product->name}}</span>
+                        </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+@stop
+
 @section('slider')
 
 @stop

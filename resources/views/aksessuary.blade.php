@@ -2,8 +2,31 @@
 
 @section('title')
     <title>{{$title}}</title>
+@stop
+
+@section('breadcrumb')
+
+    <div class="heading-container">
+        <div class="container heading-standar">
+            <div class="page-breadcrumb">
+                <ul class="breadcrumb">
+                    <li>
+                        <span>
+                            <a class="home" href="/">
+                                <span>Главная</span>
+                            </a>
+                        </span>
+                    </li>
+                    <li>
+                        <span>Аксессуары</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
 @stop
+
 @section('slider')
 
 @stop

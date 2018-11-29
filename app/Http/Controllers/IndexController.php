@@ -23,6 +23,7 @@ class IndexController extends Controller
         $fedbacks = Feedback::orderBy('id', 'desc')->get();
 
         $productsCart = ProductInCart::addProduct();
+        $date = self::date();
 
         return view('index', [
             'products' => $products,
@@ -31,6 +32,7 @@ class IndexController extends Controller
             'categories'=> $categories,
             'productsCart'=> $productsCart,
             'fedbacks'=> $fedbacks,
+            'date'=> $date,
         ]);
     }
 
@@ -40,7 +42,7 @@ class IndexController extends Controller
         $categories = Category::all();
         $collections = Collection::all();
         $productsCart = ProductInCart::addProduct();
-
+        $date = self::date();
 
         if ($categoryShortName) {
             $category = Category::where('short_name', $categoryShortName)->first();
@@ -64,6 +66,7 @@ class IndexController extends Controller
                         'collections'=> $collections,
                         'productsCart'=> $productsCart,
                         'title'=> $title,
+                        'date'=> $date,
                     ]);
                 }
 
@@ -75,6 +78,7 @@ class IndexController extends Controller
                 'collections'=> $collections,
                 'productsCart'=> $productsCart,
                 'title'=> $title,
+                'date'=> $date,
             ]);
         }else {
             $products = Product::orderBy('id', 'desc')->paginate(20);
@@ -88,6 +92,7 @@ class IndexController extends Controller
                 'categories'=> $categories,
                 'collections'=> $collections,
                 'productsCart'=> $productsCart,
+                'date'=> $date,
             ]);
         }
     }
@@ -97,6 +102,7 @@ class IndexController extends Controller
         $categories = Category::all();
         $collections = Collection::all();
         $productsCart = ProductInCart::addProduct();
+        $date = self::date();
 
         $products = Product::orderBy('id', 'desc')->paginate(20);
 
@@ -109,6 +115,7 @@ class IndexController extends Controller
             'categories'=> $categories,
             'collections'=> $collections,
             'productsCart'=> $productsCart,
+            'date'=> $date,
         ]);
     }
 
@@ -119,13 +126,14 @@ class IndexController extends Controller
         $categories = Category::all();
         $resources = Resource::all();
         $productsCart = ProductInCart::addProduct();
+        $date = self::date();
 
         return view('detail', compact('detail', 'short_name'), [
             'product' => $product,
             'categories'=> $categories,
             'resources'=> $resources,
             'productsCart'=> $productsCart,
+            'date'=> $date,
         ]);
     }
-
 }

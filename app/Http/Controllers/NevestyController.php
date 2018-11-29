@@ -15,12 +15,14 @@ class NevestyController extends Controller
         $ourResources = OurResource::all();
         $categories = Category::all();
         $productsCart = ProductInCart::addProduct();
+        $date = self::date();
 
         return view('nashi-nevesty', [
             "title" => $title,
             "ourResources" => $ourResources,
             "productsCart" => $productsCart,
             "categories" => $categories,
+            'date'=> $date,
         ]);
     }
 }

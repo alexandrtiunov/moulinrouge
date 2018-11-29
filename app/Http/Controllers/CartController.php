@@ -10,6 +10,7 @@ use App\Category;
 
 class CartController extends Controller
 {
+
     public function index(){
 
         $title = "Моя примерочная";
@@ -17,11 +18,7 @@ class CartController extends Controller
         $productsCart = ProductInCart::addProduct();
         $productName = ProductInCart::viewProduct($productsCart);
         $productName = trim($productName, ", ");
-
-        date_default_timezone_set('Europe/Kiev');
-        $date = date('d.m.Y');
-        $date = strtotime($date . "+1 days");
-        $date = date('Y-m-d', $date);
+        $date = self::date();
 
         $categories = Category::all();
         $resources = Resource::all();

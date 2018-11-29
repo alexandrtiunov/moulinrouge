@@ -16,12 +16,14 @@ class BlogController extends Controller
         $articles = Blog::all();
         $categories = Category::all();
         $productsCart = ProductInCart::addProduct();
+        $date = self::date();
 
         return view('blog', [
             'articles' => $articles,
             'title' => $title,
             'categories' => $categories,
             'productsCart' => $productsCart,
+            'date'=> $date,
         ]);
     }
 
@@ -35,6 +37,7 @@ class BlogController extends Controller
         $productsCart = ProductInCart::addProduct();
         $resources = BlogResource::all();
         $articles = Blog::orderBy('id', 'desc')->take(5)->get();
+        $date = self::date();
 
         return view('article', [
             'article' => $article,
@@ -43,6 +46,7 @@ class BlogController extends Controller
             'productsCart' => $productsCart,
             'resources' => $resources,
             'articles' => $articles,
+            'date'=> $date,
         ]);
 
     }

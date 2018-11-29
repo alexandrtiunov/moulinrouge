@@ -13,11 +13,13 @@ class ContactController extends Controller
         $title = "Контакты";
         $productsCart = ProductInCart::addProduct();
         $categories = Category::all();
+        $date = self::date();
 
         return view('contact', [
            "title" => $title,
            "productsCart" => $productsCart,
             'categories'=> $categories,
+            'date'=> $date,
         ]);
     }
 }

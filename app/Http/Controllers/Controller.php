@@ -10,4 +10,13 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
+
+    protected function date(){
+        date_default_timezone_set('Europe/Kiev');
+        $date = date('d.m.Y');
+        $date = strtotime($date . "+1 days");
+        $date = date('Y-m-d', $date);
+
+        return $date;
+    }
 }
