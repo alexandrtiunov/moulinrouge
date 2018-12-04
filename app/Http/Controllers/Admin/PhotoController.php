@@ -88,6 +88,28 @@ class PhotoController extends Controller
         return back()->with('success', 'Фото товара удалено');
     }
 
+    public function destroyOur(Request $request){
+
+//        dd($request->get('delete'));
+        $this->validate(request(), [
+            "delete" => "required"
+        ]);
+
+        $resourcesId = $request->get('delete');
+        foreach ($resourcesId as $value) {
+            $resources = OurResource::where('id', $value)->first();
+            $resources->delete();
+
+            $oldPicture = $resources->img_path;
+            $oldPreview = $resources->img_preview_path;
+            if ($oldPicture && $oldPreview){
+                unlink(public_path() . '/img/nashi-nevesty/' . $oldPicture); //удаляем старую картинку товара
+                unlink(public_path() . '/img/nashi-nevesty/' . $oldPreview);
+            }
+        }
+        return back()->with('success', 'Фото удалено');
+    }
+
     public function articleStore(Request $request, $id){
 
         $article = Blog::find($id);

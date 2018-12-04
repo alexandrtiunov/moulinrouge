@@ -21,20 +21,14 @@ class CreateProductsTable extends Migration
 
             $table-> string('name');
             $table-> string('short_name');
-            $table-> string('article');
+//            $table-> string('article');
             $table-> double('price');
-
-//            $table->integer('price_id')->unsigned();
-//            $table->foreign('price_id')->references('id')->on('prices');
 
             $table->integer('collection_id')->unsigned();
             $table->foreign('collection_id')->references('id')->on('collections');
 
             $table->integer('atribut_id')->unsigned();
             $table->foreign('atribut_id')->references('id')->on('atributs');
-
-//            $table->integer('resources_id')->unsigned();
-//            $table->foreign('resources_id')->references('id')->on('resources');
 
             $table->integer('discount_id')->unsigned()->nullable();
             $table->foreign('discount_id')->references('id')->on('discounts');

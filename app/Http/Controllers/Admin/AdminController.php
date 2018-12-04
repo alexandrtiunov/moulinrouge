@@ -6,6 +6,7 @@ use App\Atribut;
 use App\Category;
 use App\Collection;
 use App\Discount;
+use App\FittingRoom;
 use App\Product;
 use App\Resource;
 use Illuminate\Http\Request;
@@ -13,6 +14,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\UploadResource;
 use App\LogFile\LogFile;
+use App\Order;
 
 class AdminController extends Controller
 {
@@ -36,6 +38,10 @@ class AdminController extends Controller
         $collections = Collection::all();
         $atributs = Atribut::all();
         $resources = Resource::all();
+        $fittings = FittingRoom::where('status', 1)->get();
+        $countFR = count($fittings);
+        $orders = Order::where('status', 1)->get();
+        $countOrders = count($orders);
         $date = date('d.m.Y');
 
         return view('admin.index', [
@@ -46,6 +52,8 @@ class AdminController extends Controller
             'atributs' => $atributs,
             'resources' => $resources,
             'date' => $date,
+            'countFR' => $countFR,
+            'countOrders' => $countOrders,
         ]);
     }
 
@@ -71,7 +79,7 @@ class AdminController extends Controller
             'category_id' => 'required',
             'name' => 'required',
             'short_name' => 'required',
-            'article' => 'required',
+//            'article' => 'required',
             'price' => 'required',
             'collection_id' => 'required',
             'atribut_id' => 'required',
@@ -126,7 +134,7 @@ class AdminController extends Controller
             'category_id' => 'required',
             'name' => 'required',
             'short_name' => 'required',
-            'article' => 'required',
+//            'article' => 'required',
             'price' => 'required',
             'collection_id' => 'required',
             'atribut_id' => 'required',
@@ -135,7 +143,7 @@ class AdminController extends Controller
         $product->category_id = $request->get('category_id');
         $product->name = $request->get('name');
         $product->short_name = $request->get('short_name');
-        $product->article = $request->get('article');
+//        $product->article = $request->get('article');
         $product->price = $request->get('price');
         $product->collection_id = $request->get('collection_id');
         $product->atribut_id = $request->get('atribut_id');

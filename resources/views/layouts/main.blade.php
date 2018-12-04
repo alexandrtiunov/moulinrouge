@@ -192,11 +192,22 @@
                                         <div class="navbar-header-right">
                                             <div class="navbar-minicart navbar-minicart-topbar">
                                                 <div class="navbar-minicart">
-                                                    <a class="minicart-link" href="{{action('CartController@index')}}">
+                                                    <a class="minicart-link" href="{{action('FittingController@index')}}">
                                                         <span class="minicart-icon">
                                                             Моя примерочная
                                                             <i class="fas fa-person-booth" title="Моя примерочная" alt="Моя примерочная"></i>
-                                                            <span class="count">{{count($productsCart)}}</span>
+                                                            <span class="count-fitting">{{count($productsFitting)}}</span>
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="navbar-minicart navbar-minicart-topbar">
+                                                <div class="navbar-minicart">
+                                                    <a class="minicart-link" href="{{action('CartController@index')}}">
+                                                        <span class="minicart-icon">
+                                                            Корзина
+                                                            <i class="fas fa-shopping-cart" title="Корзина" alt="Моя Корзина"></i>
+                                                            <span class="count-cart">{{count($productsCart)}}</span>
                                                         </span>
                                                     </a>
                                                 </div>
@@ -311,31 +322,12 @@
                             <ul>
                                 <li data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="" data-delay="6000" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
                                     <img src="images/slideshow/dummy.png" alt="" width="1920" height="657" data-lazyload="images/slideshow/header-slide-img-1.jpg" />
-                                    <div class="tp-caption home1-small-black tp-resizeme" data-x="125" data-y="135" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
-                                        f/w new york 2015
-                                    </div>
-                                    <div class="tp-caption tp-resizeme" data-x="125" data-y="300" data-width="['none','none','none','none']" data-height="['none','none','none','none']" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-responsive_offset="on" data-elementdelay="0.05">
-                                        <img src="images/slideshow/dummy.png" alt="" width="23" height="3" data-ww="23px" data-hh="3px" data-lazyload="images/slideshow/rev_home1_img3.png" />
-                                    </div>
-                                    <div class="tp-caption home1-small-black tp-resizeme" data-x="125" data-y="360" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
-                                        [ discover the collection ]
-                                    </div>
-                                    <div class="tp-caption home3-big-black tp-resizeme" data-x="125" data-y="188" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="y:[-100%];z:0;rZ:35deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="rZ:0deg;sX:0.7;sY:0.7;opacity:0;s:500;e:Back.easeIn;s:500;e:Back.easeIn;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:0;y:0;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05">
-                                        New Fashion Week
-                                    </div>
                                 </li>
                                 <li data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="" data-delay="6000" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
                                     <img src="images/slideshow/dummy.png" alt="" width="1920" height="657" data-lazyload="images/slideshow/header-slide-img-2.jpg" />
-                                    <div class="tp-caption home2-medium-white tp-resizeme" data-x="" data-y="200" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" data-end="8300">
-                                        autumn comming
-                                    </div>
-                                    <div class="tp-caption home2-big-white tp-resizeme" data-x="-1" data-y="250" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="x:[105%];z:0;rX:45deg;rY:0deg;rZ:90deg;sX:1;sY:1;skX:0;skY:0;s:2000;e:Power4.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="chars" data-splitout="none" data-responsive_offset="on" data-elementdelay="0.05" data-end="8300">
-                                        sale up to 85%
-                                    </div>
-                                    <div class="tp-caption white-button rev-btn" data-x="" data-y="350" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_hover="o:1;rX:0;rY:0;rZ:0;z:0;s:0;e:Linear.easeNone;" data-style_hover="c:rgba(0, 0, 0, 1.00);bg:rgba(255, 255, 255, 1.00);cursor:pointer;" data-transform_in="x:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;s:1500;e:Power3.easeInOut;" data-transform_out="x:[100%];s:1000;e:Power3.easeInOut;s:1000;e:Power3.easeInOut;" data-mask_in="x:0px;y:0px;s:inherit;e:inherit;" data-mask_out="x:inherit;y:inherit;s:inherit;e:inherit;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on" data-responsive="off" data-end="8300">
-                                        discover the collection now
-                                    </div>
-                                    <div class="tp-caption Fashion-BigDisplay tp-resizeme" data-x="100" data-y="100" data-width="['auto']" data-height="['auto']" data-transform_idle="o:1;" data-transform_in="opacity:0;s:300;e:Power2.easeInOut;" data-transform_out="opacity:0;s:300;e:Power3.easeInOut;s:300;e:Power3.easeInOut;" data-start="500" data-splitin="none" data-splitout="none" data-responsive_offset="on"></div>
+                                </li>
+                                <li data-transition="fade" data-slotamount="default" data-easein="default" data-easeout="default" data-masterspeed="default" data-thumb="" data-delay="6000" data-rotate="0" data-saveperformance="off" data-title="Slide" data-description="">
+                                    <img src="images/slideshow/dummy.png" alt="" width="1920" height="657" data-lazyload="images/slideshow/64Bvd_croper_ru.jpg" />
                                 </li>
                             </ul>
                             <div class="tp-bannertimer tp-bottom"></div>
@@ -482,23 +474,16 @@
             </div>
         </div>
         <div class="footer-copyright text-center">
-            © 2018 MoulinRouge | Свадебный салон
+            © {{date('Y')}} MoulinRouge | Свадебный салон
         </div>
     </footer>
 </div>
-
-{{--Кнопка записи на примерку--}}
-{{--<a class="button_fitting js_button_fitting" href="#">--}}
-    {{--<span></span>--}}
-    {{--<div class="text_button">Запись на примерку</div>--}}
-{{--</a>--}}
-{{--Конец--}}
 
 {{--Форма записи на примерку--}}
 <div class="cart-collaterals">
     <div class="cart_totals">
         <div class="wc-proceed-to-checkout">
-            <a href="#" class="button_fitting js_button_fitting" data-toggle="modal" data-target="#fitting">
+            <a href="/fitting" class="button_fitting js_button_fitting" data-toggle="modal" data-target="#fitting">
             <span></span>
             <div class="text_button">Запись на примерку</div>
             </a>
@@ -513,7 +498,7 @@
                             <h4 class="modal-title" id="myModalLabel">Записаться на примерку</h4>
 
                         </div>
-                        <form action="{{action('CartController@store')}}" method="post">
+                        <form action="{{action('FittingController@store')}}" method="post">
                             {{csrf_field()}}
                             <div class="modal-body">
                                 <div class="form-group">
@@ -546,7 +531,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="dress-name" class="col-form-label">Название платья или ссылка на платье:</label>
-                                    <input type="text" class="dress-name form-control" name="dress-name" required>
+                                    <input type="text" class="dress-name form-control" name="dress_name" required>
                                 </div>
                             </div>
                             <div class="modal-footer">

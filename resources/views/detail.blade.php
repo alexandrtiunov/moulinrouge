@@ -78,8 +78,8 @@
                                                                 @foreach($resources as $resource)
                                                                     @if($resource['product_id'] == $product['id'])
                                                                         <li class="caroufredsel-item">
-                                                                            <a href="../../img/product/preview/{{$product['name']}}_{{$product['article']}}/617x769/{{$resource->img_preview_H769_path}}" data-rel="magnific-popup-verticalfit">
-                                                                                <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/617x769/' . $resource->img_preview_H769_path)}}" alt=""/>
+                                                                            <a href="../../img/product/preview/{{$product['name']}}/617x769/{{$resource->img_preview_H769_path}}" data-rel="magnific-popup-verticalfit">
+                                                                                <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '/617x769/' . $resource->img_preview_H769_path)}}" alt=""/>
                                                                             </a>
                                                                         </li>
                                                                     @endif
@@ -98,8 +98,8 @@
                                                                     @if($resource['product_id'] == $product['id'])
                                                                 <li class="caroufredsel-item selected">
                                                                     <div class="thumb">
-                                                                        <a href="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/167x250/' . $resource->img_preview_H250_path)}}" data-rel="0">
-                                                                            <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/167x250/' . $resource->img_preview_H250_path)}}" alt=""/>
+                                                                        <a href="{{URL::to('/img/product/preview/' . $product['name'] . '/167x250/' . $resource->img_preview_H250_path)}}" data-rel="0">
+                                                                            <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '/167x250/' . $resource->img_preview_H250_path)}}" alt=""/>
                                                                         </a>
                                                                     </div>
                                                                 </li>

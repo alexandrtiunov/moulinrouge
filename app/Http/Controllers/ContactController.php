@@ -11,13 +11,15 @@ class ContactController extends Controller
     public function index(){
 
         $title = "Контакты";
-        $productsCart = ProductInCart::addProduct();
+        $productsFitting = ProductInCart::addFittingProduct();
+        $productsCart = ProductInCart::addCartProduct();
         $categories = Category::all();
         $date = self::date();
 
         return view('contact', [
            "title" => $title,
-           "productsCart" => $productsCart,
+           "productsFitting" => $productsFitting,
+            'productsCart'=> $productsCart,
             'categories'=> $categories,
             'date'=> $date,
         ]);

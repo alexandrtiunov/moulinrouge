@@ -15,13 +15,15 @@ class BlogController extends Controller
         $title = "Блог | Moulin Rouge";
         $articles = Blog::all();
         $categories = Category::all();
-        $productsCart = ProductInCart::addProduct();
+        $productsFitting = ProductInCart::addFittingProduct();
+        $productsCart = ProductInCart::addCartProduct();
         $date = self::date();
 
         return view('blog', [
             'articles' => $articles,
             'title' => $title,
             'categories' => $categories,
+            'productsFitting' => $productsFitting,
             'productsCart' => $productsCart,
             'date'=> $date,
         ]);
@@ -34,7 +36,7 @@ class BlogController extends Controller
         }
         $title = $article->title;
         $categories = Category::all();
-        $productsCart = ProductInCart::addProduct();
+        $productsFitting = ProductInCart::addFittingProduct();
         $resources = BlogResource::all();
         $articles = Blog::orderBy('id', 'desc')->take(5)->get();
         $date = self::date();
@@ -43,7 +45,7 @@ class BlogController extends Controller
             'article' => $article,
             'title' => $title,
             'categories' => $categories,
-            'productsCart' => $productsCart,
+            'productsFitting' => $productsFitting,
             'resources' => $resources,
             'articles' => $articles,
             'date'=> $date,

@@ -93,12 +93,12 @@
                                         <input id="short_name" class="form-control" type="text" name="short_name" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label for="article" class="col-xs-2 col-form-label">Артикул</label>
-                                    <div class="col-xs-10">
-                                        <input class="article form-control" type="text" name="article" required>
-                                    </div>
-                                </div>
+                                {{--<div class="form-group row">--}}
+                                    {{--<label for="article" class="col-xs-2 col-form-label">Артикул</label>--}}
+                                    {{--<div class="col-xs-10">--}}
+                                        {{--<input class="article form-control" type="text" name="article" required>--}}
+                                    {{--</div>--}}
+                                {{--</div>--}}
                                 <div class="form-group row">
                                     <label for="price" class="col-xs-2 col-form-label">Цена, грн.</label>
                                     <div class="col-xs-10">
@@ -160,6 +160,32 @@
             <a href="{{action('Admin\FeedbackController@index')}}" class="btn btn-info">Отзывы</a>
         </div>
         <div class="nav-buttons">
+            @if($countOrders != 0)
+                <a href="{{action('Admin\CartController@index')}}" class="atumil_zornegam btn btn-info">
+                    Заказы
+                    <span class="count-fitting">{{$countOrders}}</span>
+                </a>
+            @else
+                <a href="{{action('Admin\CartController@index')}}" class="btn btn-info">
+                    Заказы
+                    <span class="count-fitting">{{$countOrders}}</span>
+                </a>
+            @endif
+        </div>
+        <div class="nav-buttons">
+            @if($countFR != 0)
+                <a href="{{action('Admin\FittingController@index')}}" class="atumil_zornegam  btn btn-info">
+                    Примерочная
+                    <span class="count-fitting">{{$countFR}}</span>
+                </a>
+            @else
+                <a href="{{action('Admin\FittingController@index')}}" class="btn btn-info">
+                    Примерочная
+                    <span class="count-fitting">{{$countFR}}</span>
+                </a>
+            @endif
+        </div>
+        <div class="nav-buttons">
             <a href="{{action('Admin\NevestyController@index')}}" class="btn btn-info">Наши невесты</a>
         </div>
 
@@ -168,7 +194,7 @@
         </div>
     </div>
 </div>
-<div id="main-content">
+<div id="main-content" style="margin-top: 4%;">
 
     <div class="product-table">
         <div class="info">
@@ -309,12 +335,12 @@
                                                 <input id="short_nameEdit" class="short_nameEdit form-control" type="text" name="short_name" value="{{$product->short_name}}" required>
                                             </div>
                                         </div>
-                                        <div class="form-group row">
-                                            <label for="article" class="col-xs-2 col-form-label">Артикул</label>
-                                            <div class="col-xs-10">
-                                                <input class="form-control" type="text" name="article" value="{{$product->article}}" required>
-                                            </div>
-                                        </div>
+                                        {{--<div class="form-group row">--}}
+                                            {{--<label for="article" class="col-xs-2 col-form-label">Артикул</label>--}}
+                                            {{--<div class="col-xs-10">--}}
+                                                {{--<input class="form-control" type="text" name="article" value="{{$product->article}}" required>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
                                         <div class="form-group row">
                                             <label for="price" class="col-xs-2 col-form-label">Цена, грн.</label>
                                             <div class="col-xs-10">
@@ -415,7 +441,7 @@
                                                         <div class="card">
                                                             <div class="item">
                                                             <img class="image"
-                                                                 src="../img/product/preview/{{$product['name']}}_{{$product['article']}}/167x250/{{$resource->img_preview_H250_path}}"
+                                                                 src="../img/product/preview/{{$product['name']}}/167x250/{{$resource->img_preview_H250_path}}"
                                                                  data-full="../img/product-foto-main/{{$resource->img_path}}">
                                                         </div>
                                                         </div>
@@ -481,12 +507,12 @@
                                                 </div>
                                             </div>
 
-                                            <div class="form-group row">
-                                                <label for="article" class="col-xs-2 col-form-label">Артикул</label>
-                                                <div class="col-xs-10">
-                                                    <input class="form-control" value="{{$product->article}}" disabled>
-                                                </div>
-                                            </div>
+                                            {{--<div class="form-group row">--}}
+                                                {{--<label for="article" class="col-xs-2 col-form-label">Артикул</label>--}}
+                                                {{--<div class="col-xs-10">--}}
+                                                    {{--<input class="form-control" value="{{$product->article}}" disabled>--}}
+                                                {{--</div>--}}
+                                            {{--</div>--}}
                                             <div class="form-group row">
                                                 <label for="price" class="col-xs-2 col-form-label">Цена, грн.</label>
                                                 <div class="col-xs-10">
@@ -553,12 +579,12 @@
                                             </div>
                                         </div>
 
-                                        <div class="form-group row">
-                                            <label for="article" class="col-xs-2 col-form-label">Артикул</label>
-                                            <div class="col-xs-10">
-                                                <input class="form-control" value="{{$product->article}}" disabled>
-                                            </div>
-                                        </div>
+                                        {{--<div class="form-group row">--}}
+                                            {{--<label for="article" class="col-xs-2 col-form-label">Артикул</label>--}}
+                                            {{--<div class="col-xs-10">--}}
+                                                {{--<input class="form-control" value="{{$product->article}}" disabled>--}}
+                                            {{--</div>--}}
+                                        {{--</div>--}}
                                         <div class="form-group row">
                                             <label for="price" class="col-xs-2 col-form-label">Цена, грн.</label>
                                             <div class="col-xs-10">

@@ -18,14 +18,30 @@ class ProductInCart
      *
      *
      */
-    public static function addProduct(){
+    public static function addFittingProduct(){
+
+        $products = Product::all();
+
+        $productsFitting = [];
+        foreach ($products as $value){
+
+            if(isset($_COOKIE['fitting' . $value->name])){
+
+                $product = Product::where('name', $value->name)->first();
+                array_push($productsFitting, $product);
+            }
+        }
+        return $productsFitting;
+    }
+
+    public static function addCartProduct(){
 
         $products = Product::all();
 
         $productsCart = [];
         foreach ($products as $value){
 
-            if(isset($_COOKIE['product' . $value->name])){
+            if(isset($_COOKIE['cart' . $value->name])){
 
                 $product = Product::where('name', $value->name)->first();
                 array_push($productsCart, $product);

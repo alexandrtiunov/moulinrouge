@@ -18,8 +18,11 @@ Route::get('/catalog/{category_short_name?}/{collection_short_name?}', 'IndexCon
 Route::get('/aksessuary', 'IndexController@aksessuary');
 Route::get('/product/{category_short_name}/{short_name}', 'IndexController@detail');
 
-Route::get('/moya-primerochnaya', 'CartController@index');
-Route::post('/moya-primerochnaya', 'CartController@store');
+Route::get('/cart', 'CartController@index');
+Route::post('/cart', 'CartController@store');
+
+Route::get('/moya-primerochnaya', 'FittingController@index');
+Route::post('/moya-primerochnaya', 'FittingController@store');
 
 Route::get('/nashi-nevesty', 'NevestyController@index');
 
@@ -45,6 +48,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::get('{id}/addphoto', 'Admin\PhotoController@addphoto');
     Route::post('{id}/addphoto', 'Admin\PhotoController@store');
     Route::put('{id}/deletephoto', 'Admin\PhotoController@destroy');
+    Route::post('nashi-nevesty/deletephoto', 'Admin\PhotoController@destroyOur');
     Route::post('{id}/addarticlephoto', 'Admin\PhotoController@articleStore');
     Route::post('/nevestyphoto', 'Admin\PhotoController@nevestyStore');
 
@@ -69,6 +73,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['web', 'auth']], function ()
     Route::get('feedback/{id}/delete', 'Admin\FeedbackController@destroy');
 
     Route::get('/nashi-nevesty', 'Admin\NevestyController@index');
+
+    Route::get('/fittingroom', 'Admin\FittingController@index');
+    Route::get('/fittingroom/{id}/delete', 'Admin\FittingController@update');
+
+    Route::get('/cart', 'Admin\CartController@index');
+    Route::get('/cart/{id}/delete', 'Admin\CartController@update');
 
 });
 

@@ -99,20 +99,28 @@
         </div>
 
         <div class="row-admin">
-            @foreach($ourResources as $ourResource)
-            <div class="our-nevesty photo-position">
-                <div class="card">
-                    <div class="item">
-                        <img class="image"
-                             src="{{URL::to('img/nashi-nevesty/' . $ourResource['img_preview_path'])}}"
-                             data-full="{{URL::to('img/nashi-nevesty/' . $ourResource['img_path'])}}">
+            <form action="{{action('Admin\PhotoController@destroyOur')}}" method="post" style="width: 100%;">
+                {{csrf_field()}}
+                <div class="btn-delete" style="margin: 0 50%;">
+                    <input class="btn btn-outline-danger" type="submit" value="Удалить выбранные">
+                </div>
+                {{--{{ method_field('PUT')}}--}}
+                <span class="choose">Выбрать</span>
+                @foreach($ourResources as $ourResource)
+                <div class="our-nevesty photo-position">
+                    <div class="card">
+                        <div class="item">
+                            <img class="image"
+                                 src="{{URL::to('img/nashi-nevesty/' . $ourResource['img_preview_path'])}}"
+                                 data-full="{{URL::to('img/nashi-nevesty/' . $ourResource['img_path'])}}">
+                        </div>
+                    </div>
+                    <div class="checkPhoto">
+                        <input class="choosePhoto" type="checkbox" name="delete[]" value="{{$ourResource->id}}">
                     </div>
                 </div>
-                {{--<div class="checkPhoto">--}}
-                    {{--<input class="choosePhoto" type="checkbox" name="delete[]" value="">--}}
-                {{--</div>--}}
-            </div>
-            @endforeach
+                @endforeach
+            </form>
         </div>
     </div>
 

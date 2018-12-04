@@ -36,7 +36,7 @@ class UploadResource
         }
         $img->basename = $img->filename . '_W-167_' . 'H-250' . '.jpg';
         $pathToPreview ['img_preview_H250_path'] =  $img->basename;
-        $productPathPreview = str_replace(' ', '_', $product['name'] . '_' . $product['article'] . '/' . '167x250');
+        $productPathPreview = str_replace(' ', '_', $product['name'] . '/' . '167x250');
         if (!file_exists(public_path('/img/product/preview/' . $productPathPreview))) {
             mkdir(public_path('/img/product/preview/' . $productPathPreview), 777, true);
         }
@@ -54,7 +54,7 @@ class UploadResource
         }
         $img->basename = $img->filename . '_W-322_' . ' H-405' . '.jpg';
         $pathToPreview ['img_preview_H405_path'] =  $img->basename;
-        $productPathPreview = str_replace(' ', '_', $product['name'] . '_' . $product['article'] . '/' . '322x405');
+        $productPathPreview = str_replace(' ', '_', $product['name'] . '/' . '322x405');
         if (!file_exists(public_path('/img/product/preview/' . $productPathPreview))) {
             mkdir(public_path('/img/product/preview/' . $productPathPreview), 777, true);
         }
@@ -72,7 +72,7 @@ class UploadResource
         }
         $img->basename = $img->filename . '_W-617_' . ' H-769' . '.jpg';
         $pathToPreview ['img_preview_H769_path'] =  $img->basename;
-        $productPathPreview = str_replace(' ', '_', $product['name'] . '_' . $product['article'] . '/' . '617x769');
+        $productPathPreview = str_replace(' ', '_', $product['name'] . '/' . '617x769');
         if (!file_exists(public_path('/img/product/preview/' . $productPathPreview))) {
             mkdir(public_path('/img/product/preview/' . $productPathPreview), 777, true);
         }

@@ -77,7 +77,7 @@
                                                             <div class="shop-loop-thumbnail shop-loop-front-thumbnail">
                                                                 @foreach($resources as $resource)
                                                                     @if($resource['product_id'] == $product['id'])
-                                                                        <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '_' . $product['article'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
+                                                                        <img  src="{{URL::to('/img/product/preview/' . $product['name'] . '/322x405/' . $resource->img_preview_H405_path)}}" alt=""/>
                                                                         @break
                                                                     @endif
                                                                 @endforeach
@@ -89,8 +89,13 @@
                                                                     </a>
                                                                 </div>
                                                                 <div class="loop-add-to-cart">
-                                                                    <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                    <a href="{{action('FittingController@index')}}" class="add_to_fitting_button" data-toggle="{{$product->name}}">
                                                                         В примерочную
+                                                                    </a>
+                                                                </div>
+                                                                <div class="loop-add-to-cart">
+                                                                    <a href="{{action('CartController@index')}}" class="add_to_cart_button" data-toggle="{{$product->name}}">
+                                                                        В корзину
                                                                     </a>
                                                                 </div>
                                                             </div>
